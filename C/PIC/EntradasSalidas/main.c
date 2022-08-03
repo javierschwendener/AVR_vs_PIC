@@ -1,3 +1,9 @@
+/*
+//////////////////////
+ ENTRADAS Y SALIDAS C
+//////////////////////
+*/
+
 /*CONFIG*/
 #pragma config FOSC     =   XT
 #pragma config WDTE     =   OFF

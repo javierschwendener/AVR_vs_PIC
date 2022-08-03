@@ -1,6 +1,6 @@
-;////////////////////////
-; ENTRADAS Y SALIDAS ASM
-;////////////////////////
+;/////////////////
+; PILA SIMPLE ASM
+;/////////////////
 
 PROCESSOR 16F887
     
@@ -50,8 +50,6 @@ PROCESSOR 16F887
 	CLRF	TRISB
 	CLRF	TRISC
 	CLRF	TRISD
-	MOVLW	0b00011111  ;A0 y A1 como entradas
-	MOVWF	TRISA
 	BANKSEL	PORTA
 	CLRF	PORTA
 	CLRF	PORTB
@@ -62,53 +60,17 @@ PROCESSOR 16F887
 
 ; Main code
     loop:
-	;Si se prende A0, aumentar el contador 1
-	BTFSC	PORTA,	0
-	INCF	PORTD
-	;Antirebote
-	BTFSC	PORTA,	0
-	GOTO	$-1
-	;Si se prende A1, decrementar el contador 1
-	BTFSC	PORTA,	1
-	DECF	PORTD
-	;Antirebote
-	BTFSC	PORTA,	1
-	GOTO	$-1
-	;Si se prende el bit 7 del puerto D, se coloca el valor 0b00001111
-	MOVLW	0b00001111
-	BTFSC	PORTD,	7
-	MOVWF	PORTD
-	;Si se prende el bit 4 del puerto D, reiniciar el contador 1
-	;Esto con el fin de que el contador sea de 4 bits
-	BTFSC	PORTD,	4
+	; Inicio de la medicion
+	BSF	PORTD,	0
+	CALL	func1
 	CLRF	PORTD
-	;Si se prende A2, aumentar el contador 2
-	BTFSC	PORTA,	2
-	INCF	PORTC
-	;Antirebote
-	BTFSC	PORTA,	2
-	GOTO	$-1
-	;Si se prende A3, decrementar el contador 2
-	BTFSC	PORTA,	3
-	DECF	PORTC
-	;Antirebote
-	BTFSC	PORTA,	3
-	GOTO	$-1
-	;Si se prende el bit 7 del puerto C, se coloca el valor 0b00001111
-	MOVLW	0b00001111
-	BTFSC	PORTC,	7
-	MOVWF	PORTC
-	;Si se prende el bit 4 del puerto C, reiniciar el contador 2
-	BTFSC	PORTC,	4
-	CLRF	PORTC
-	;Se suman ambos contadores y se muestra el resultado en el puerto B
-	MOVF	PORTD,	0   ;Se mueve PORTD a W
-	BTFSC	PORTA,	4
-	ADDWF	PORTC,	0   ;Se suma W + PORTC
-	BTFSC	PORTA,	4
-	MOVWF	PORTB	    ;Pasa W al PORTB
-	;Antirrebote
-	BTFSC	PORTA,	4
-	GOTO	$-1
-	GOTO	loop
+	GOTO	loop   
+    
+; Se define una funcion
+    func1:
+	;Se enciende una bandera fisica en el PIC (PIN 0 de PORTD)
+	BSF	PORTD,	1
+	return
+	
+; Fin del programa
     END
