@@ -60,6 +60,51 @@ PROCESSOR 16F887
 
 ; Main code
     loop:
-	
+	; Inicio de la medicion
+	BSF	PORTD,	0
+	CALL	func1
+	CLRF	PORTD
 	GOTO	loop
+
+    func1:
+	NOP
+	CALL	func2
+	return
+	
+    func2:
+	NOP
+	CALL	func3
+	return
+	
+    func3:
+	NOP
+	CALL	func4
+	return
+	
+    func4:
+	NOP
+	CALL	func5
+	return
+	
+    func5:
+	NOP
+	CALL	func6
+	return
+	
+    func6:
+	NOP
+	CALL	func7
+	return
+	
+    func7:
+	NOP
+	CALL	func8
+	return
+	
+    func8:
+	NOP
+	BSF	PORTD,	1
+	return
+; Se definen las funciones
     END
+    
