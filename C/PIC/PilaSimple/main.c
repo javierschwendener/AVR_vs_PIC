@@ -22,6 +22,9 @@
 
 #include <xc.h>
 
+/*PROTOTIPOS*/
+void func1(void);
+
 /*VARIABLES*/
 
 void setup(void){
@@ -44,62 +47,15 @@ void setup(void){
 void main(void) {
     setup();
     while(1){
-        // Contador 1
-        if(PORTAbits.RA0 == 1){
-            PORTD = PORTD + 1;
-        }
-        // Overflow
-        if(PORTD == 0b00010000){
-            PORTD = 0;
-        }
-        // Antirebote
-        while(PORTAbits.RA0 == 1){
-            NOP();
-        }
-        if(PORTAbits.RA1 == 1){
-            PORTD = PORTD - 1;
-        }
-        // Underflow
-        if(PORTD == 0b11111111){
-            PORTD = 0b00001111;
-        }
-        // Antirebote
-        while(PORTAbits.RA1 == 1){
-            NOP();
-        }
-        
-        // Contador 2
-        if(PORTAbits.RA2 == 1){
-            PORTC = PORTC + 1;
-        }
-        // Overflow
-        if(PORTC == 0b00010000){
-            PORTC = 0;
-        }
-        // Antirebote
-        while(PORTAbits.RA2 == 1){
-            NOP();
-        }
-        if(PORTAbits.RA3 == 1){
-            PORTC = PORTC - 1;
-        }
-        // Underflow
-        if(PORTC == 0b11111111){
-            PORTC = 0b00001111;
-        }
-        // Antirebote
-        while(PORTAbits.RA3 == 1){
-            NOP();
-        }
-        
-        // Sumatoria de contadores
-        if(PORTAbits.RA4 == 1){
-            PORTB = PORTC + PORTD;
-        }
-        // Antirebote
-        while(PORTAbits.RA4 == 1){
-            NOP();
-        }
+        // Inicio de la medicion
+        PORTDbits.RD0 = 1;
+        func1();
+        PORTD = 0;
     }
+    return;
+}
+
+void func1(void) {
+    PORTDbits.RD1 = 1;
     return;
 }
