@@ -2543,17 +2543,8 @@ ENDM
 
     func6:
  NOP
- CALL func7
- return
-
-    func7:
- NOP
- CALL func8
- return
-
-    func8:
- NOP
  BSF PORTD, 1
  return
+
 ; Se definen las funciones
     END

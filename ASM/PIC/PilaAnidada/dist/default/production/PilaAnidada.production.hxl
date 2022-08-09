@@ -9,11 +9,11 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 1h		(dist/default/production\PilaAnidada.production.hex)
-  14h - 6Dh		(dist/default/production\PilaAnidada.production.hex)
+  14h - 61h		(dist/default/production\PilaAnidada.production.hex)
   400Eh - 4011h		(dist/default/production\PilaAnidada.production.hex)
  Unused ranges:
   2h - 13h
-  6Eh - 400Dh
+  62h - 400Dh
 
 ### Hex Memory Map ###
  Legend:
@@ -28,7 +28,7 @@
 00000030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000040 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000050 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000060 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
+00000060 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00004000 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
 00004010 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --

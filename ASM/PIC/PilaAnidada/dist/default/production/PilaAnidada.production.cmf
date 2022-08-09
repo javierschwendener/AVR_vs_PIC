@@ -12,7 +12,7 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $build/default/production/main.o
-code CODE 0 0 0 37 2 1
+code CODE 0 0 0 31 2 1
 config CONFIG 4 2007 2007 2 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -28,17 +28,17 @@ BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 37-1FFF 2
-ENTRY 37-1FFF 2
+CONST 31-1FFF 2
+ENTRY 31-1FFF 2
 IDLOC 2000-2003 2
-CODE 37-1FFF 2
+CODE 31-1FFF 2
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
 COMMON 70-7F 1
 EEDATA 2100-21FF 2
-STRCODE 37-1FFF 2
-STRING 37-1FFF 2
+STRCODE 31-1FFF 2
+STRING 31-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -92,12 +92,6 @@ E code CODE >48:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\AS
 2E code CODE >95:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaAnidada\main.s
 2F code CODE >96:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaAnidada\main.s
 30 code CODE >97:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaAnidada\main.s
-31 code CODE >100:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaAnidada\main.s
-32 code CODE >101:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaAnidada\main.s
-33 code CODE >102:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaAnidada\main.s
-34 code CODE >105:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaAnidada\main.s
-35 code CODE >106:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaAnidada\main.s
-36 code CODE >107:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaAnidada\main.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -110,7 +104,7 @@ E code CODE >48:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\AS
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 37 0 ABS 0 - -
+__Hspace_0 31 0 ABS 0 - -
 __Hspace_1 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
