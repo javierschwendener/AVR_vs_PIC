@@ -1,0 +1,36 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\Debug\PilaAnidada.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>PilaAnidada.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>PilaAnidada.map</FILE>
+  <FILE>PilaAnidada.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <setup><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\main.asm</FILE><LINE>10</LINE></setup>
+  <loop><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\main.asm</FILE><LINE>21</LINE></loop>
+  <func1><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\main.asm</FILE><LINE>29</LINE></func1>
+  <func2><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\main.asm</FILE><LINE>34</LINE></func2>
+  <func3><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\main.asm</FILE><LINE>39</LINE></func3>
+  <func4><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\main.asm</FILE><LINE>44</LINE></func4>
+  <func5><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\main.asm</FILE><LINE>49</LINE></func5>
+  <func6><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\main.asm</FILE><LINE>54</LINE></func6>
+  <func7><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\main.asm</FILE><LINE>59</LINE></func7>
+  <func8><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaAnidada\main.asm</FILE><LINE>64</LINE></func8>
+ </LABELS>
+</ASSEMBLER_INFO>
