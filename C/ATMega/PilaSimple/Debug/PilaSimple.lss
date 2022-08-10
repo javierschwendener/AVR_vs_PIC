@@ -1,0 +1,170 @@
+
+PilaSimple.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000130  2**0
+                  ALLOC, LOAD, DATA
+  1 .text         00000080  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      0000002f  00000000  00000000  00000130  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  0000015f  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000030  00000000  00000000  0000016d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000008a2  00000000  00000000  0000019d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000612  00000000  00000000  00000a3f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000020c  00000000  00000000  00001051  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000044  00000000  00000000  00001260  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000208  00000000  00000000  000012a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000020  00000000  00000000  000014ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .text         00000004  000000ae  000000ae  00000122  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000014cc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .text.setup   00000010  00000096  00000096  0000010a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .text.main    00000008  000000a6  000000a6  0000011a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.__dummy_fini 00000002  000000b6  000000b6  0000012a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.__dummy_funcs_on_exit 00000002  000000b8  000000b8  0000012c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.__dummy_simulator_exit 00000002  000000ba  000000ba  0000012e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.exit    00000016  00000080  00000080  000000f4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text._Exit   00000004  000000b2  000000b2  00000126  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+   8:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+   c:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  10:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  14:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  18:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  1c:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  20:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  24:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  28:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  2c:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  30:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  34:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  38:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  3c:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  40:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  44:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  48:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  4c:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  50:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  54:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  58:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  5c:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  60:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+  64:	0c 94 57 00 	jmp	0xae	; 0xae <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 53 00 	call	0xa6	; 0xa6 <main>
+  78:	0c 94 40 00 	jmp	0x80	; 0x80 <_etext>
+
+0000007c <_exit>:
+  7c:	f8 94       	cli
+
+0000007e <__stop_program>:
+  7e:	ff cf       	rjmp	.-2      	; 0x7e <__stop_program>
+
+Disassembly of section .text:
+
+000000ae <__bad_interrupt>:
+  ae:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+Disassembly of section .text.setup:
+
+00000096 <setup>:
+void func1(void);
+/*VARIABLES*/
+
+void setup(void){
+	// Configuracion inicial de los puertos como salidas
+	DDRB = 0b11111111;
+  96:	8f ef       	ldi	r24, 0xFF	; 255
+  98:	84 b9       	out	0x04, r24	; 4
+	DDRC = 0b11111111;
+  9a:	87 b9       	out	0x07, r24	; 7
+	DDRD = 0b11111111;
+  9c:	8a b9       	out	0x0a, r24	; 10
+	// Se establece el valor de los puertos como 0
+	PORTB = 0;
+  9e:	15 b8       	out	0x05, r1	; 5
+	PORTC = 0;
+  a0:	18 b8       	out	0x08, r1	; 8
+	PORTD = 0;
+  a2:	1b b8       	out	0x0b, r1	; 11
+  a4:	08 95       	ret
+
+Disassembly of section .text.main:
+
+000000a6 <main>:
+}
+
+int main(void)
+{
+	// Se ejecuta la configuracion de los puertos
+	setup();
+  a6:	0e 94 4b 00 	call	0x96	; 0x96 <setup>
+    {
+		// Inicio de la medicion
+		PORTD0 >= 1;
+		func1();
+		// Fin de la medicion
+		PORTD = 0;
+  aa:	1b b8       	out	0x0b, r1	; 11
+  ac:	fe cf       	rjmp	.-4      	; 0xaa <main+0x4>
+
+Disassembly of section .text.__dummy_fini:
+
+000000b6 <_fini>:
+  b6:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+000000b8 <__funcs_on_exit>:
+  b8:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+000000ba <__simulator_exit>:
+  ba:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+00000080 <exit>:
+  80:	ec 01       	movw	r28, r24
+  82:	0e 94 5c 00 	call	0xb8	; 0xb8 <__funcs_on_exit>
+  86:	0e 94 5b 00 	call	0xb6	; 0xb6 <_fini>
+  8a:	ce 01       	movw	r24, r28
+  8c:	0e 94 5d 00 	call	0xba	; 0xba <__simulator_exit>
+  90:	ce 01       	movw	r24, r28
+  92:	0e 94 59 00 	call	0xb2	; 0xb2 <_Exit>
+
+Disassembly of section .text._Exit:
+
+000000b2 <_Exit>:
+  b2:	0e 94 3e 00 	call	0x7c	; 0x7c <_exit>
