@@ -9,11 +9,11 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 5h		(dist/default/production\PilaSimple.production.hex)
-  F9Eh - FFFh		(dist/default/production\PilaSimple.production.hex)
+  F9Ch - FFFh		(dist/default/production\PilaSimple.production.hex)
   4000h - 4007h		(dist/default/production\PilaSimple.production.hex)
   400Eh - 4011h		(dist/default/production\PilaSimple.production.hex)
  Unused ranges:
-  6h - F9Dh
+  6h - F9Bh
   1000h - 3FFFh
   4008h - 400Dh
 
@@ -26,7 +26,7 @@
 ----------------------------------------------------------
 00000000 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-00000F90 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
+00000F90 | -- -- -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1
 00000FA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000FB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000FC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

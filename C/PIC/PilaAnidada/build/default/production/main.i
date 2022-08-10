@@ -14,7 +14,7 @@
 
 
 
-#pragma config FOSC = XT
+#pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
@@ -2692,43 +2692,43 @@ void main(void) {
 }
 
 void func1(void) {
-    __nop();
+    __asm("NOP");
     func2();
     return;
 }
 
 void func2(void) {
-    __nop();
+    __asm("NOP");
     func3();
     return;
 }
 
 void func3(void) {
-    __nop();
+    __asm("NOP");
     func4();
     return;
 }
 
 void func4(void) {
-    __nop();
+    __asm("NOP");
     func5();
     return;
 }
 
 void func5(void) {
-    __nop();
+    __asm("NOP");
     func6();
     return;
 }
 
 void func6(void) {
-    __nop();
+    __asm("NOP");
     func7();
     return;
 }
 
 void func7(void) {
-    __nop();
+    __asm("NOP");
     func8();
     return;
 }

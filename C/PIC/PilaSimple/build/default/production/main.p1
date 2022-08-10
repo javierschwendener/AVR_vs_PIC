@@ -45,22 +45,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1883: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0x08F)));
 [v _OSCCONbits `VS69 ~T0 @X0 0 e@143 ]
 [p mainexit ]
-"359
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 359:     struct {
-[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"358
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 358: typedef union {
-[u S11 `S12 1 ]
-[n S11 . . ]
-"370
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 370: extern volatile PORTDbits_t PORTDbits __attribute__((address(0x008)));
-[v _PORTDbits `VS11 ~T0 @X0 0 e@8 ]
 "26 main.c
 [; ;main.c: 26: void func1(void);
 [v _func1 `(v ~T0 @X0 0 ef ]
 "8 main.c
-[p x FOSC          =      XT ]
+[p x FOSC          =      INTRC_NOCLKOUT ]
 "9
 [p x WDTE          =      OFF ]
 "10
@@ -342,8 +331,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 36:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
 "37
-[; ;main.c: 37:     TRISA = 0b00011111;
-[e = _TRISA -> -> 31 `i `uc ]
+[; ;main.c: 37:     TRISA = 0;
+[e = _TRISA -> -> 0 `i `uc ]
 "38
 [; ;main.c: 38:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
@@ -363,61 +352,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 43:     OSCCONbits.IRCF2 = 1;
 [e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
 "44
-[; ;main.c: 44:     return;
-[e $UE 138  ]
-"45
-[; ;main.c: 45: }
+[; ;main.c: 44: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"47
-[; ;main.c: 47: void main(void) {
+"46
+[; ;main.c: 46: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"48
-[; ;main.c: 48:     setup();
+"47
+[; ;main.c: 47:     setup();
 [e ( _setup ..  ]
-"49
-[; ;main.c: 49:     while(1){
+"48
+[; ;main.c: 48:     while(1){
 [e :U 141 ]
 {
+"50
+[; ;main.c: 50:         PORTD = 0b00000001;
+[e = _PORTD -> -> 1 `i `uc ]
 "51
-[; ;main.c: 51:         PORTDbits.RD0 = 1;
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
-"52
-[; ;main.c: 52:         func1();
+[; ;main.c: 51:         func1();
 [e ( _func1 ..  ]
-"53
-[; ;main.c: 53:         PORTD = 0;
+"52
+[; ;main.c: 52:         PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"54
-[; ;main.c: 54:     }
+"53
+[; ;main.c: 53:     }
 }
 [e :U 140 ]
 [e $U 141  ]
 [e :U 142 ]
-"55
-[; ;main.c: 55:     return;
-[e $UE 139  ]
-"56
-[; ;main.c: 56: }
+"54
+[; ;main.c: 54: }
 [e :UE 139 ]
 }
-"58
-[; ;main.c: 58: void func1(void) {
+"56
+[; ;main.c: 56: void func1(void) {
 [v _func1 `(v ~T0 @X0 1 ef ]
 {
 [e :U _func1 ]
 [f ]
-"59
-[; ;main.c: 59:     PORTDbits.RD1 = 1;
-[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"60
-[; ;main.c: 60:     return;
+"57
+[; ;main.c: 57:     PORTD = 0b00000011;
+[e = _PORTD -> -> 3 `i `uc ]
+"58
+[; ;main.c: 58:     return;
 [e $UE 143  ]
-"61
-[; ;main.c: 61: }
+"59
+[; ;main.c: 59: }
 [e :UE 143 ]
 }

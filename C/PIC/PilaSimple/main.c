@@ -5,7 +5,7 @@
 */
 
 /*CONFIG*/
-#pragma config FOSC     =   XT
+#pragma config FOSC     =   INTRC_NOCLKOUT
 #pragma config WDTE     =   OFF
 #pragma config PWRTE    =   OFF
 #pragma config MCLRE    =   OFF
@@ -34,28 +34,26 @@ void setup(void){
     PORTB   =   0;
     PORTC   =   0;
     PORTD   =   0;
-    TRISA   =   0b00011111;
+    TRISA   =   0;
     TRISB   =   0;
     TRISC   =   0;
     TRISD   =   0;
     OSCCONbits.IRCF0 = 1;
     OSCCONbits.IRCF1 = 1;
     OSCCONbits.IRCF2 = 1;
-    return;
 }
 
 void main(void) {
     setup();
     while(1){
         // Inicio de la medicion
-        PORTDbits.RD0 = 1;
+        PORTD = 0b00000001;
         func1();
         PORTD = 0;
     }
-    return;
 }
 
 void func1(void) {
-    PORTDbits.RD1 = 1;
+    PORTD = 0b00000011;
     return;
 }

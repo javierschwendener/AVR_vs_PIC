@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
-                                                                                               Tue Aug 09 17:47:02 2022
+                                                                                               Tue Aug 09 21:17:02 2022
 
 Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
      1                           	processor	16F887
@@ -347,30 +347,30 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    333  07D3                     _main:	
    334                           ;psect for function _main
    335                           
-   336  07D3                     l731:	
+   336  07D3                     l729:	
    337                           ;incstack = 0
    338                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
    339                           
    340                           
    341                           ;main.c: 55:     setup();
    342  07D3  120A  118A  27E7  120A  118A  	fcall	_setup
-   343  07D8                     l733:
+   343  07D8                     l731:
    344                           
    345                           ;main.c: 58:         PORTDbits.RD0 = 1;
    346  07D8  1283               	bcf	3,5	;RP0=0, select bank0
    347  07D9  1303               	bcf	3,6	;RP1=0, select bank0
    348  07DA  1408               	bsf	8,0	;volatile
-   349  07DB                     l735:
+   349  07DB                     l733:
    350                           
    351                           ;main.c: 59:         func1();
    352  07DB  120A  118A  27CC  120A  118A  	fcall	_func1
-   353  07E0                     l737:
+   353  07E0                     l735:
    354                           
    355                           ;main.c: 61:         PORTD = 0;
    356  07E0  1283               	bcf	3,5	;RP0=0, select bank0
    357  07E1  1303               	bcf	3,6	;RP1=0, select bank0
    358  07E2  0188               	clrf	8	;volatile
-   359  07E3  2FD8               	goto	l733
+   359  07E3  2FD8               	goto	l731
    360  07E4  120A  118A  2800   	ljmp	start
    361  07E7                     __end_of_main:
    362                           
@@ -408,7 +408,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    394  07E7                     _setup:	
    395                           ;psect for function _setup
    396                           
-   397  07E7                     l707:	
+   397  07E7                     l705:	
    398                           ;incstack = 0
    399                           ; Regs used in _setup: [wreg+status,2]
    400                           
@@ -434,38 +434,38 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    420                           
    421                           ;main.c: 43:     PORTD = 0;
    422  07F0  0188               	clrf	8	;volatile
-   423  07F1                     l709:
+   423  07F1                     l707:
    424                           
    425                           ;main.c: 44:     TRISA = 0b00011111;
    426  07F1  301F               	movlw	31
    427  07F2  1683               	bsf	3,5	;RP0=1, select bank1
    428  07F3  1303               	bcf	3,6	;RP1=0, select bank1
    429  07F4  0085               	movwf	5	;volatile
-   430  07F5                     l711:
+   430  07F5                     l709:
    431                           
    432                           ;main.c: 45:     TRISB = 0;
    433  07F5  0186               	clrf	6	;volatile
-   434  07F6                     l713:
+   434  07F6                     l711:
    435                           
    436                           ;main.c: 46:     TRISC = 0;
    437  07F6  0187               	clrf	7	;volatile
-   438  07F7                     l715:
+   438  07F7                     l713:
    439                           
    440                           ;main.c: 47:     TRISD = 0;
    441  07F7  0188               	clrf	8	;volatile
-   442  07F8                     l717:
+   442  07F8                     l715:
    443                           
    444                           ;main.c: 48:     OSCCONbits.IRCF0 = 1;
    445  07F8  160F               	bsf	15,4	;volatile
-   446  07F9                     l719:
+   446  07F9                     l717:
    447                           
    448                           ;main.c: 49:     OSCCONbits.IRCF1 = 1;
    449  07F9  168F               	bsf	15,5	;volatile
-   450  07FA                     l721:
+   450  07FA                     l719:
    451                           
    452                           ;main.c: 50:     OSCCONbits.IRCF2 = 1;
    453  07FA  170F               	bsf	15,6	;volatile
-   454  07FB                     l45:
+   454  07FB                     l43:
    455  07FB  0008               	return
    456  07FC                     __end_of_setup:
    457                           
@@ -504,429 +504,416 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    490  07CC                     _func1:	
    491                           ;psect for function _func1
    492                           
-   493  07CC                     l725:	
+   493  07CC                     l723:	
    494                           ;incstack = 0
    495                           ; Regs used in _func1: [status,2+status,0+pclath+cstack]
    496                           
-   497                           
-   498                           ;main.c: 67:     __nop();
-   499  07CC  0000               	nop
-   500  07CD                     l727:
-   501                           
-   502                           ;main.c: 68:     func2();
-   503  07CD  120A  118A  27C5  120A  118A  	fcall	_func2
-   504  07D2                     l56:
-   505  07D2  0008               	return
-   506  07D3                     __end_of_func1:
-   507                           
-   508                           	psect	text3
-   509  07C5                     __ptext3:	
-   510 ;; *************** function _func2 *****************
-   511 ;; Defined at:
-   512 ;;		line 72 in file "main.c"
-   513 ;; Parameters:    Size  Location     Type
+   497  07CC  0000               	nop	;# 
+   498  07CD                     l725:
+   499                           
+   500                           ;main.c: 68:     func2();
+   501  07CD  120A  118A  27C5  120A  118A  	fcall	_func2
+   502  07D2                     l54:
+   503  07D2  0008               	return
+   504  07D3                     __end_of_func1:
+   505                           
+   506                           	psect	text3
+   507  07C5                     __ptext3:	
+   508 ;; *************** function _func2 *****************
+   509 ;; Defined at:
+   510 ;;		line 72 in file "main.c"
+   511 ;; Parameters:    Size  Location     Type
+   512 ;;		None
+   513 ;; Auto vars:     Size  Location     Type
    514 ;;		None
-   515 ;; Auto vars:     Size  Location     Type
-   516 ;;		None
-   517 ;; Return value:  Size  Location     Type
-   518 ;;                  1    wreg      void 
-   519 ;; Registers used:
-   520 ;;		status,2, status,0, pclath, cstack
-   521 ;; Tracked objects:
-   522 ;;		On entry : 0/0
-   523 ;;		On exit  : 0/0
-   524 ;;		Unchanged: 0/0
-   525 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   526 ;;      Params:         0       0       0       0       0
-   527 ;;      Locals:         0       0       0       0       0
-   528 ;;      Temps:          0       0       0       0       0
-   529 ;;      Totals:         0       0       0       0       0
-   530 ;;Total ram usage:        0 bytes
-   531 ;; Hardware stack levels used: 1
-   532 ;; Hardware stack levels required when called: 6
-   533 ;; This function calls:
-   534 ;;		_func3
-   535 ;; This function is called by:
-   536 ;;		_func1
-   537 ;; This function uses a non-reentrant model
-   538 ;;
-   539                           
-   540  07C5                     _func2:	
-   541                           ;psect for function _func2
-   542                           
-   543  07C5                     l701:	
-   544                           ;incstack = 0
-   545                           ; Regs used in _func2: [status,2+status,0+pclath+cstack]
-   546                           
+   515 ;; Return value:  Size  Location     Type
+   516 ;;                  1    wreg      void 
+   517 ;; Registers used:
+   518 ;;		status,2, status,0, pclath, cstack
+   519 ;; Tracked objects:
+   520 ;;		On entry : 0/0
+   521 ;;		On exit  : 0/0
+   522 ;;		Unchanged: 0/0
+   523 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   524 ;;      Params:         0       0       0       0       0
+   525 ;;      Locals:         0       0       0       0       0
+   526 ;;      Temps:          0       0       0       0       0
+   527 ;;      Totals:         0       0       0       0       0
+   528 ;;Total ram usage:        0 bytes
+   529 ;; Hardware stack levels used: 1
+   530 ;; Hardware stack levels required when called: 6
+   531 ;; This function calls:
+   532 ;;		_func3
+   533 ;; This function is called by:
+   534 ;;		_func1
+   535 ;; This function uses a non-reentrant model
+   536 ;;
+   537                           
+   538  07C5                     _func2:	
+   539                           ;psect for function _func2
+   540                           
+   541  07C5                     l699:	
+   542                           ;incstack = 0
+   543                           ; Regs used in _func2: [status,2+status,0+pclath+cstack]
+   544                           
+   545  07C5  0000               	nop	;# 
+   546  07C6                     l701:
    547                           
-   548                           ;main.c: 73:     __nop();
-   549  07C5  0000               	nop
-   550  07C6                     l703:
-   551                           
-   552                           ;main.c: 74:     func3();
-   553  07C6  120A  118A  27BE  120A  118A  	fcall	_func3
-   554  07CB                     l59:
-   555  07CB  0008               	return
-   556  07CC                     __end_of_func2:
-   557                           
-   558                           	psect	text4
-   559  07BE                     __ptext4:	
-   560 ;; *************** function _func3 *****************
-   561 ;; Defined at:
-   562 ;;		line 78 in file "main.c"
-   563 ;; Parameters:    Size  Location     Type
-   564 ;;		None
-   565 ;; Auto vars:     Size  Location     Type
-   566 ;;		None
-   567 ;; Return value:  Size  Location     Type
-   568 ;;                  1    wreg      void 
-   569 ;; Registers used:
-   570 ;;		status,2, status,0, pclath, cstack
-   571 ;; Tracked objects:
-   572 ;;		On entry : 0/0
-   573 ;;		On exit  : 0/0
-   574 ;;		Unchanged: 0/0
-   575 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   576 ;;      Params:         0       0       0       0       0
-   577 ;;      Locals:         0       0       0       0       0
-   578 ;;      Temps:          0       0       0       0       0
-   579 ;;      Totals:         0       0       0       0       0
-   580 ;;Total ram usage:        0 bytes
-   581 ;; Hardware stack levels used: 1
-   582 ;; Hardware stack levels required when called: 5
-   583 ;; This function calls:
-   584 ;;		_func4
-   585 ;; This function is called by:
-   586 ;;		_func2
-   587 ;; This function uses a non-reentrant model
-   588 ;;
-   589                           
-   590  07BE                     _func3:	
-   591                           ;psect for function _func3
+   548                           ;main.c: 74:     func3();
+   549  07C6  120A  118A  27BE  120A  118A  	fcall	_func3
+   550  07CB                     l57:
+   551  07CB  0008               	return
+   552  07CC                     __end_of_func2:
+   553                           
+   554                           	psect	text4
+   555  07BE                     __ptext4:	
+   556 ;; *************** function _func3 *****************
+   557 ;; Defined at:
+   558 ;;		line 78 in file "main.c"
+   559 ;; Parameters:    Size  Location     Type
+   560 ;;		None
+   561 ;; Auto vars:     Size  Location     Type
+   562 ;;		None
+   563 ;; Return value:  Size  Location     Type
+   564 ;;                  1    wreg      void 
+   565 ;; Registers used:
+   566 ;;		status,2, status,0, pclath, cstack
+   567 ;; Tracked objects:
+   568 ;;		On entry : 0/0
+   569 ;;		On exit  : 0/0
+   570 ;;		Unchanged: 0/0
+   571 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   572 ;;      Params:         0       0       0       0       0
+   573 ;;      Locals:         0       0       0       0       0
+   574 ;;      Temps:          0       0       0       0       0
+   575 ;;      Totals:         0       0       0       0       0
+   576 ;;Total ram usage:        0 bytes
+   577 ;; Hardware stack levels used: 1
+   578 ;; Hardware stack levels required when called: 5
+   579 ;; This function calls:
+   580 ;;		_func4
+   581 ;; This function is called by:
+   582 ;;		_func2
+   583 ;; This function uses a non-reentrant model
+   584 ;;
+   585                           
+   586  07BE                     _func3:	
+   587                           ;psect for function _func3
+   588                           
+   589  07BE                     l693:	
+   590                           ;incstack = 0
+   591                           ; Regs used in _func3: [status,2+status,0+pclath+cstack]
    592                           
-   593  07BE                     l695:	
-   594                           ;incstack = 0
-   595                           ; Regs used in _func3: [status,2+status,0+pclath+cstack]
-   596                           
-   597                           
-   598                           ;main.c: 79:     __nop();
-   599  07BE  0000               	nop
-   600  07BF                     l697:
+   593  07BE  0000               	nop	;# 
+   594  07BF                     l695:
+   595                           
+   596                           ;main.c: 80:     func4();
+   597  07BF  120A  118A  27B7  120A  118A  	fcall	_func4
+   598  07C4                     l60:
+   599  07C4  0008               	return
+   600  07C5                     __end_of_func3:
    601                           
-   602                           ;main.c: 80:     func4();
-   603  07BF  120A  118A  27B7  120A  118A  	fcall	_func4
-   604  07C4                     l62:
-   605  07C4  0008               	return
-   606  07C5                     __end_of_func3:
-   607                           
-   608                           	psect	text5
-   609  07B7                     __ptext5:	
-   610 ;; *************** function _func4 *****************
-   611 ;; Defined at:
-   612 ;;		line 84 in file "main.c"
-   613 ;; Parameters:    Size  Location     Type
-   614 ;;		None
-   615 ;; Auto vars:     Size  Location     Type
-   616 ;;		None
-   617 ;; Return value:  Size  Location     Type
-   618 ;;                  1    wreg      void 
-   619 ;; Registers used:
-   620 ;;		status,2, status,0, pclath, cstack
-   621 ;; Tracked objects:
-   622 ;;		On entry : 0/0
-   623 ;;		On exit  : 0/0
-   624 ;;		Unchanged: 0/0
-   625 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   626 ;;      Params:         0       0       0       0       0
-   627 ;;      Locals:         0       0       0       0       0
-   628 ;;      Temps:          0       0       0       0       0
-   629 ;;      Totals:         0       0       0       0       0
-   630 ;;Total ram usage:        0 bytes
-   631 ;; Hardware stack levels used: 1
-   632 ;; Hardware stack levels required when called: 4
-   633 ;; This function calls:
-   634 ;;		_func5
-   635 ;; This function is called by:
-   636 ;;		_func3
-   637 ;; This function uses a non-reentrant model
-   638 ;;
-   639                           
-   640  07B7                     _func4:	
-   641                           ;psect for function _func4
-   642                           
-   643  07B7                     l689:	
-   644                           ;incstack = 0
-   645                           ; Regs used in _func4: [status,2+status,0+pclath+cstack]
-   646                           
-   647                           
-   648                           ;main.c: 85:     __nop();
-   649  07B7  0000               	nop
-   650  07B8                     l691:
-   651                           
-   652                           ;main.c: 86:     func5();
-   653  07B8  120A  118A  27B0  120A  118A  	fcall	_func5
-   654  07BD                     l65:
-   655  07BD  0008               	return
-   656  07BE                     __end_of_func4:
-   657                           
-   658                           	psect	text6
-   659  07B0                     __ptext6:	
-   660 ;; *************** function _func5 *****************
-   661 ;; Defined at:
-   662 ;;		line 90 in file "main.c"
-   663 ;; Parameters:    Size  Location     Type
-   664 ;;		None
-   665 ;; Auto vars:     Size  Location     Type
-   666 ;;		None
-   667 ;; Return value:  Size  Location     Type
-   668 ;;                  1    wreg      void 
-   669 ;; Registers used:
-   670 ;;		status,2, status,0, pclath, cstack
-   671 ;; Tracked objects:
-   672 ;;		On entry : 0/0
-   673 ;;		On exit  : 0/0
-   674 ;;		Unchanged: 0/0
-   675 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   676 ;;      Params:         0       0       0       0       0
-   677 ;;      Locals:         0       0       0       0       0
-   678 ;;      Temps:          0       0       0       0       0
-   679 ;;      Totals:         0       0       0       0       0
-   680 ;;Total ram usage:        0 bytes
-   681 ;; Hardware stack levels used: 1
-   682 ;; Hardware stack levels required when called: 3
-   683 ;; This function calls:
-   684 ;;		_func6
-   685 ;; This function is called by:
-   686 ;;		_func4
-   687 ;; This function uses a non-reentrant model
-   688 ;;
-   689                           
-   690  07B0                     _func5:	
-   691                           ;psect for function _func5
-   692                           
-   693  07B0                     l683:	
-   694                           ;incstack = 0
-   695                           ; Regs used in _func5: [status,2+status,0+pclath+cstack]
-   696                           
+   602                           	psect	text5
+   603  07B7                     __ptext5:	
+   604 ;; *************** function _func4 *****************
+   605 ;; Defined at:
+   606 ;;		line 84 in file "main.c"
+   607 ;; Parameters:    Size  Location     Type
+   608 ;;		None
+   609 ;; Auto vars:     Size  Location     Type
+   610 ;;		None
+   611 ;; Return value:  Size  Location     Type
+   612 ;;                  1    wreg      void 
+   613 ;; Registers used:
+   614 ;;		status,2, status,0, pclath, cstack
+   615 ;; Tracked objects:
+   616 ;;		On entry : 0/0
+   617 ;;		On exit  : 0/0
+   618 ;;		Unchanged: 0/0
+   619 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   620 ;;      Params:         0       0       0       0       0
+   621 ;;      Locals:         0       0       0       0       0
+   622 ;;      Temps:          0       0       0       0       0
+   623 ;;      Totals:         0       0       0       0       0
+   624 ;;Total ram usage:        0 bytes
+   625 ;; Hardware stack levels used: 1
+   626 ;; Hardware stack levels required when called: 4
+   627 ;; This function calls:
+   628 ;;		_func5
+   629 ;; This function is called by:
+   630 ;;		_func3
+   631 ;; This function uses a non-reentrant model
+   632 ;;
+   633                           
+   634  07B7                     _func4:	
+   635                           ;psect for function _func4
+   636                           
+   637  07B7                     l687:	
+   638                           ;incstack = 0
+   639                           ; Regs used in _func4: [status,2+status,0+pclath+cstack]
+   640                           
+   641  07B7  0000               	nop	;# 
+   642  07B8                     l689:
+   643                           
+   644                           ;main.c: 86:     func5();
+   645  07B8  120A  118A  27B0  120A  118A  	fcall	_func5
+   646  07BD                     l63:
+   647  07BD  0008               	return
+   648  07BE                     __end_of_func4:
+   649                           
+   650                           	psect	text6
+   651  07B0                     __ptext6:	
+   652 ;; *************** function _func5 *****************
+   653 ;; Defined at:
+   654 ;;		line 90 in file "main.c"
+   655 ;; Parameters:    Size  Location     Type
+   656 ;;		None
+   657 ;; Auto vars:     Size  Location     Type
+   658 ;;		None
+   659 ;; Return value:  Size  Location     Type
+   660 ;;                  1    wreg      void 
+   661 ;; Registers used:
+   662 ;;		status,2, status,0, pclath, cstack
+   663 ;; Tracked objects:
+   664 ;;		On entry : 0/0
+   665 ;;		On exit  : 0/0
+   666 ;;		Unchanged: 0/0
+   667 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   668 ;;      Params:         0       0       0       0       0
+   669 ;;      Locals:         0       0       0       0       0
+   670 ;;      Temps:          0       0       0       0       0
+   671 ;;      Totals:         0       0       0       0       0
+   672 ;;Total ram usage:        0 bytes
+   673 ;; Hardware stack levels used: 1
+   674 ;; Hardware stack levels required when called: 3
+   675 ;; This function calls:
+   676 ;;		_func6
+   677 ;; This function is called by:
+   678 ;;		_func4
+   679 ;; This function uses a non-reentrant model
+   680 ;;
+   681                           
+   682  07B0                     _func5:	
+   683                           ;psect for function _func5
+   684                           
+   685  07B0                     l681:	
+   686                           ;incstack = 0
+   687                           ; Regs used in _func5: [status,2+status,0+pclath+cstack]
+   688                           
+   689  07B0  0000               	nop	;# 
+   690  07B1                     l683:
+   691                           
+   692                           ;main.c: 92:     func6();
+   693  07B1  120A  118A  27A9  120A  118A  	fcall	_func6
+   694  07B6                     l66:
+   695  07B6  0008               	return
+   696  07B7                     __end_of_func5:
    697                           
-   698                           ;main.c: 91:     __nop();
-   699  07B0  0000               	nop
-   700  07B1                     l685:
-   701                           
-   702                           ;main.c: 92:     func6();
-   703  07B1  120A  118A  27A9  120A  118A  	fcall	_func6
-   704  07B6                     l68:
-   705  07B6  0008               	return
-   706  07B7                     __end_of_func5:
-   707                           
-   708                           	psect	text7
-   709  07A9                     __ptext7:	
-   710 ;; *************** function _func6 *****************
-   711 ;; Defined at:
-   712 ;;		line 96 in file "main.c"
-   713 ;; Parameters:    Size  Location     Type
-   714 ;;		None
-   715 ;; Auto vars:     Size  Location     Type
-   716 ;;		None
-   717 ;; Return value:  Size  Location     Type
-   718 ;;                  1    wreg      void 
-   719 ;; Registers used:
-   720 ;;		status,2, status,0, pclath, cstack
-   721 ;; Tracked objects:
-   722 ;;		On entry : 0/0
-   723 ;;		On exit  : 0/0
-   724 ;;		Unchanged: 0/0
-   725 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   726 ;;      Params:         0       0       0       0       0
-   727 ;;      Locals:         0       0       0       0       0
-   728 ;;      Temps:          0       0       0       0       0
-   729 ;;      Totals:         0       0       0       0       0
-   730 ;;Total ram usage:        0 bytes
-   731 ;; Hardware stack levels used: 1
-   732 ;; Hardware stack levels required when called: 2
-   733 ;; This function calls:
-   734 ;;		_func7
-   735 ;; This function is called by:
-   736 ;;		_func5
-   737 ;; This function uses a non-reentrant model
-   738 ;;
+   698                           	psect	text7
+   699  07A9                     __ptext7:	
+   700 ;; *************** function _func6 *****************
+   701 ;; Defined at:
+   702 ;;		line 96 in file "main.c"
+   703 ;; Parameters:    Size  Location     Type
+   704 ;;		None
+   705 ;; Auto vars:     Size  Location     Type
+   706 ;;		None
+   707 ;; Return value:  Size  Location     Type
+   708 ;;                  1    wreg      void 
+   709 ;; Registers used:
+   710 ;;		status,2, status,0, pclath, cstack
+   711 ;; Tracked objects:
+   712 ;;		On entry : 0/0
+   713 ;;		On exit  : 0/0
+   714 ;;		Unchanged: 0/0
+   715 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   716 ;;      Params:         0       0       0       0       0
+   717 ;;      Locals:         0       0       0       0       0
+   718 ;;      Temps:          0       0       0       0       0
+   719 ;;      Totals:         0       0       0       0       0
+   720 ;;Total ram usage:        0 bytes
+   721 ;; Hardware stack levels used: 1
+   722 ;; Hardware stack levels required when called: 2
+   723 ;; This function calls:
+   724 ;;		_func7
+   725 ;; This function is called by:
+   726 ;;		_func5
+   727 ;; This function uses a non-reentrant model
+   728 ;;
+   729                           
+   730  07A9                     _func6:	
+   731                           ;psect for function _func6
+   732                           
+   733  07A9                     l675:	
+   734                           ;incstack = 0
+   735                           ; Regs used in _func6: [status,2+status,0+pclath+cstack]
+   736                           
+   737  07A9  0000               	nop	;# 
+   738  07AA                     l677:
    739                           
-   740  07A9                     _func6:	
-   741                           ;psect for function _func6
-   742                           
-   743  07A9                     l677:	
-   744                           ;incstack = 0
-   745                           ; Regs used in _func6: [status,2+status,0+pclath+cstack]
-   746                           
-   747                           
-   748                           ;main.c: 97:     __nop();
-   749  07A9  0000               	nop
-   750  07AA                     l679:
-   751                           
-   752                           ;main.c: 98:     func7();
-   753  07AA  120A  118A  27A2  120A  118A  	fcall	_func7
-   754  07AF                     l71:
-   755  07AF  0008               	return
-   756  07B0                     __end_of_func6:
-   757                           
-   758                           	psect	text8
-   759  07A2                     __ptext8:	
-   760 ;; *************** function _func7 *****************
-   761 ;; Defined at:
-   762 ;;		line 102 in file "main.c"
-   763 ;; Parameters:    Size  Location     Type
-   764 ;;		None
-   765 ;; Auto vars:     Size  Location     Type
-   766 ;;		None
-   767 ;; Return value:  Size  Location     Type
-   768 ;;                  1    wreg      void 
-   769 ;; Registers used:
-   770 ;;		status,2, status,0, pclath, cstack
-   771 ;; Tracked objects:
-   772 ;;		On entry : 0/0
-   773 ;;		On exit  : 0/0
-   774 ;;		Unchanged: 0/0
-   775 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   776 ;;      Params:         0       0       0       0       0
-   777 ;;      Locals:         0       0       0       0       0
-   778 ;;      Temps:          0       0       0       0       0
-   779 ;;      Totals:         0       0       0       0       0
-   780 ;;Total ram usage:        0 bytes
-   781 ;; Hardware stack levels used: 1
-   782 ;; Hardware stack levels required when called: 1
-   783 ;; This function calls:
-   784 ;;		_func8
-   785 ;; This function is called by:
-   786 ;;		_func6
-   787 ;; This function uses a non-reentrant model
-   788 ;;
-   789                           
-   790  07A2                     _func7:	
-   791                           ;psect for function _func7
-   792                           
-   793  07A2                     l671:	
-   794                           ;incstack = 0
-   795                           ; Regs used in _func7: [status,2+status,0+pclath+cstack]
-   796                           
-   797                           
-   798                           ;main.c: 103:     __nop();
-   799  07A2  0000               	nop
-   800  07A3                     l673:
-   801                           
-   802                           ;main.c: 104:     func8();
-   803  07A3  120A  118A  279E  120A  118A  	fcall	_func8
-   804  07A8                     l74:
-   805  07A8  0008               	return
-   806  07A9                     __end_of_func7:
-   807                           
-   808                           	psect	text9
-   809  079E                     __ptext9:	
-   810 ;; *************** function _func8 *****************
-   811 ;; Defined at:
-   812 ;;		line 108 in file "main.c"
-   813 ;; Parameters:    Size  Location     Type
-   814 ;;		None
-   815 ;; Auto vars:     Size  Location     Type
-   816 ;;		None
-   817 ;; Return value:  Size  Location     Type
-   818 ;;                  1    wreg      void 
-   819 ;; Registers used:
-   820 ;;		None
-   821 ;; Tracked objects:
-   822 ;;		On entry : 0/0
-   823 ;;		On exit  : 0/0
-   824 ;;		Unchanged: 0/0
-   825 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   826 ;;      Params:         0       0       0       0       0
-   827 ;;      Locals:         0       0       0       0       0
-   828 ;;      Temps:          0       0       0       0       0
-   829 ;;      Totals:         0       0       0       0       0
-   830 ;;Total ram usage:        0 bytes
-   831 ;; Hardware stack levels used: 1
-   832 ;; This function calls:
-   833 ;;		Nothing
-   834 ;; This function is called by:
-   835 ;;		_func7
-   836 ;; This function uses a non-reentrant model
-   837 ;;
-   838                           
-   839  079E                     _func8:	
-   840                           ;psect for function _func8
-   841                           
-   842  079E                     l669:	
-   843                           ;incstack = 0
-   844                           ; Regs used in _func8: []
-   845                           
+   740                           ;main.c: 98:     func7();
+   741  07AA  120A  118A  27A2  120A  118A  	fcall	_func7
+   742  07AF                     l69:
+   743  07AF  0008               	return
+   744  07B0                     __end_of_func6:
+   745                           
+   746                           	psect	text8
+   747  07A2                     __ptext8:	
+   748 ;; *************** function _func7 *****************
+   749 ;; Defined at:
+   750 ;;		line 102 in file "main.c"
+   751 ;; Parameters:    Size  Location     Type
+   752 ;;		None
+   753 ;; Auto vars:     Size  Location     Type
+   754 ;;		None
+   755 ;; Return value:  Size  Location     Type
+   756 ;;                  1    wreg      void 
+   757 ;; Registers used:
+   758 ;;		status,2, status,0, pclath, cstack
+   759 ;; Tracked objects:
+   760 ;;		On entry : 0/0
+   761 ;;		On exit  : 0/0
+   762 ;;		Unchanged: 0/0
+   763 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   764 ;;      Params:         0       0       0       0       0
+   765 ;;      Locals:         0       0       0       0       0
+   766 ;;      Temps:          0       0       0       0       0
+   767 ;;      Totals:         0       0       0       0       0
+   768 ;;Total ram usage:        0 bytes
+   769 ;; Hardware stack levels used: 1
+   770 ;; Hardware stack levels required when called: 1
+   771 ;; This function calls:
+   772 ;;		_func8
+   773 ;; This function is called by:
+   774 ;;		_func6
+   775 ;; This function uses a non-reentrant model
+   776 ;;
+   777                           
+   778  07A2                     _func7:	
+   779                           ;psect for function _func7
+   780                           
+   781  07A2                     l669:	
+   782                           ;incstack = 0
+   783                           ; Regs used in _func7: [status,2+status,0+pclath+cstack]
+   784                           
+   785  07A2  0000               	nop	;# 
+   786  07A3                     l671:
+   787                           
+   788                           ;main.c: 104:     func8();
+   789  07A3  120A  118A  279E  120A  118A  	fcall	_func8
+   790  07A8                     l72:
+   791  07A8  0008               	return
+   792  07A9                     __end_of_func7:
+   793                           
+   794                           	psect	text9
+   795  079E                     __ptext9:	
+   796 ;; *************** function _func8 *****************
+   797 ;; Defined at:
+   798 ;;		line 108 in file "main.c"
+   799 ;; Parameters:    Size  Location     Type
+   800 ;;		None
+   801 ;; Auto vars:     Size  Location     Type
+   802 ;;		None
+   803 ;; Return value:  Size  Location     Type
+   804 ;;                  1    wreg      void 
+   805 ;; Registers used:
+   806 ;;		None
+   807 ;; Tracked objects:
+   808 ;;		On entry : 0/0
+   809 ;;		On exit  : 0/0
+   810 ;;		Unchanged: 0/0
+   811 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   812 ;;      Params:         0       0       0       0       0
+   813 ;;      Locals:         0       0       0       0       0
+   814 ;;      Temps:          0       0       0       0       0
+   815 ;;      Totals:         0       0       0       0       0
+   816 ;;Total ram usage:        0 bytes
+   817 ;; Hardware stack levels used: 1
+   818 ;; This function calls:
+   819 ;;		Nothing
+   820 ;; This function is called by:
+   821 ;;		_func7
+   822 ;; This function uses a non-reentrant model
+   823 ;;
+   824                           
+   825  079E                     _func8:	
+   826                           ;psect for function _func8
+   827                           
+   828  079E                     l667:	
+   829                           ;incstack = 0
+   830                           ; Regs used in _func8: []
+   831                           
+   832                           
+   833                           ;main.c: 110:     PORTDbits.RD1 = 1;
+   834  079E  1283               	bcf	3,5	;RP0=0, select bank0
+   835  079F  1303               	bcf	3,6	;RP1=0, select bank0
+   836  07A0  1488               	bsf	8,1	;volatile
+   837  07A1                     l75:	
+   838                           ;main.c: 111:     return;
+   839                           
+   840  07A1  0008               	return
+   841  07A2                     __end_of_func8:
+   842  007E                     btemp	set	126	;btemp
+   843  007E                     wtemp0	set	126
+   844                           
+   845                           	psect	idloc
    846                           
-   847                           ;main.c: 110:     PORTDbits.RD1 = 1;
-   848  079E  1283               	bcf	3,5	;RP0=0, select bank0
-   849  079F  1303               	bcf	3,6	;RP1=0, select bank0
-   850  07A0  1488               	bsf	8,1	;volatile
-   851  07A1                     l77:	
-   852                           ;main.c: 111:     return;
-   853                           
-   854  07A1  0008               	return
-   855  07A2                     __end_of_func8:
-   856  007E                     btemp	set	126	;btemp
-   857  007E                     wtemp0	set	126
-   858                           
-   859                           	psect	idloc
-   860                           
-   861                           ;Config register IDLOC0 @ 0x2000
-   862                           ;	unspecified, using default values
-   863  2000                     	org	8192
-   864  2000  3FFF               	dw	16383
-   865                           
-   866                           ;Config register IDLOC1 @ 0x2001
-   867                           ;	unspecified, using default values
-   868  2001                     	org	8193
-   869  2001  3FFF               	dw	16383
-   870                           
-   871                           ;Config register IDLOC2 @ 0x2002
-   872                           ;	unspecified, using default values
-   873  2002                     	org	8194
-   874  2002  3FFF               	dw	16383
-   875                           
-   876                           ;Config register IDLOC3 @ 0x2003
-   877                           ;	unspecified, using default values
-   878  2003                     	org	8195
-   879  2003  3FFF               	dw	16383
-   880                           
-   881                           	psect	config
-   882                           
-   883                           ;Config register CONFIG1 @ 0x2007
-   884                           ;	Oscillator Selection bits
-   885                           ;	FOSC = XT, XT oscillator: Crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1/CLKIN
-   886                           ;	Watchdog Timer Enable bit
-   887                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
-   888                           ;	Power-up Timer Enable bit
-   889                           ;	PWRTE = OFF, PWRT disabled
-   890                           ;	RE3/MCLR pin function select bit
-   891                           ;	MCLRE = OFF, RE3/MCLR pin function is digital input, MCLR internally tied to VDD
-   892                           ;	Code Protection bit
-   893                           ;	CP = OFF, Program memory code protection is disabled
-   894                           ;	Data Code Protection bit
-   895                           ;	CPD = OFF, Data memory code protection is disabled
-   896                           ;	Brown Out Reset Selection bits
-   897                           ;	BOREN = OFF, BOR disabled
-   898                           ;	Internal External Switchover bit
-   899                           ;	IESO = OFF, Internal/External Switchover mode is disabled
-   900                           ;	Fail-Safe Clock Monitor Enabled bit
-   901                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
-   902                           ;	Low Voltage Programming Enable bit
-   903                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
-   904                           ;	In-Circuit Debugger Mode bit
-   905                           ;	DEBUG = 0x1, unprogrammed default
-   906  2007                     	org	8199
-   907  2007  20D1               	dw	8401
-   908                           
-   909                           ;Config register CONFIG2 @ 0x2008
-   910                           ;	Brown-out Reset Selection bit
-   911                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
-   912                           ;	Flash Program Memory Self Write Enable bits
-   913                           ;	WRT = OFF, Write protection off
-   914  2008                     	org	8200
-   915  2008  3FFF               	dw	16383
+   847                           ;Config register IDLOC0 @ 0x2000
+   848                           ;	unspecified, using default values
+   849  2000                     	org	8192
+   850  2000  3FFF               	dw	16383
+   851                           
+   852                           ;Config register IDLOC1 @ 0x2001
+   853                           ;	unspecified, using default values
+   854  2001                     	org	8193
+   855  2001  3FFF               	dw	16383
+   856                           
+   857                           ;Config register IDLOC2 @ 0x2002
+   858                           ;	unspecified, using default values
+   859  2002                     	org	8194
+   860  2002  3FFF               	dw	16383
+   861                           
+   862                           ;Config register IDLOC3 @ 0x2003
+   863                           ;	unspecified, using default values
+   864  2003                     	org	8195
+   865  2003  3FFF               	dw	16383
+   866                           
+   867                           	psect	config
+   868                           
+   869                           ;Config register CONFIG1 @ 0x2007
+   870                           ;	Oscillator Selection bits
+   871                           ;	FOSC = INTRC_NOCLKOUT, INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O f
+      +                          unction on RA7/OSC1/CLKIN
+   872                           ;	Watchdog Timer Enable bit
+   873                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
+   874                           ;	Power-up Timer Enable bit
+   875                           ;	PWRTE = OFF, PWRT disabled
+   876                           ;	RE3/MCLR pin function select bit
+   877                           ;	MCLRE = OFF, RE3/MCLR pin function is digital input, MCLR internally tied to VDD
+   878                           ;	Code Protection bit
+   879                           ;	CP = OFF, Program memory code protection is disabled
+   880                           ;	Data Code Protection bit
+   881                           ;	CPD = OFF, Data memory code protection is disabled
+   882                           ;	Brown Out Reset Selection bits
+   883                           ;	BOREN = OFF, BOR disabled
+   884                           ;	Internal External Switchover bit
+   885                           ;	IESO = OFF, Internal/External Switchover mode is disabled
+   886                           ;	Fail-Safe Clock Monitor Enabled bit
+   887                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+   888                           ;	Low Voltage Programming Enable bit
+   889                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
+   890                           ;	In-Circuit Debugger Mode bit
+   891                           ;	DEBUG = 0x1, unprogrammed default
+   892  2007                     	org	8199
+   893  2007  20D4               	dw	8404
+   894                           
+   895                           ;Config register CONFIG2 @ 0x2008
+   896                           ;	Brown-out Reset Selection bit
+   897                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
+   898                           ;	Flash Program Memory Self Write Enable bits
+   899                           ;	WRT = OFF, Write protection off
+   900  2008                     	org	8200
+   901  2008  3FFF               	dw	16383
 
 Data Sizes:
     Strings     0
@@ -1047,20 +1034,20 @@ DATA                 0      0       0      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.36 build 20220127204148 
-Symbol Table                                                                                   Tue Aug 09 17:47:02 2022
+Symbol Table                                                                                   Tue Aug 09 21:17:02 2022
 
-                     l45 07FB                       l62 07C4                       l71 07AF  
-                     l56 07D2                       l65 07BD                       l74 07A8  
-                     l59 07CB                       l68 07B6                       l77 07A1  
-                    l701 07C5                      l703 07C6                      l711 07F5  
-                    l721 07FA                      l713 07F6                      l715 07F7  
-                    l707 07E7                      l731 07D3                      l725 07CC  
-                    l717 07F8                      l709 07F1                      l733 07D8  
-                    l671 07A2                      l727 07CD                      l719 07F9  
-                    l735 07DB                      l673 07A3                      l737 07E0  
-                    l683 07B0                      l691 07B8                      l669 079E  
-                    l677 07A9                      l685 07B1                      l679 07AA  
-                    l695 07BE                      l689 07B7                      l697 07BF  
+                     l43 07FB                       l60 07C4                       l54 07D2  
+                     l63 07BD                       l72 07A8                       l57 07CB  
+                     l66 07B6                       l75 07A1                       l69 07AF  
+                    l701 07C6                      l711 07F6                      l713 07F7  
+                    l705 07E7                      l723 07CC                      l715 07F8  
+                    l707 07F1                      l731 07D8                      l725 07CD  
+                    l717 07F9                      l709 07F5                      l733 07DB  
+                    l671 07A3                      l719 07FA                      l735 07E0  
+                    l681 07B0                      l729 07D3                      l667 079E  
+                    l675 07A9                      l683 07B1                      l669 07A2  
+                    l677 07AA                      l693 07BE                      l687 07B7  
+                    l695 07BF                      l689 07B8                      l699 07C5  
                    _main 07D3                     btemp 007E                     start 0000  
                   ?_main 0000                    _ANSEL 0188                    _PORTA 0005  
                   _PORTB 0006                    _PORTC 0007                    _PORTD 0008  

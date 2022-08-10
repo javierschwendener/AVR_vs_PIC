@@ -2495,6 +2495,10 @@ ENDM
  BANKSEL ANSEL
  CLRF ANSEL
  CLRF ANSELH
+ BANKSEL OSCCON
+ BSF OSCCON, 4
+ BSF OSCCON, 5
+ BSF OSCCON, 6
  BANKSEL TRISA
  CLRF TRISA
  CLRF TRISB
@@ -2543,8 +2547,17 @@ ENDM
 
     func6:
  NOP
- BSF PORTD, 1
+ CALL func7
  return
 
+    func7:
+ NOP
+ CALL func8
+ return
+
+    func8:
+ NOP
+ BSF PORTD, 1
+ return
 ; Se definen las funciones
     END

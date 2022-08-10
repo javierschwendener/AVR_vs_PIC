@@ -14,11 +14,11 @@
 $dist/default/production\PilaSimple.production.o
 cinit CODE 0 7FC 7FC 4 2 1
 idloc IDLOC 5 2000 2000 4 2 1
-text1 CODE 0 7E7 7E7 15 2 1
-text2 CODE 0 7CF 7CF 4 2 1
-maintext CODE 0 7D3 7D3 14 2 1
+text1 CODE 0 7D3 7D3 14 2 1
+text2 CODE 0 7CE 7CE 5 2 1
+maintext CODE 0 7E7 7E7 15 2 1
 config CONFIG 4 2007 2007 2 2 1
-$C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
+$C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
 idloc IDLOC 5 2000 2000 4 2 1
 end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 2 2 1
@@ -36,11 +36,11 @@ BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 3-7CE 2
+CONST 3-7CD 2
 CONST 800-1FFF 2
-ENTRY 3-7CE 2
+ENTRY 3-7CD 2
 ENTRY 800-1FFF 2
-CODE 3-7CE 2
+CODE 3-7CD 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -48,9 +48,9 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 COMMON 70-7D 1
 EEDATA 2100-21FF 2
-STRCODE 3-7CE 2
+STRCODE 3-7CD 2
 STRCODE 800-1FFF 2
-STRING 3-7CE 2
+STRING 3-7CD 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -66,34 +66,34 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\PilaSimple.production.o
-7FC cinit CODE >450:C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.s
-7FC cinit CODE >453:C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.s
-7FC cinit CODE >459:C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.s
-7FC cinit CODE >461:C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.s
-7FD cinit CODE >462:C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.s
-7CF text2 CODE >58:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7CF text2 CODE >59:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7D2 text2 CODE >61:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7E7 text1 CODE >30:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7E7 text1 CODE >31:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7EA text1 CODE >32:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7EB text1 CODE >33:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7EE text1 CODE >34:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7EF text1 CODE >35:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7F0 text1 CODE >36:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7F1 text1 CODE >37:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7F5 text1 CODE >38:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7F6 text1 CODE >39:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7F7 text1 CODE >40:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7F8 text1 CODE >41:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7F9 text1 CODE >42:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7FA text1 CODE >43:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7FB text1 CODE >45:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7D3 maintext CODE >47:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7D3 maintext CODE >48:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7D8 maintext CODE >51:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7DB maintext CODE >52:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
-7E0 maintext CODE >53:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7FC cinit CODE >448:C:\Users\Schinzii\AppData\Local\Temp\xcAs610.s
+7FC cinit CODE >451:C:\Users\Schinzii\AppData\Local\Temp\xcAs610.s
+7FC cinit CODE >457:C:\Users\Schinzii\AppData\Local\Temp\xcAs610.s
+7FC cinit CODE >459:C:\Users\Schinzii\AppData\Local\Temp\xcAs610.s
+7FD cinit CODE >460:C:\Users\Schinzii\AppData\Local\Temp\xcAs610.s
+7CE text2 CODE >56:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7CE text2 CODE >57:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7D2 text2 CODE >59:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7D3 text1 CODE >30:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7D3 text1 CODE >31:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7D6 text1 CODE >32:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7D7 text1 CODE >33:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7DA text1 CODE >34:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7DB text1 CODE >35:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7DC text1 CODE >36:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7DD text1 CODE >37:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7E0 text1 CODE >38:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7E1 text1 CODE >39:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7E2 text1 CODE >40:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7E3 text1 CODE >41:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7E4 text1 CODE >42:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7E5 text1 CODE >43:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7E6 text1 CODE >44:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7E7 maintext CODE >46:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7E7 maintext CODE >47:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7EC maintext CODE >50:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7F0 maintext CODE >51:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
+7F5 maintext CODE >52:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaSimple\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -114,27 +114,27 @@ __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
-_main FA6 0 CODE 0 maintext dist/default/production\PilaSimple.production.o
+___sp 0 0 STACK 2 stack C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
+_main FCE 0 CODE 0 maintext dist/default/production\PilaSimple.production.o
 btemp 7E 0 ABS 0 - dist/default/production\PilaSimple.production.o
-start 0 0 CODE 0 init C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
+start 0 0 CODE 0 init C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\PilaSimple.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\PilaSimple.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 _ANSELH 189 0 ABS 0 - dist/default/production\PilaSimple.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
-___stacklo 0 0 ABS 0 - C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
+___stackhi 0 0 ABS 0 - C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
+___stacklo 0 0 ABS 0 - C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
 start_initialization FF8 0 CODE 0 cinit dist/default/production\PilaSimple.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
+___int_sp 0 0 STACK 2 stack C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -152,7 +152,6 @@ __Lbank3 0 0 ABS 0 bank3 -
 __Lcinit FF8 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 5 idloc -
 __Lstack 0 0 STACK 2 stack -
-_PORTDbits 8 0 ABS 0 - dist/default/production\PilaSimple.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 0 0 CODE 0 init -
@@ -174,8 +173,8 @@ __S0 800 0 ABS 0 - -
 __S1 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Schinzii\AppData\Local\Temp\xcAs8n0.o
-__pmaintext FA6 0 CODE 0 maintext dist/default/production\PilaSimple.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Schinzii\AppData\Local\Temp\xcAs610.o
+__pmaintext FCE 0 CODE 0 maintext dist/default/production\PilaSimple.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 __Lspace_0 0 0 ABS 0 - -
@@ -189,8 +188,8 @@ end_of_initialization FF8 0 CODE 0 cinit dist/default/production\PilaSimple.prod
 __Hintentry 0 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__ptext1 FCE 0 CODE 0 text1 dist/default/production\PilaSimple.production.o
-__ptext2 F9E 0 CODE 0 text2 dist/default/production\PilaSimple.production.o
+__ptext1 FA6 0 CODE 0 text1 dist/default/production\PilaSimple.production.o
+__ptext2 F9C 0 CODE 0 text2 dist/default/production\PilaSimple.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -199,7 +198,7 @@ __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 0 0 COMMON 1 cstackCOMMON dist/default/production\PilaSimple.production.o
 __Hend_init 6 0 CODE 0 end_init -
-__end_of_main FCE 0 CODE 0 maintext dist/default/production\PilaSimple.production.o
+__end_of_main FF8 0 CODE 0 maintext dist/default/production\PilaSimple.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\PilaSimple.production.o
 __end_of_func1 FA6 0 CODE 0 text2 dist/default/production\PilaSimple.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\PilaSimple.production.o
@@ -210,11 +209,11 @@ _TRISA 85 0 ABS 0 - dist/default/production\PilaSimple.production.o
 _TRISB 86 0 ABS 0 - dist/default/production\PilaSimple.production.o
 _TRISC 87 0 ABS 0 - dist/default/production\PilaSimple.production.o
 _TRISD 88 0 ABS 0 - dist/default/production\PilaSimple.production.o
-__end_of_setup FF8 0 CODE 0 text1 dist/default/production\PilaSimple.production.o
+__end_of_setup FCE 0 CODE 0 text1 dist/default/production\PilaSimple.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_func1 F9E 0 CODE 0 text2 dist/default/production\PilaSimple.production.o
-_setup FCE 0 CODE 0 text1 dist/default/production\PilaSimple.production.o
+_func1 F9C 0 CODE 0 text2 dist/default/production\PilaSimple.production.o
+_setup FA6 0 CODE 0 text1 dist/default/production\PilaSimple.production.o
 __initialization FF8 0 CODE 0 cinit dist/default/production\PilaSimple.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -242,9 +241,9 @@ __initialization FF8 0 CODE 0 cinit dist/default/production\PilaSimple.productio
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7FC FF8 4 2
-text1 0 7E7 FCE 15 2
-text2 0 7CF F9E 4 2
-maintext 0 7D3 FA6 14 2
+text1 0 7D3 FA6 14 2
+text2 0 7CE F9C 5 2
+maintext 0 7E7 FCE 15 2
 reset_vec 0 0 0 3 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
