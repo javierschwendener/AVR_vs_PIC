@@ -37,7 +37,7 @@ int main(void)
     while(1)
     {
 		// Inicio de la medicion
-		PORTD0 >= 1;
+		PORTD |= 1<<PORTD0;
 		func1();
 		// Fin de la medicion
 		PORTD = 0;
@@ -86,6 +86,6 @@ void func7(void){
 	return;
 }
 void func8(void){
-	PORTD1 >= 1;
+	PORTD |= 1<<PORTD1;
 	return;
 }
