@@ -30,17 +30,12 @@ void func1(void);
 void setup(void){
     ANSEL   =   0;
     ANSELH  =   0;
-    PORTA   =   0;
-    PORTB   =   0;
-    PORTC   =   0;
     PORTD   =   0;
-    TRISA   =   0;
-    TRISB   =   0;
-    TRISC   =   0;
     TRISD   =   0;
     OSCCONbits.IRCF0 = 1;
     OSCCONbits.IRCF1 = 1;
     OSCCONbits.IRCF2 = 1;
+    OSCTUNE = 0b00001111;
 }
 
 void main(void) {
