@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaSimple\main.asm Tue Aug 09 20:11:37 2022
+AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaSimple\main.asm Tue Aug 16 20:57:40 2022
 
 
 EQU  SIGNATURE_000 0000001e
@@ -696,5 +696,5 @@ EQU  TWIaddr      00000030
 EQU  SPMRaddr     00000032
 EQU  INT_VECTORS_SIZE 00000034
 CSEG setup        00000000
-CSEG loop         00000009
-CSEG func1        00000010
+CSEG loop         00000005
+CSEG func1        0000000c

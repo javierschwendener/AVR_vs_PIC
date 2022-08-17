@@ -21,12 +21,8 @@ void func8(void);
 
 void setup(void){
 	// Configuracion inicial de los puertos como salidas
-	DDRB = 0b11111111;
-	DDRC = 0b11111111;
 	DDRD = 0b11111111;
 	// Se establece el valor de los puertos como 0
-	PORTB = 0;
-	PORTC = 0;
 	PORTD = 0;
 }
 

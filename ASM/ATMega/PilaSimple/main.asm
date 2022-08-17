@@ -9,12 +9,8 @@
 ; Configuracion
 setup:		
 	LDI		R16,	0B11111111
-	OUT		DDRB,	R16
-	OUT		DDRC,	R16
 	OUT		DDRD,	R16
 	LDI		R16,	0B00000000
-	OUT		PORTB,	R16
-	OUT		PORTC,	R16
 	OUT		PORTD,	R16
     RJMP	loop
 

@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.36\pic\dat\en_msgs.txt -cs \
   -h+dist/default/production\PilaAnidada.production.sym \
   --cmf=dist/default/production\PilaAnidada.production.cmf -z -Q16F887 \
-  -oC:\Users\Schinzii\AppData\Local\Temp\xcAsceo.4 \
+  -oC:\Users\Schinzii\AppData\Local\Temp\xcAs6p8.4 \
   -ver=XC8 PIC(R) Assembler \
   -Mdist/default/production/PilaAnidada.production.map -E1 --acfsm=1493 \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
@@ -27,11 +27,11 @@ Machine type is 16F887
                 Name                               Link     Load   Length Selector   Space Scale
 build/default/production/main.o
                 config                             2007     2007        2        0       4
-                code                                  0        0       3C        0       0
+                code                                  0        0       37        0       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
-                code                                  0        0       3C         0
+                code                                  0        0       37         0
 
         CLASS   STRCODE        
 
@@ -83,11 +83,11 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             003C-1FFF            800           2
+        CODE             0037-1FFF            800           2
         COMMON           0070-007F             10           1
-        CONST            003C-1FFF            100           2
+        CONST            0037-1FFF            100           2
         EEDATA           2100-21FF            100           2
-        ENTRY            003C-1FFF            100           2
+        ENTRY            0037-1FFF            100           2
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
                          00A0-00EF             50
@@ -96,14 +96,14 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          003C-1FFF           1FC4           2
-        STRING           003C-1FFF            100           2
+        STRCODE          0037-1FFF           1FC9           2
+        STRING           0037-1FFF            100           2
 
                                   Symbol Table
 
 __Hcode        code        0000  __Hconfig      config      2009
 __Hdata        data        0000  __Hedata       edata       0000
-__Hspace_0     (abs)       003C  __Hspace_1     (abs)       0000
+__Hspace_0     (abs)       0037  __Hspace_1     (abs)       0000
 __Hspace_3     (abs)       0000  __Hspace_4     (abs)       4010
 __Hudata       udata       0000  __Hudata_bank0 udata_bank0 0000
 __Hudata_bank1 udata_bank1 0000  __Hudata_bank2 udata_bank2 0000

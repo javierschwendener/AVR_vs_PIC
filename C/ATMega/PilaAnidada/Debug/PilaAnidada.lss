@@ -3,92 +3,92 @@ PilaAnidada.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  0000017a  2**0
+  0 .data         00000000  00800100  00800100  00000172  2**0
                   ALLOC, LOAD, DATA
   1 .text         00000080  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      0000002f  00000000  00000000  0000017a  2**0
+  2 .comment      0000002f  00000000  00000000  00000172  2**0
                   CONTENTS, READONLY
-  3 .stack.descriptors.hdr 0000000e  00000000  00000000  000001a9  2**0
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  000001a1  2**0
                   CONTENTS, READONLY
-  4 .debug_aranges 00000068  00000000  00000000  000001b7  2**0
+  4 .debug_aranges 00000068  00000000  00000000  000001af  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000009b2  00000000  00000000  0000021f  2**0
+  5 .debug_info   000009b2  00000000  00000000  00000217  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 0000062a  00000000  00000000  00000bd1  2**0
+  6 .debug_abbrev 0000062a  00000000  00000000  00000bc9  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000002ef  00000000  00000000  000011fb  2**0
+  7 .debug_line   000002d6  00000000  00000000  000011f3  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000000b4  00000000  00000000  000014ec  2**2
+  8 .debug_frame  000000b4  00000000  00000000  000014cc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000208  00000000  00000000  000015a0  2**0
+  9 .debug_str    00000208  00000000  00000000  00001580  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000058  00000000  00000000  000017a8  2**0
+ 10 .debug_ranges 00000058  00000000  00000000  00001788  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .text         00000004  000000f8  000000f8  0000016c  2**1
+ 11 .text         00000004  000000f0  000000f0  00000164  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001800  2**2
+ 12 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000017e0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .text.setup   00000010  000000a8  000000a8  0000011c  2**1
+ 13 .text.setup   00000008  000000a8  000000a8  0000011c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .text.func8   00000008  000000b8  000000b8  0000012c  2**1
+ 14 .text.func8   00000008  000000b0  000000b0  00000124  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 15 .text.func7   00000008  000000c0  000000c0  00000134  2**1
+ 15 .text.func7   00000008  000000b8  000000b8  0000012c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 16 .text.func6   00000008  000000c8  000000c8  0000013c  2**1
+ 16 .text.func6   00000008  000000c0  000000c0  00000134  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 17 .text.func5   00000008  000000d0  000000d0  00000144  2**1
+ 17 .text.func5   00000008  000000c8  000000c8  0000013c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 18 .text.func4   00000008  000000d8  000000d8  0000014c  2**1
+ 18 .text.func4   00000008  000000d0  000000d0  00000144  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 19 .text.func3   00000008  000000e0  000000e0  00000154  2**1
+ 19 .text.func3   00000008  000000d8  000000d8  0000014c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 20 .text.func2   00000008  000000e8  000000e8  0000015c  2**1
+ 20 .text.func2   00000008  000000e0  000000e0  00000154  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 21 .text.func1   00000008  000000f0  000000f0  00000164  2**1
+ 21 .text.func1   00000008  000000e8  000000e8  0000015c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
  22 .text.main    00000012  00000096  00000096  0000010a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 23 .text.__dummy_fini 00000002  00000100  00000100  00000174  2**1
+ 23 .text.__dummy_fini 00000002  000000f8  000000f8  0000016c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 24 .text.__dummy_funcs_on_exit 00000002  00000102  00000102  00000176  2**1
+ 24 .text.__dummy_funcs_on_exit 00000002  000000fa  000000fa  0000016e  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 25 .text.__dummy_simulator_exit 00000002  00000104  00000104  00000178  2**1
+ 25 .text.__dummy_simulator_exit 00000002  000000fc  000000fc  00000170  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
  26 .text.exit    00000016  00000080  00000080  000000f4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 27 .text._Exit   00000004  000000fc  000000fc  00000170  2**1
+ 27 .text._Exit   00000004  000000f4  000000f4  00000168  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
-   4:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-   8:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-   c:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  10:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  14:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  18:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  1c:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  20:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  24:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  28:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  2c:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  30:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  34:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  38:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  3c:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  40:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  44:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  48:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  4c:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  50:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  54:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  58:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  5c:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  60:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
-  64:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__bad_interrupt>
+   4:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+   8:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+   c:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  10:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  14:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  18:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  1c:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  20:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  24:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  28:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  2c:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  30:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  34:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  38:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  3c:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  40:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  44:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  48:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  4c:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  50:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  54:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  58:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  5c:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  60:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
+  64:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__bad_interrupt>
 
 00000068 <__ctors_end>:
   68:	11 24       	eor	r1, r1
@@ -108,8 +108,8 @@ Disassembly of section .text:
 
 Disassembly of section .text:
 
-000000f8 <__bad_interrupt>:
-  f8:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+000000f0 <__bad_interrupt>:
+  f0:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.setup:
 
@@ -119,133 +119,125 @@ Disassembly of section .text.setup:
 
 void setup(void){
 	// Configuracion inicial de los puertos como salidas
-	DDRB = 0b11111111;
-  a8:	8f ef       	ldi	r24, 0xFF	; 255
-  aa:	84 b9       	out	0x04, r24	; 4
-	DDRC = 0b11111111;
-  ac:	87 b9       	out	0x07, r24	; 7
 	DDRD = 0b11111111;
-  ae:	8a b9       	out	0x0a, r24	; 10
+  a8:	8f ef       	ldi	r24, 0xFF	; 255
+  aa:	8a b9       	out	0x0a, r24	; 10
 	// Se establece el valor de los puertos como 0
-	PORTB = 0;
-  b0:	15 b8       	out	0x05, r1	; 5
-	PORTC = 0;
-  b2:	18 b8       	out	0x08, r1	; 8
 	PORTD = 0;
-  b4:	1b b8       	out	0x0b, r1	; 11
-  b6:	08 95       	ret
+  ac:	1b b8       	out	0x0b, r1	; 11
+  ae:	08 95       	ret
 
 Disassembly of section .text.func8:
 
-000000b8 <func8>:
+000000b0 <func8>:
 	asm("nop");
 	func8();
 	return;
 }
 void func8(void){
 	PORTD |= 1<<PORTD1;
-  b8:	8b b1       	in	r24, 0x0b	; 11
-  ba:	82 60       	ori	r24, 0x02	; 2
-  bc:	8b b9       	out	0x0b, r24	; 11
-  be:	08 95       	ret
+  b0:	8b b1       	in	r24, 0x0b	; 11
+  b2:	82 60       	ori	r24, 0x02	; 2
+  b4:	8b b9       	out	0x0b, r24	; 11
+  b6:	08 95       	ret
 
 Disassembly of section .text.func7:
 
-000000c0 <func7>:
+000000b8 <func7>:
 	func7();
 	return;
 }
 
 void func7(void){
 	asm("nop");
-  c0:	00 00       	nop
+  b8:	00 00       	nop
 	func8();
-  c2:	0e 94 5c 00 	call	0xb8	; 0xb8 <func8>
-  c6:	08 95       	ret
+  ba:	0e 94 58 00 	call	0xb0	; 0xb0 <func8>
+  be:	08 95       	ret
 
 Disassembly of section .text.func6:
 
-000000c8 <func6>:
+000000c0 <func6>:
 	func6();
 	return;
 }
 
 void func6(void){
 	asm("nop");
-  c8:	00 00       	nop
+  c0:	00 00       	nop
 	func7();
-  ca:	0e 94 60 00 	call	0xc0	; 0xc0 <func7>
-  ce:	08 95       	ret
+  c2:	0e 94 5c 00 	call	0xb8	; 0xb8 <func7>
+  c6:	08 95       	ret
 
 Disassembly of section .text.func5:
 
-000000d0 <func5>:
+000000c8 <func5>:
 	func5();
 	return;
 }
 
 void func5(void){
 	asm("nop");
-  d0:	00 00       	nop
+  c8:	00 00       	nop
 	func6();
-  d2:	0e 94 64 00 	call	0xc8	; 0xc8 <func6>
-  d6:	08 95       	ret
+  ca:	0e 94 60 00 	call	0xc0	; 0xc0 <func6>
+  ce:	08 95       	ret
 
 Disassembly of section .text.func4:
 
-000000d8 <func4>:
+000000d0 <func4>:
 	func4();
 	return;
 }
 
 void func4(void){
 	asm("nop");
-  d8:	00 00       	nop
+  d0:	00 00       	nop
 	func5();
-  da:	0e 94 68 00 	call	0xd0	; 0xd0 <func5>
-  de:	08 95       	ret
+  d2:	0e 94 64 00 	call	0xc8	; 0xc8 <func5>
+  d6:	08 95       	ret
 
 Disassembly of section .text.func3:
 
-000000e0 <func3>:
+000000d8 <func3>:
 	func3();
 	return;
 }
 
 void func3(void){
 	asm("nop");
-  e0:	00 00       	nop
+  d8:	00 00       	nop
 	func4();
-  e2:	0e 94 6c 00 	call	0xd8	; 0xd8 <func4>
-  e6:	08 95       	ret
+  da:	0e 94 68 00 	call	0xd0	; 0xd0 <func4>
+  de:	08 95       	ret
 
 Disassembly of section .text.func2:
 
-000000e8 <func2>:
+000000e0 <func2>:
 	func2();
 	return;
 }
 
 void func2(void){
 	asm("nop");
-  e8:	00 00       	nop
+  e0:	00 00       	nop
 	func3();
-  ea:	0e 94 70 00 	call	0xe0	; 0xe0 <func3>
-  ee:	08 95       	ret
+  e2:	0e 94 6c 00 	call	0xd8	; 0xd8 <func3>
+  e6:	08 95       	ret
 
 Disassembly of section .text.func1:
 
-000000f0 <func1>:
+000000e8 <func1>:
 		PORTD = 0;
     }
 }
 
 void func1(void){
 	asm("nop");
-  f0:	00 00       	nop
+  e8:	00 00       	nop
 	func2();
-  f2:	0e 94 74 00 	call	0xe8	; 0xe8 <func2>
-  f6:	08 95       	ret
+  ea:	0e 94 70 00 	call	0xe0	; 0xe0 <func2>
+  ee:	08 95       	ret
 
 Disassembly of section .text.main:
 
@@ -265,7 +257,7 @@ int main(void)
   9c:	81 60       	ori	r24, 0x01	; 1
   9e:	8b b9       	out	0x0b, r24	; 11
 		func1();
-  a0:	0e 94 78 00 	call	0xf0	; 0xf0 <func1>
+  a0:	0e 94 74 00 	call	0xe8	; 0xe8 <func1>
 		// Fin de la medicion
 		PORTD = 0;
   a4:	1b b8       	out	0x0b, r1	; 11
@@ -273,31 +265,31 @@ int main(void)
 
 Disassembly of section .text.__dummy_fini:
 
-00000100 <_fini>:
- 100:	08 95       	ret
+000000f8 <_fini>:
+  f8:	08 95       	ret
 
 Disassembly of section .text.__dummy_funcs_on_exit:
 
-00000102 <__funcs_on_exit>:
- 102:	08 95       	ret
+000000fa <__funcs_on_exit>:
+  fa:	08 95       	ret
 
 Disassembly of section .text.__dummy_simulator_exit:
 
-00000104 <__simulator_exit>:
- 104:	08 95       	ret
+000000fc <__simulator_exit>:
+  fc:	08 95       	ret
 
 Disassembly of section .text.exit:
 
 00000080 <exit>:
   80:	ec 01       	movw	r28, r24
-  82:	0e 94 81 00 	call	0x102	; 0x102 <__funcs_on_exit>
-  86:	0e 94 80 00 	call	0x100	; 0x100 <_fini>
+  82:	0e 94 7d 00 	call	0xfa	; 0xfa <__funcs_on_exit>
+  86:	0e 94 7c 00 	call	0xf8	; 0xf8 <_fini>
   8a:	ce 01       	movw	r24, r28
-  8c:	0e 94 82 00 	call	0x104	; 0x104 <__simulator_exit>
+  8c:	0e 94 7e 00 	call	0xfc	; 0xfc <__simulator_exit>
   90:	ce 01       	movw	r24, r28
-  92:	0e 94 7e 00 	call	0xfc	; 0xfc <_Exit>
+  92:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Exit>
 
 Disassembly of section .text._Exit:
 
-000000fc <_Exit>:
-  fc:	0e 94 3e 00 	call	0x7c	; 0x7c <_exit>
+000000f4 <_Exit>:
+  f4:	0e 94 3e 00 	call	0x7c	; 0x7c <_exit>

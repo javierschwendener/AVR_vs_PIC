@@ -14,18 +14,18 @@
 $dist/default/production\PilaAnidada.production.o
 cinit CODE 0 7FC 7FC 4 2 1
 idloc IDLOC 5 2000 2000 4 2 1
-text1 CODE 0 7E7 7E7 15 2 1
-text2 CODE 0 7CC 7CC 7 2 1
-text3 CODE 0 7C5 7C5 7 2 1
-text4 CODE 0 7BE 7BE 7 2 1
-text5 CODE 0 7B7 7B7 7 2 1
-text6 CODE 0 7B0 7B0 7 2 1
-text7 CODE 0 7A9 7A9 7 2 1
-text8 CODE 0 7A2 7A2 7 2 1
-text9 CODE 0 79E 79E 4 2 1
-maintext CODE 0 7D3 7D3 14 2 1
+text1 CODE 0 7DA 7DA E 2 1
+text2 CODE 0 7D3 7D3 7 2 1
+text3 CODE 0 7CC 7CC 7 2 1
+text4 CODE 0 7C5 7C5 7 2 1
+text5 CODE 0 7BE 7BE 7 2 1
+text6 CODE 0 7B7 7B7 7 2 1
+text7 CODE 0 7B0 7B0 7 2 1
+text8 CODE 0 7A9 7A9 7 2 1
+text9 CODE 0 7A5 7A5 4 2 1
+maintext CODE 0 7E8 7E8 14 2 1
 config CONFIG 4 2007 2007 2 2 1
-$C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
+$C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
 idloc IDLOC 5 2000 2000 4 2 1
 end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 2 2 1
@@ -43,11 +43,11 @@ BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 3-79D 2
+CONST 3-7A4 2
 CONST 800-1FFF 2
-ENTRY 3-79D 2
+ENTRY 3-7A4 2
 ENTRY 800-1FFF 2
-CODE 3-79D 2
+CODE 3-7A4 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -55,9 +55,9 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 COMMON 70-7D 1
 EEDATA 2100-21FF 2
-STRCODE 3-79D 2
+STRCODE 3-7A4 2
 STRCODE 800-1FFF 2
-STRING 3-79D 2
+STRING 3-7A4 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -73,62 +73,56 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\PilaAnidada.production.o
-7FC cinit CODE >457:C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.s
-7FC cinit CODE >460:C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.s
-7FC cinit CODE >466:C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.s
-7FC cinit CODE >468:C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.s
-7FD cinit CODE >469:C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.s
-79E text9 CODE >108:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-79E text9 CODE >110:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7A1 text9 CODE >112:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7A2 text8 CODE >102:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7A2 text8 CODE >103:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7A3 text8 CODE >104:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7A8 text8 CODE >106:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7A9 text7 CODE >96:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7A9 text7 CODE >97:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7AA text7 CODE >98:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7AF text7 CODE >100:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7B0 text6 CODE >90:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7B0 text6 CODE >91:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7B1 text6 CODE >92:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7B6 text6 CODE >94:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7B7 text5 CODE >84:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7B7 text5 CODE >85:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7B8 text5 CODE >86:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7BD text5 CODE >88:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7BE text4 CODE >78:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7BE text4 CODE >79:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7BF text4 CODE >80:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7C4 text4 CODE >82:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7C5 text3 CODE >72:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7C5 text3 CODE >73:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7C6 text3 CODE >74:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7CB text3 CODE >76:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7CC text2 CODE >66:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7CC text2 CODE >67:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7CD text2 CODE >68:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7D2 text2 CODE >70:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7E7 text1 CODE >37:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7E7 text1 CODE >38:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7EA text1 CODE >39:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7EB text1 CODE >40:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7EE text1 CODE >41:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7EF text1 CODE >42:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7F0 text1 CODE >43:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7F1 text1 CODE >44:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7F5 text1 CODE >45:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7F6 text1 CODE >46:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7F7 text1 CODE >47:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7F8 text1 CODE >48:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7F9 text1 CODE >49:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7FA text1 CODE >50:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7FB text1 CODE >52:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7D3 maintext CODE >54:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7D3 maintext CODE >55:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7D8 maintext CODE >58:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7DB maintext CODE >59:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
-7E0 maintext CODE >61:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7FC cinit CODE >445:C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.s
+7FC cinit CODE >448:C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.s
+7FC cinit CODE >454:C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.s
+7FC cinit CODE >456:C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.s
+7FD cinit CODE >457:C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.s
+7A5 text9 CODE >102:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7A5 text9 CODE >104:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7A8 text9 CODE >106:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7A9 text8 CODE >96:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7A9 text8 CODE >97:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7AA text8 CODE >98:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7AF text8 CODE >100:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7B0 text7 CODE >90:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7B0 text7 CODE >91:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7B1 text7 CODE >92:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7B6 text7 CODE >94:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7B7 text6 CODE >84:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7B7 text6 CODE >85:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7B8 text6 CODE >86:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7BD text6 CODE >88:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7BE text5 CODE >78:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7BE text5 CODE >79:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7BF text5 CODE >80:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7C4 text5 CODE >82:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7C5 text4 CODE >72:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7C5 text4 CODE >73:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7C6 text4 CODE >74:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7CB text4 CODE >76:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7CC text3 CODE >66:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7CC text3 CODE >67:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7CD text3 CODE >68:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7D2 text3 CODE >70:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7D3 text2 CODE >60:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7D3 text2 CODE >61:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7D4 text2 CODE >62:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7D9 text2 CODE >64:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7DA text1 CODE >37:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7DA text1 CODE >38:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7DD text1 CODE >39:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7DE text1 CODE >40:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7E1 text1 CODE >41:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7E4 text1 CODE >42:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7E5 text1 CODE >43:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7E6 text1 CODE >44:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7E7 text1 CODE >46:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7E8 maintext CODE >48:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7E8 maintext CODE >49:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7ED maintext CODE >52:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7F0 maintext CODE >53:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
+7F5 maintext CODE >55:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\C\PIC\PilaAnidada\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -149,27 +143,27 @@ __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
-_main FA6 0 CODE 0 maintext dist/default/production\PilaAnidada.production.o
+___sp 0 0 STACK 2 stack C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
+_main FD0 0 CODE 0 maintext dist/default/production\PilaAnidada.production.o
 btemp 7E 0 ABS 0 - dist/default/production\PilaAnidada.production.o
-start 0 0 CODE 0 init C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
+start 0 0 CODE 0 init C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\PilaAnidada.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\PilaAnidada.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 _ANSELH 189 0 ABS 0 - dist/default/production\PilaAnidada.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
-___stacklo 0 0 ABS 0 - C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
+___stackhi 0 0 ABS 0 - C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
+___stacklo 0 0 ABS 0 - C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
 start_initialization FF8 0 CODE 0 cinit dist/default/production\PilaAnidada.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
+___int_sp 0 0 STACK 2 stack C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -209,8 +203,8 @@ __S0 800 0 ABS 0 - -
 __S1 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Schinzii\AppData\Local\Temp\xcAsapk.o
-__pmaintext FA6 0 CODE 0 maintext dist/default/production\PilaAnidada.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Schinzii\AppData\Local\Temp\xcAs5dg.o
+__pmaintext FD0 0 CODE 0 maintext dist/default/production\PilaAnidada.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 __Lspace_0 0 0 ABS 0 - -
@@ -224,15 +218,15 @@ end_of_initialization FF8 0 CODE 0 cinit dist/default/production\PilaAnidada.pro
 __Hintentry 0 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__ptext1 FCE 0 CODE 0 text1 dist/default/production\PilaAnidada.production.o
-__ptext2 F98 0 CODE 0 text2 dist/default/production\PilaAnidada.production.o
-__ptext3 F8A 0 CODE 0 text3 dist/default/production\PilaAnidada.production.o
-__ptext4 F7C 0 CODE 0 text4 dist/default/production\PilaAnidada.production.o
-__ptext5 F6E 0 CODE 0 text5 dist/default/production\PilaAnidada.production.o
-__ptext6 F60 0 CODE 0 text6 dist/default/production\PilaAnidada.production.o
-__ptext7 F52 0 CODE 0 text7 dist/default/production\PilaAnidada.production.o
-__ptext8 F44 0 CODE 0 text8 dist/default/production\PilaAnidada.production.o
-__ptext9 F3C 0 CODE 0 text9 dist/default/production\PilaAnidada.production.o
+__ptext1 FB4 0 CODE 0 text1 dist/default/production\PilaAnidada.production.o
+__ptext2 FA6 0 CODE 0 text2 dist/default/production\PilaAnidada.production.o
+__ptext3 F98 0 CODE 0 text3 dist/default/production\PilaAnidada.production.o
+__ptext4 F8A 0 CODE 0 text4 dist/default/production\PilaAnidada.production.o
+__ptext5 F7C 0 CODE 0 text5 dist/default/production\PilaAnidada.production.o
+__ptext6 F6E 0 CODE 0 text6 dist/default/production\PilaAnidada.production.o
+__ptext7 F60 0 CODE 0 text7 dist/default/production\PilaAnidada.production.o
+__ptext8 F52 0 CODE 0 text8 dist/default/production\PilaAnidada.production.o
+__ptext9 F4A 0 CODE 0 text9 dist/default/production\PilaAnidada.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -241,36 +235,30 @@ __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 0 0 COMMON 1 cstackCOMMON dist/default/production\PilaAnidada.production.o
 __Hend_init 6 0 CODE 0 end_init -
-__end_of_main FCE 0 CODE 0 maintext dist/default/production\PilaAnidada.production.o
+__end_of_main FF8 0 CODE 0 maintext dist/default/production\PilaAnidada.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\PilaAnidada.production.o
-__end_of_func1 FA6 0 CODE 0 text2 dist/default/production\PilaAnidada.production.o
-__end_of_func2 F98 0 CODE 0 text3 dist/default/production\PilaAnidada.production.o
-__end_of_func3 F8A 0 CODE 0 text4 dist/default/production\PilaAnidada.production.o
-__end_of_func4 F7C 0 CODE 0 text5 dist/default/production\PilaAnidada.production.o
-__end_of_func5 F6E 0 CODE 0 text6 dist/default/production\PilaAnidada.production.o
-__end_of_func6 F60 0 CODE 0 text7 dist/default/production\PilaAnidada.production.o
-__end_of_func7 F52 0 CODE 0 text8 dist/default/production\PilaAnidada.production.o
-__end_of_func8 F44 0 CODE 0 text9 dist/default/production\PilaAnidada.production.o
-_PORTA 5 0 ABS 0 - dist/default/production\PilaAnidada.production.o
-_PORTB 6 0 ABS 0 - dist/default/production\PilaAnidada.production.o
-_PORTC 7 0 ABS 0 - dist/default/production\PilaAnidada.production.o
+__end_of_func1 FB4 0 CODE 0 text2 dist/default/production\PilaAnidada.production.o
+__end_of_func2 FA6 0 CODE 0 text3 dist/default/production\PilaAnidada.production.o
+__end_of_func3 F98 0 CODE 0 text4 dist/default/production\PilaAnidada.production.o
+__end_of_func4 F8A 0 CODE 0 text5 dist/default/production\PilaAnidada.production.o
+__end_of_func5 F7C 0 CODE 0 text6 dist/default/production\PilaAnidada.production.o
+__end_of_func6 F6E 0 CODE 0 text7 dist/default/production\PilaAnidada.production.o
+__end_of_func7 F60 0 CODE 0 text8 dist/default/production\PilaAnidada.production.o
+__end_of_func8 F52 0 CODE 0 text9 dist/default/production\PilaAnidada.production.o
 _PORTD 8 0 ABS 0 - dist/default/production\PilaAnidada.production.o
-_TRISA 85 0 ABS 0 - dist/default/production\PilaAnidada.production.o
-_TRISB 86 0 ABS 0 - dist/default/production\PilaAnidada.production.o
-_TRISC 87 0 ABS 0 - dist/default/production\PilaAnidada.production.o
 _TRISD 88 0 ABS 0 - dist/default/production\PilaAnidada.production.o
-__end_of_setup FF8 0 CODE 0 text1 dist/default/production\PilaAnidada.production.o
+__end_of_setup FD0 0 CODE 0 text1 dist/default/production\PilaAnidada.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_func1 F98 0 CODE 0 text2 dist/default/production\PilaAnidada.production.o
-_func2 F8A 0 CODE 0 text3 dist/default/production\PilaAnidada.production.o
-_func3 F7C 0 CODE 0 text4 dist/default/production\PilaAnidada.production.o
-_func4 F6E 0 CODE 0 text5 dist/default/production\PilaAnidada.production.o
-_func5 F60 0 CODE 0 text6 dist/default/production\PilaAnidada.production.o
-_func6 F52 0 CODE 0 text7 dist/default/production\PilaAnidada.production.o
-_func7 F44 0 CODE 0 text8 dist/default/production\PilaAnidada.production.o
-_func8 F3C 0 CODE 0 text9 dist/default/production\PilaAnidada.production.o
-_setup FCE 0 CODE 0 text1 dist/default/production\PilaAnidada.production.o
+_func1 FA6 0 CODE 0 text2 dist/default/production\PilaAnidada.production.o
+_func2 F98 0 CODE 0 text3 dist/default/production\PilaAnidada.production.o
+_func3 F8A 0 CODE 0 text4 dist/default/production\PilaAnidada.production.o
+_func4 F7C 0 CODE 0 text5 dist/default/production\PilaAnidada.production.o
+_func5 F6E 0 CODE 0 text6 dist/default/production\PilaAnidada.production.o
+_func6 F60 0 CODE 0 text7 dist/default/production\PilaAnidada.production.o
+_func7 F52 0 CODE 0 text8 dist/default/production\PilaAnidada.production.o
+_func8 F4A 0 CODE 0 text9 dist/default/production\PilaAnidada.production.o
+_setup FB4 0 CODE 0 text1 dist/default/production\PilaAnidada.production.o
 __initialization FF8 0 CODE 0 cinit dist/default/production\PilaAnidada.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -298,16 +286,16 @@ __initialization FF8 0 CODE 0 cinit dist/default/production\PilaAnidada.producti
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7FC FF8 4 2
-text1 0 7E7 FCE 15 2
-text2 0 7CC F98 7 2
-text3 0 7C5 F8A 7 2
-text4 0 7BE F7C 7 2
-text5 0 7B7 F6E 7 2
-text6 0 7B0 F60 7 2
-text7 0 7A9 F52 7 2
-text8 0 7A2 F44 7 2
-text9 0 79E F3C 4 2
-maintext 0 7D3 FA6 14 2
+text1 0 7DA FB4 E 2
+text2 0 7D3 FA6 7 2
+text3 0 7CC F98 7 2
+text4 0 7C5 F8A 7 2
+text5 0 7BE F7C 7 2
+text6 0 7B7 F6E 7 2
+text7 0 7B0 F60 7 2
+text8 0 7A9 F52 7 2
+text9 0 7A5 F4A 4 2
+maintext 0 7E8 FD0 14 2
 reset_vec 0 0 0 3 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

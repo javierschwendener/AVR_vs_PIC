@@ -42,7 +42,6 @@ void setup(void){
     OSCCONbits.IRCF0 = 1;
     OSCCONbits.IRCF1 = 1;
     OSCCONbits.IRCF2 = 1;
-    OSCTUNE = 0b00001111;
     return;
 }
 

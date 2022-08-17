@@ -23,7 +23,7 @@
  </OUTPUT_FILES>
  <LABELS>
   <setup><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaSimple\main.asm</FILE><LINE>10</LINE></setup>
-  <loop><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaSimple\main.asm</FILE><LINE>21</LINE></loop>
-  <func1><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaSimple\main.asm</FILE><LINE>29</LINE></func1>
+  <loop><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaSimple\main.asm</FILE><LINE>17</LINE></loop>
+  <func1><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\PilaSimple\main.asm</FILE><LINE>25</LINE></func1>
  </LABELS>
 </ASSEMBLER_INFO>

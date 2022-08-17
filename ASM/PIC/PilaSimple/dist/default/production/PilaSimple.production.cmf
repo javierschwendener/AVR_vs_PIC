@@ -12,7 +12,7 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $build/default/production/main.o
-code CODE 0 0 0 22 2 1
+code CODE 0 0 0 20 2 1
 config CONFIG 4 2007 2007 2 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -28,17 +28,17 @@ BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 22-1FFF 2
-ENTRY 22-1FFF 2
+CONST 20-1FFF 2
+ENTRY 20-1FFF 2
 IDLOC 2000-2003 2
-CODE 22-1FFF 2
+CODE 20-1FFF 2
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
 COMMON 70-7F 1
 EEDATA 2100-21FF 2
-STRCODE 22-1FFF 2
-STRING 22-1FFF 2
+STRCODE 20-1FFF 2
+STRING 20-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -64,18 +64,16 @@ E code CODE >48:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\AS
 11 code CODE >50:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
 12 code CODE >51:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
 13 code CODE >52:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
-14 code CODE >53:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
-15 code CODE >54:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
-17 code CODE >55:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
-18 code CODE >56:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
-1A code CODE >57:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
-1B code CODE >58:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
+15 code CODE >53:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
+16 code CODE >54:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
+18 code CODE >55:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
+19 code CODE >56:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
+1A code CODE >62:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
+1B code CODE >63:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
 1C code CODE >64:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
 1D code CODE >65:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
-1E code CODE >66:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
-1F code CODE >67:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
-20 code CODE >72:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
-21 code CODE >73:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
+1E code CODE >70:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
+1F code CODE >71:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\PilaSimple\main.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -88,7 +86,7 @@ E code CODE >48:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\AS
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 22 0 ABS 0 - -
+__Hspace_0 20 0 ABS 0 - -
 __Hspace_1 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
