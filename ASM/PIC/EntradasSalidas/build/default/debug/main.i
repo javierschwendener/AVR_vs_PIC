@@ -2519,7 +2519,7 @@ ENDM
  ;Si se prende A0, aumentar el contador 1
  BTFSC PORTA, 0
  CALL suma1
- ;Si se prende A1, decrementar el contador 1
+ Si se prende A1, decrementar el contador 1
  BTFSC PORTA, 1
  CALL resta1
  ;Antirebote
@@ -2549,22 +2549,8 @@ ENDM
 
     resta1:
  ;Antirebote
- BTFSC PORTA, 1
+ BTFSC PORTA, 0
  GOTO $-1
- MOVLW 0B00001111 ;Se carga 15 al registro W
- ANDWF INFNIBBLE ;AND W & INFNIBBLE, se guarda en W
- BTFSC STATUS, 2 ;Se verifica el STATUS Z
- GOTO $+6
- ;En caso Z = 0
- DECF INFNIBBLE ;Resta 1 al nibble inferior
- MOVLW 0B00001111 ;Se carga 15 a W (mascara)
- ANDWF INFNIBBLE, 0 ;AND W & INFNIBBLE, se guarda en W
- MOVWF PORTD ;Se mueve el resultado al puerto D
- return
- ;En caso Z = 1 (operacion anterior = 0)
- MOVLW 0b00001111 ;Se carga 15 a W
- MOVWF INFNIBBLE ;Se hace el underflow del contador
- MOVWF PORTD ;Se reflejan los resultados en el puerto D
- return
+
 
     END

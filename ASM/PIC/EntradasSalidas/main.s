@@ -31,6 +31,13 @@ PROCESSOR 16F887
 #include <xc.inc>
   
 ; Declaracion de variables
+  PSECT	udata
+
+  INFNIBBLE:
+    DS 1
+    
+  SUPNIBBLE:
+    DS 1
   
 ; Vector RESET
   PSECT code, delta = 2, abs
@@ -48,67 +55,64 @@ PROCESSOR 16F887
 	BANKSEL	TRISA
 	CLRF	TRISA
 	CLRF	TRISB
-	CLRF	TRISC
 	CLRF	TRISD
-	MOVLW	0b00011111  ;A0 y A1 como entradas
-	MOVWF	TRISA
+	MOVLW	0b00011111
+	MOVWF	TRISA	    ;A0, A1, A2, A3 y A4 como entradas
 	BANKSEL	PORTA
 	CLRF	PORTA
 	CLRF	PORTB
-	CLRF	PORTC
 	CLRF	PORTD
-	goto	loop
+	goto	loop   
 
 
 ; Main code
     loop:
 	;Si se prende A0, aumentar el contador 1
 	BTFSC	PORTA,	0
-	INCF	PORTD
+	CALL	suma1
+	;Si se prende A1, decrementar el contador 1
+	BTFSC	PORTA,	1
+	CALL	resta1
+	GOTO	loop
+
+    suma1:
 	;Antirebote
 	BTFSC	PORTA,	0
 	GOTO	$-1
-	;Si se prende A1, decrementar el contador 1
-	BTFSC	PORTA,	1
-	DECF	PORTD
+	MOVLW	0B00001111	;Se carga 15 al registro W
+	SUBWF	INFNIBBLE,  0	;Se resta INFNIBBLE - W, guarda en W
+	BTFSC	STATUS,	2	;Revisa STATUS Z (operacion anterior = 0)
+	GOTO	$+6
+	;En caso Z = 0
+	INCF	INFNIBBLE	;Suma 1 al nibble inferior
+	MOVLW	0B00001111	;Se carga 15 a W (mascara)
+	ANDWF	INFNIBBLE,  0	;AND W & INFNIBBLE, se guarda en W
+	MOVWF	PORTD		;Se mueve el resultado al puerto D
+	return
+	;En caso Z = 1 (operacion anterior = 0)
+	MOVLW	0B00000000	;Se carga 15 a W
+	MOVWF	INFNIBBLE	;Se reinicia INFNIBBLE
+	MOVWF	PORTD		;Se reflejan los resultados en el puerto D
+	return
+	
+    resta1:
 	;Antirebote
 	BTFSC	PORTA,	1
 	GOTO	$-1
-	;Si se prende el bit 7 del puerto D, se coloca el valor 0b00001111
-	MOVLW	0b00001111
-	BTFSC	PORTD,	7
-	MOVWF	PORTD
-	;Si se prende el bit 4 del puerto D, reiniciar el contador 1
-	;Esto con el fin de que el contador sea de 4 bits
-	BTFSC	PORTD,	4
-	CLRF	PORTD
-	;Si se prende A2, aumentar el contador 2
-	BTFSC	PORTA,	2
-	INCF	PORTC
-	;Antirebote
-	BTFSC	PORTA,	2
-	GOTO	$-1
-	;Si se prende A3, decrementar el contador 2
-	BTFSC	PORTA,	3
-	DECF	PORTC
-	;Antirebote
-	BTFSC	PORTA,	3
-	GOTO	$-1
-	;Si se prende el bit 7 del puerto C, se coloca el valor 0b00001111
-	MOVLW	0b00001111
-	BTFSC	PORTC,	7
-	MOVWF	PORTC
-	;Si se prende el bit 4 del puerto C, reiniciar el contador 2
-	BTFSC	PORTC,	4
-	CLRF	PORTC
-	;Se suman ambos contadores y se muestra el resultado en el puerto B
-	MOVF	PORTD,	0   ;Se mueve PORTD a W
-	BTFSC	PORTA,	4
-	ADDWF	PORTC,	0   ;Se suma W + PORTC
-	BTFSC	PORTA,	4
-	MOVWF	PORTB	    ;Pasa W al PORTB
-	;Antirrebote
-	BTFSC	PORTA,	4
-	GOTO	$-1
-	GOTO	loop
+	MOVLW	0B00001111	;Se carga 15 al registro W
+	ANDWF	INFNIBBLE	;AND W & INFNIBBLE, se guarda en W
+	BTFSC	STATUS,	2	;Se verifica el STATUS Z
+	GOTO	$+6
+	;En caso Z = 0
+	DECF	INFNIBBLE	;Resta 1 al nibble inferior
+	MOVLW	0B00001111	;Se carga 15 a W (mascara)
+	ANDWF	INFNIBBLE,  0	;AND W & INFNIBBLE, se guarda en W
+	MOVWF	PORTD		;Se mueve el resultado al puerto D
+	return
+	;En caso Z = 1 (operacion anterior = 0)
+	MOVLW	0b00001111	;Se carga 15 a W
+	MOVWF	INFNIBBLE	;Se hace el underflow del contador
+	MOVWF	PORTD		;Se reflejan los resultados en el puerto D
+	return
+	
     END
