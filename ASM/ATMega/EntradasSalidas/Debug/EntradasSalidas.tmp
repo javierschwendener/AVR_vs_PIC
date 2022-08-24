@@ -1,0 +1,34 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EntradasSalidas\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EntradasSalidas\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EntradasSalidas\Debug\EntradasSalidas.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>EntradasSalidas.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>EntradasSalidas.map</FILE>
+  <FILE>EntradasSalidas.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <setup><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EntradasSalidas\main.asm</FILE><LINE>9</LINE></setup>
+  <loop><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EntradasSalidas\main.asm</FILE><LINE>29</LINE></loop>
+  <suma1><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EntradasSalidas\main.asm</FILE><LINE>53</LINE></suma1>
+  <resta1><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EntradasSalidas\main.asm</FILE><LINE>89</LINE></resta1>
+  <suma2><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EntradasSalidas\main.asm</FILE><LINE>70</LINE></suma2>
+  <resta2><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EntradasSalidas\main.asm</FILE><LINE>105</LINE></resta2>
+  <resultado><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EntradasSalidas\main.asm</FILE><LINE>124</LINE></resultado>
+  <nops><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EntradasSalidas\main.asm</FILE><LINE>136</LINE></nops>
+ </LABELS>
+</ASSEMBLER_INFO>

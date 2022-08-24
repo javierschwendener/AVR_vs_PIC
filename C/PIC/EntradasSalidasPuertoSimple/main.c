@@ -23,6 +23,8 @@
 #include <xc.h>
 
 /*VARIABLES*/
+int infnibble = 0;
+int supnibble = 0;
 
 void setup(void){
     ANSEL   =   0;
@@ -39,63 +41,66 @@ void setup(void){
 void main(void) {
     setup();
     while(1){
-        // Contador 1
-        if(PORTAbits.RA0 == 1)
+        // CONTADOR 1
+        // Suma
         if(PORTAbits.RA0 == 1){
-            PORTD = PORTD + 1;
-        }
-        // Overflow
-        if(PORTD == 0b00010000){
-            PORTD = 0;
+            infnibble = infnibble + 1;
         }
         // Antirebote
         while(PORTAbits.RA0 == 1){
             NOP();
         }
-        if(PORTAbits.RA1 == 1){
-            PORTD = PORTD - 1;
+        // OVERFLOW
+        if (infnibble > 15){ //0b00001111
+            infnibble = 0;
         }
-        // Underflow
-        if(PORTD == 0b11111111){
-            PORTD = 0b00001111;
+        // Resta
+        if(PORTAbits.RA1 == 1){
+            infnibble = infnibble - 1;
         }
         // Antirebote
         while(PORTAbits.RA1 == 1){
             NOP();
         }
-        
-        // Contador 2
-        if(PORTAbits.RA2 == 1){
-            PORTC = PORTC + 1;
+        // UNDERFLOW
+        if(infnibble < 0){ //0b00000000
+            infnibble = 15;
         }
-        // Overflow
-        if(PORTC == 0b00010000){
-            PORTC = 0;
+        
+        // CONTADOR 2
+        if(PORTAbits.RA2 == 1){
+            supnibble = supnibble + 1;
         }
         // Antirebote
         while(PORTAbits.RA2 == 1){
             NOP();
         }
-        if(PORTAbits.RA3 == 1){
-            PORTC = PORTC - 1;
+        if (supnibble > 15){ //0b00001111
+            supnibble = 0;
         }
-        // Underflow
-        if(PORTC == 0b11111111){
-            PORTC = 0b00001111;
+        // Resta
+        if(PORTAbits.RA3 == 1){
+            supnibble = supnibble - 1;
         }
         // Antirebote
         while(PORTAbits.RA3 == 1){
             NOP();
         }
+        // UNDERFLOW
+        if(supnibble < 0){ //0b00000000
+            supnibble = 15;
+        }
         
-        // Sumatoria de contadores
+        // Mostrar los resultados en el puerto D
+        PORTD = (16*supnibble) + infnibble;
+        
+        // SUMA DE CONTADORES
         if(PORTAbits.RA4 == 1){
-            PORTB = PORTC + PORTD;
+            PORTB = supnibble + infnibble;
         }
         // Antirebote
         while(PORTAbits.RA4 == 1){
             NOP();
         }
     }
-    return;
 }
