@@ -2501,6 +2501,10 @@ ENDM
  BANKSEL ANSEL
  CLRF ANSEL
  CLRF ANSELH
+ BANKSEL OSCCON
+ BSF OSCCON, 4
+ BSF OSCCON, 5
+ BSF OSCCON, 6
  BANKSEL TRISA
  CLRF TRISA
  CLRF TRISB
@@ -2554,11 +2558,9 @@ ENDM
  MOVLW 0B00001111 ;Se carga 15 al registro W
  SUBWF INFNIBBLE, 0 ;Se resta INFNIBBLE - W, guarda en W
  BTFSC STATUS, 2 ;Revisa STATUS Z (operacion anterior = 0)
- GOTO $+5
+ GOTO $+3
  ;En caso Z = 0
  INCF INFNIBBLE ;Suma 1 al nibble inferior
- MOVLW 0B00001111 ;Se carga 15 a W (mascara)
- ANDWF INFNIBBLE, 0 ;AND W & INFNIBBLE, se guarda en W
  return
  ;En caso Z = 1 (operacion anterior = 0)
  MOVLW 0B00000000 ;Se carga 0 a W
@@ -2574,12 +2576,10 @@ ENDM
  MOVLW 0B00001111 ;Se carga 15 al registro W
  SUBWF SUPNIBBLE, 0 ;Se resta SUPNIBBLE - W, guarda en W
  BTFSC STATUS, 2 ;Revisa STATUS Z (operacion anterior = 0)
- GOTO $+6
+ GOTO $+4
  ;En caso Z = 0
  INCF SUPNIBBLE ;Suma 1 al nibble superior (swap)
  SWAPF SUPNIBBLE, 1 ;Se hace swap nuevamente de los nibbles
- MOVLW 0B11110000 ;Se carga 240 al registro W (mascara)
- ANDWF SUPNIBBLE, 0 ;AND W & SUPNIBBLE, se guarda en W
  return
  ;En caso Z = 1 (operacion anterior = 0)
  MOVLW 0B00000000 ;Se carga 0 a W
@@ -2594,11 +2594,9 @@ ENDM
  MOVLW 0B00001111 ;Se carga 15 al registro W
  ANDWF INFNIBBLE ;AND W & INFNIBBLE, se guarda en W
  BTFSC STATUS, 2 ;Se verifica el STATUS Z
- GOTO $+5
+ GOTO $+3
  ;En caso Z = 0
  DECF INFNIBBLE ;Resta 1 al nibble inferior
- MOVLW 0B00001111 ;Se carga 15 a W (mascara)
- ANDWF INFNIBBLE, 0 ;AND W & INFNIBBLE, se guarda en W
  return
  ;En caso Z = 1 (operacion anterior = 0)
  MOVLW 0b00001111 ;Se carga 15 a W
@@ -2615,11 +2613,9 @@ ENDM
  MOVLW 0B00001111 ;Se carga 15 al registro W
  ANDWF SUPNIBBLE ;AND W & SUPNIBBLE, se guarda en W
  BTFSC STATUS, 2 ;Se verifica el STATUS Z
- GOTO $+6
+ GOTO $+4
  ;En caso Z = 0
  DECF SUPNIBBLE ;Resta 1 al nibble inferior
- MOVLW 0B00001111 ;Se carga 15 a W (mascara)
- ANDWF SUPNIBBLE, 0 ;AND W & SUPNIBBLE, se guarda en W
  SWAPF SUPNIBBLE, 1 ;Se hace swap nuevamente
  return
  ;En caso Z = 1 (operacion anterior = 0)

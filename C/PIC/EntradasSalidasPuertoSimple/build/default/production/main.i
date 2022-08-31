@@ -2663,6 +2663,9 @@ void setup(void){
     TRISA = 0b00011111;
     TRISB = 0;
     TRISD = 0;
+    OSCCONbits.IRCF0 = 1;
+    OSCCONbits.IRCF1 = 1;
+    OSCCONbits.IRCF2 = 1;
     return;
 }
 

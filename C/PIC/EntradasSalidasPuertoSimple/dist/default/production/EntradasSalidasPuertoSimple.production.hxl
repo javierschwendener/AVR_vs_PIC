@@ -9,11 +9,11 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 5h		(dist/default/production\EntradasSalidasPuertoSimple.production.hex)
-  E82h - FFFh		(dist/default/production\EntradasSalidasPuertoSimple.production.hex)
+  E7Ch - FFFh		(dist/default/production\EntradasSalidasPuertoSimple.production.hex)
   4000h - 4007h		(dist/default/production\EntradasSalidasPuertoSimple.production.hex)
   400Eh - 4011h		(dist/default/production\EntradasSalidasPuertoSimple.production.hex)
  Unused ranges:
-  6h - E81h
+  6h - E7Bh
   1000h - 3FFFh
   4008h - 400Dh
 
@@ -26,7 +26,8 @@
 ----------------------------------------------------------
 00000000 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-00000E80 | -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000E70 | -- -- -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1
+00000E80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000E90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000EA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000EB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

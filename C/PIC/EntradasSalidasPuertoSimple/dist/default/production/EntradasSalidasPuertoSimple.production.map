@@ -5,10 +5,10 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.36\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\EntradasSalidasPuertoSimple.production.sym \
   --cmf=dist/default/production\EntradasSalidasPuertoSimple.production.cmf \
-  -z -Q16F887 -oC:\Users\Schinzii\AppData\Local\Temp\xcAs7pg.4 \
+  -z -Q16F887 -oC:\Users\Schinzii\AppData\Local\Temp\xcAsbpc.4 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/EntradasSalidasPuertoSimple.production.map \
-  --md=C:\Users\Schinzii\AppData\Local\Temp\xcAs7pg.dat -E1 \
+  --md=C:\Users\Schinzii\AppData\Local\Temp\xcAsbpc.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
   -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
@@ -20,7 +20,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\Schinzii\AppData\Local\Temp\xcAs7pg.o \
+  -pfunctab=ENTRY -k C:\Users\Schinzii\AppData\Local\Temp\xcAsbpc.o \
   dist/default/production\EntradasSalidasPuertoSimple.production.o 
 
 Object code version is 3.11
@@ -30,7 +30,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Schinzii\AppData\Local\Temp\xcAs7pg.o
+C:\Users\Schinzii\AppData\Local\Temp\xcAsbpc.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        2        0       4
                 idloc                              2000     2000        4        0       5
@@ -38,7 +38,7 @@ dist/default/production\EntradasSalidasPuertoSimple.production.o
                 cinit                               7F8      7F8        8      FF0       0
                 config                             2007     2007        2        0       4
                 idloc                              2000     2000        4        0       5
-                text1                               741      741       10      E82       0
+                text1                               73E      73E       13      E7C       0
                 maintext                            751      751       A7      EA2       0
                 cstackCOMMON                         74       74        1       70       1
                 bssCOMMON                            70       70        4       70       1
@@ -47,7 +47,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 end_init                              0        0        3         0
                 cinit                               7F8      7F8        8         0
-                text1                               741      741       10         0
+                text1                               73E      73E       13         0
                 maintext                            751      751       A7         0
 
         CLASS   STRCODE        
@@ -99,7 +99,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
                 bssCOMMON                      000070  000005  000075        70       1  COMMON      1
-                text1                          000741  000010  000751       E82       0  CODE        2
+                text1                          00073E  000013  000751       E7C       0  CODE        2
                 maintext                       000751  0000A7  0007F8       EA2       0  CODE        2
                 cinit                          0007F8  000008  000800       FF0       0  CODE        2
 
@@ -111,13 +111,13 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0003-0740            73E           2
+        CODE             0003-073D            73B           2
                          0800-1FFF            800
         COMMON           0075-007D              9           1
-        CONST            0003-0740            100           2
+        CONST            0003-073D            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-0740            100           2
+        ENTRY            0003-073D            100           2
                          0800-1FFF            100
         RAM              0020-006F             50           1
                          00A0-00EF             50
@@ -127,15 +127,16 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          0003-0740            73E           2
+        STRCODE          0003-073D            73B           2
                          0800-1FFF           1800
-        STRING           0003-0740            100           2
+        STRING           0003-073D            100           2
                          0800-1FFF            100
 
                                   Symbol Table
 
 _ANSEL                   (abs)        0188
 _ANSELH                  (abs)        0189
+_OSCCONbits              (abs)        008F
 _PORTA                   (abs)        0005
 _PORTAbits               (abs)        0005
 _PORTB                   (abs)        0006
@@ -226,10 +227,10 @@ __initialization         cinit        07F8
 __pbssCOMMON             bssCOMMON    0070
 __pcstackCOMMON          cstackCOMMON 0074
 __pmaintext              maintext     0751
-__ptext1                 text1        0741
+__ptext1                 text1        073E
 _infnibble               bssCOMMON    0070
 _main                    maintext     0751
-_setup                   text1        0741
+_setup                   text1        073E
 _supnibble               bssCOMMON    0072
 btemp                    (abs)        007E
 end_of_initialization    cinit        07FC
@@ -255,7 +256,7 @@ shared estimated size: 4
 
 main.c
 		_main          		CODE           	0751	0000	167
-		_setup         		CODE           	0741	0000	16
+		_setup         		CODE           	073E	0000	19
 
-main.c estimated size: 183
+main.c estimated size: 186
 
