@@ -33,11 +33,11 @@ PROCESSOR 16F887
 ; Declaracion de variables
   PSECT	udata
 
-  ;INFNIBBLE:
-    ;DS 1
+  TIMVAL:
+    DS 1
     
-  ;SUPNIBBLE:
-    ;DS 1
+  COUNTER:
+    DS 1
   
 ; Vector RESET
   PSECT code, delta = 2, abs
@@ -54,27 +54,66 @@ PROCESSOR 16F887
 	CLRF	ANSELH
 	BANKSEL	OSCCON
 	BSF	OSCCON,	4
-	BSF	OSCCON,	5
+	BSF	OSCCON,	5	;Se establece la frecuencia del PIC como 8MHz
 	BSF	OSCCON,	6
-	BANKSEL	TRISA
+	BANKSEL	OPTION_REG
+	CALL	tmr0_set
 	CLRF	TRISA
 	CLRF	TRISB
 	CLRF	TRISD
 	MOVLW	0b00011111
-	MOVWF	TRISA	    ;A0, A1, A2, A3 y A4 como entradas
+	MOVWF	TRISA		;A0, A1, A2, A3 y A4 como entradas
 	BANKSEL	PORTA
 	CLRF	PORTA
 	CLRF	PORTB
 	CLRF	PORTD
+	CLRF	TIMVAL
+	CLRF	COUNTER
 	goto	loop   
 
 
 ; Main code
     loop:
 	;Verificar el valor del TIMER 0
-	
-	;Cambiar el estado de la LED de medicion
+	;Mascara
+	MOVLW	0B11111111
+	ANDWF	TMR0,	0	;AND TMR0 & W, se guarda en W
+	MOVWF	TIMVAL		;Se guarda TMR0 en TIMVAL
+	BTFSC	TIMVAL,	7	;Se verifica 0b10000000
+	CALL	cont_int
+	MOVLW	0B00111101	;Se mueve 61 a W
+	SUBWF	COUNTER,    0	;Se resta COUNTER - W, se guarda en W
+	BTFSC	STATUS,	    2	;Se verifica el STATUS Z
+	CALL	blink
 	
 	GOTO	loop
+
+	
+	
+    tmr0_set:
+	BCF	OPTION_REG, 5	    ;Contar con el ciclo de maquina
+	BCF	OPTION_REG, 4
+	BCF	OPTION_REG, 3	    ;Utilizar el prescaler del timer0 (1 para WDT)
+	BSF	OPTION_REG, 2
+	BSF	OPTION_REG, 1	    ;Prescaler segun la tabla de la pagina 32
+	BSF	OPTION_REG, 0
+	CLRF	TMR0
+	return
+	
+    cont_int:
+	INCF	COUNTER	    ;Se incrementa una variable
+	CLRF	TIMVAL	    ;Se reinicia el valor guardado del timer 0
+	CLRF	TMR0	    ;Se reinicia el timer 0
+	return
+	
+    blink:
+	;Cambiar el estado de la LED de medicion
+	CLRF	COUNTE
+	BTFSC	PORTD,	0   ;Se revisa el bit 0 del puerto b
+	GOTO	$+3
+	BSF	PORTD,	0   ;Se enciende la LED de medicion
+	return
+	BCF	PORTD,	0   ;Se apaga la LED de medicion
+	return
 	
     END
