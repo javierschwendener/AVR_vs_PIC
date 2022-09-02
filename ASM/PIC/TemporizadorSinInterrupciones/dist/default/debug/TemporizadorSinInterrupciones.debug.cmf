@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$build/default/production/main.o
+$build/default/debug/main.o
 udata RAM 1 20 20 2 1 1
 code CODE 0 0 0 3F 2 1
 config CONFIG 4 2007 2007 2 2 1
@@ -53,7 +53,7 @@ STRING 3F-1FFF 2
 # are in ascending order of addresses.
 # All other numeric values are in decimal.
 %LINETAB
-$build/default/production/main.o
+$build/default/debug/main.o
 0 code CODE >44:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorSinInterrupciones\main.s
 0 code CODE >46:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorSinInterrupciones\main.s
 1 code CODE >50:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorSinInterrupciones\main.s

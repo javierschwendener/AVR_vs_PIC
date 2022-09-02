@@ -2530,7 +2530,7 @@ ENDM
  MOVWF TIMVAL ;Se guarda TMR0 en TIMVAL
  BTFSC TIMVAL, 7 ;Se verifica 0b10000000
  CALL cont_int
- MOVLW 0B00001111 ;Se mueve 15 a W (Para 250ms)
+ MOVLW 0B11111111 ;Se mueve 61 a W
  SUBWF COUNTER, 0 ;Se resta COUNTER - W, se guarda en W
  BTFSC STATUS, 2 ;Se verifica el STATUS Z (COUNTER - W = 0)
  CALL blink

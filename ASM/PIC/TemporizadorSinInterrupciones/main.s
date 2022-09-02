@@ -24,8 +24,8 @@ PROCESSOR 16F887
   CONFIG  LVP	= OFF		    ; Low Voltage Programming Enable bit (RB3 pin has digital I/O, HV on MCLR must be used for programming)
 
 ; CONFIG2
-  CONFIG  BOR4V	= BOR40V        ; Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
-  CONFIG  WRT	= OFF             ; Flash Program Memory Self Write Enable bits (Write protection off)
+  CONFIG  BOR4V	= BOR40V	    ; Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
+  CONFIG  WRT	= OFF		    ; Flash Program Memory Self Write Enable bits (Write protection off)
 
 // config statements should precede project file includes.
 #include <xc.inc>
@@ -46,7 +46,7 @@ PROCESSOR 16F887
     goto setup
     
 ; Setup
-  PSECT code, delta = 2, abs
+  PSECT code, delta = 2
   ORG 0x000A
     setup:
 	BANKSEL	ANSEL
@@ -67,6 +67,7 @@ PROCESSOR 16F887
 	CLRF	PORTA
 	CLRF	PORTB
 	CLRF	PORTD
+	CLRF	TMR0
 	CLRF	TIMVAL
 	CLRF	COUNTER
 	goto	loop   
@@ -75,15 +76,14 @@ PROCESSOR 16F887
 ; Main code
     loop:
 	;Verificar el valor del TIMER 0
-	;Mascara
-	MOVLW	0B11111111
-	ANDWF	TMR0,	0	;AND TMR0 & W, se guarda en W
+	MOVLW	0B11111111	;Mascara
+	ANDWF	TMR0,	    0	;AND TMR0 & W, se guarda en W
 	MOVWF	TIMVAL		;Se guarda TMR0 en TIMVAL
-	BTFSC	TIMVAL,	7	;Se verifica 0b10000000
+	BTFSC	TIMVAL,	    7	;Se verifica 0b10000000
 	CALL	cont_int
-	MOVLW	0B00111101	;Se mueve 61 a W
+	MOVLW	0B00001111	;Se mueve 15 a W (Para 250ms)
 	SUBWF	COUNTER,    0	;Se resta COUNTER - W, se guarda en W
-	BTFSC	STATUS,	    2	;Se verifica el STATUS Z
+	BTFSC	STATUS,	    2	;Se verifica el STATUS Z (COUNTER - W = 0)
 	CALL	blink
 	
 	GOTO	loop
@@ -91,13 +91,10 @@ PROCESSOR 16F887
 	
 	
     tmr0_set:
-	BCF	OPTION_REG, 5	    ;Contar con el ciclo de maquina
-	BCF	OPTION_REG, 4
-	BCF	OPTION_REG, 3	    ;Utilizar el prescaler del timer0 (1 para WDT)
-	BSF	OPTION_REG, 2
-	BSF	OPTION_REG, 1	    ;Prescaler segun la tabla de la pagina 32
-	BSF	OPTION_REG, 0
-	CLRF	TMR0
+	MOVLW	0B11000000	    ;Mascara
+	ANDWF	OPTION_REG, 0	    ;Se guardan dos bits de OPTION_REG
+	IORLW	0B00000111	    ;Se establece la configuracion en W
+	MOVWF	OPTION_REG	    ;Se mueve a OPTION_REG
 	return
 	
     cont_int:
@@ -107,8 +104,9 @@ PROCESSOR 16F887
 	return
 	
     blink:
-	;Cambiar el estado de la LED de medicion
-	CLRF	COUNTE
+	CLRF	COUNTER
+	CLRF	TIMVAL	    ;Se limpian las variables usadas
+	
 	BTFSC	PORTD,	0   ;Se revisa el bit 0 del puerto b
 	GOTO	$+3
 	BSF	PORTD,	0   ;Se enciende la LED de medicion

@@ -3,21 +3,20 @@ Microchip MPLAB XC8 PIC(R) Assembler V2.36
 Linker command line:
 
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.36\pic\dat\en_msgs.txt -cs \
-  -h+dist/default/production\TemporizadorSinInterrupciones.production.sym \
-  --cmf=dist/default/production\TemporizadorSinInterrupciones.production.cmf \
-  -z -Q16F887 -oC:\Users\Schinzii\AppData\Local\Temp\xcAs754.4 \
+  -h+dist/default/debug\TemporizadorSinInterrupciones.debug.sym \
+  --cmf=dist/default/debug\TemporizadorSinInterrupciones.debug.cmf -z \
+  -Q16F887 -oC:\Users\Schinzii\AppData\Local\Temp\xcAs5ag.4 \
   -ver=XC8 PIC(R) Assembler \
-  -Mdist/default/production/TemporizadorSinInterrupciones.production.map \
-  -E1 --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
-  -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
-  -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
-  -ABANK2=0110h-016Fh -ABANK3=0190h-01EFh \
-  -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
+  -Mdist/default/debug/TemporizadorSinInterrupciones.debug.map -E1 \
+  --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
+  -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
+  -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
+  -ABANK3=0190h-01EFh -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
   -AABS1=020h-07Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh -ASFR0=00h-01Fh \
   -ASFR1=080h-09Fh -ASFR2=0100h-010Fh -ASFR3=0180h-018Fh \
   -ACONFIG=02007h-02008h -DCONFIG=2 -AIDLOC=02000h-02003h -DIDLOC=2 \
   -AEEDATA=00h-0FFh/02100h -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 \
-  -DCONST=2 -DENTRY=2 build/default/production/main.o 
+  -DCONST=2 -DENTRY=2 build/default/debug/main.o 
 
 Object code version is 3.11
 
@@ -26,7 +25,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-build/default/production/main.o
+build/default/debug/main.o
                 config                             2007     2007        2        0       4
                 code                                  0        0       3F        0       0
                 udata                                20       20        2       20       1
