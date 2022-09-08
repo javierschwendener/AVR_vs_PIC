@@ -26,29 +26,74 @@ PROCESSOR 16F887
 ; CONFIG2
   CONFIG  BOR4V	= BOR40V	    ; Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
   CONFIG  WRT	= OFF		    ; Flash Program Memory Self Write Enable bits (Write protection off)
-
-// config statements should precede project file includes.
-#include <xc.inc>
   
 ; Declaracion de variables
   PSECT	udata
 
-  TIMVAL:
+  w_temp:
     DS 1
     
-  COUNTER:
+  s_temp:
+    DS 1
+    
+  cont1:
     DS 1
   
 ; Vector RESET
   PSECT code, delta = 2, abs
   ORG 0x0000
-  resetVector:
-    goto setup
+    resetVector:
+	GOTO setup
+    
+    
+; Vector Interrupcion
+  PSECT code, class = CODE, delta = 2
+  ORG 0x0004
+    
+    SAVE:
+        MOVWF   w_temp
+        SWAPF   STATUS, W
+	MOVWF   s_temp
+	
+    INTERRUPT:
+	MOVLW   0B00001110		;14 por la logica del programa
+	SUBWF   cont1,  0		;en total se hacen 15 iteraciones (contador de 15)
+	BTFSC   STATUS, 2		;(cont2 - W) = 0, se guarda en W
+	GOTO    $+3
+	
+        INCF    cont1
+	GOTO    $+7
+	
+	BTFSC   PORTD,  0
+	GOTO    $+3
+	BSF	PORTD,  0
+	GOTO    $+2
+	BCF	PORTD,  0
+	CLRF    cont1
+	
+	BCF	INTCON, 2	;Se limpia la bandera de interrupcion del Timer0
+	MOVLW   0B10000000	;Se carga 128 a W
+	MOVWF   TMR0		;128 al TMR0 para match con contadores anteriores
+    
+    LOAD:
+	SWAPF   s_temp, W
+	MOVWF   STATUS
+	SWAPF   w_temp, F
+	SWAPF   w_temp, W
+	RETFIE
+    
     
 ; Setup
-  PSECT code, delta = 2
-  ORG 0x000A
+  PSECT code, class = CODE, delta = 2
+  ORG 0x00A0
+    
     setup:
+	BANKSEL	cont1
+	CLRF	cont1
+	BANKSEL	w_temp
+	CLRF	w_temp
+	BANKSEL	s_temp
+	CLRF	s_temp
 	BANKSEL	ANSEL
 	CLRF	ANSEL
 	CLRF	ANSELH
@@ -56,7 +101,6 @@ PROCESSOR 16F887
 	BSF	OSCCON,	4
 	BSF	OSCCON,	5	;Se establece la frecuencia del PIC como 8MHz
 	BSF	OSCCON,	6
-	BANKSEL	OPTION_REG
 	CALL	tmr0_set
 	CLRF	TRISA
 	CLRF	TRISB
@@ -67,51 +111,24 @@ PROCESSOR 16F887
 	CLRF	PORTA
 	CLRF	PORTB
 	CLRF	PORTD
-	CLRF	TMR0
-	CLRF	TIMVAL
-	CLRF	COUNTER
+	MOVLW	0B10000000	;Se carga 128 a W
+	MOVWF	TMR0		;128 al TMR0 para match con contadores anteriores
 	goto	loop   
 
 
 ; Main code
     loop:
-	;Verificar el valor del TIMER 0
-	MOVLW	0B11111111	;Mascara
-	ANDWF	TMR0,	    0	;AND TMR0 & W, se guarda en W
-	MOVWF	TIMVAL		;Se guarda TMR0 en TIMVAL
-	BTFSC	TIMVAL,	    7	;Se verifica 0b10000000
-	CALL	cont_int
-	MOVLW	0B00001111	;Se mueve 15 a W (Para 250ms)
-	SUBWF	COUNTER,    0	;Se resta COUNTER - W, se guarda en W
-	BTFSC	STATUS,	    2	;Se verifica el STATUS Z (COUNTER - W = 0)
-	CALL	blink
-	
 	GOTO	loop
 
 	
-	
     tmr0_set:
+    	MOVLW	0B10100000	    ;Se habilitan las interrupciones del PIC
+	MOVWF	INTCON		    ;y la interrupcion del Timer0
 	MOVLW	0B11000000	    ;Mascara
 	ANDWF	OPTION_REG, 0	    ;Se guardan dos bits de OPTION_REG
 	IORLW	0B00000111	    ;Se establece la configuracion en W
 	MOVWF	OPTION_REG	    ;Se mueve a OPTION_REG
-	return
-	
-    cont_int:
-	INCF	COUNTER	    ;Se incrementa una variable
-	CLRF	TIMVAL	    ;Se reinicia el valor guardado del timer 0
-	CLRF	TMR0	    ;Se reinicia el timer 0
-	return
-	
-    blink:
-	CLRF	COUNTER
-	CLRF	TIMVAL	    ;Se limpian las variables usadas
-	
-	BTFSC	PORTD,	0   ;Se revisa el bit 0 del puerto b
-	GOTO	$+3
-	BSF	PORTD,	0   ;Se enciende la LED de medicion
-	return
-	BCF	PORTD,	0   ;Se apaga la LED de medicion
+	BCF	INTCON,	2
 	return
 	
     END

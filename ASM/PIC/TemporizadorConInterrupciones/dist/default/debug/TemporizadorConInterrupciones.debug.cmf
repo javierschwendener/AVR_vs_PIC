@@ -1,0 +1,200 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$build/default/debug/main.o
+udata RAM 1 20 20 3 1 1
+codigomamalon CODE 0 7E5 7E5 1B 2 1
+code CODE 0 0 0 C9 2 1
+config CONFIG 4 2007 2007 2 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 23-6F 1
+RAM A0-EF 1
+RAM 110-16F 1
+RAM 190-1EF 1
+BANK0 23-6F 1
+BANK1 A0-EF 1
+BANK2 110-16F 1
+BANK3 190-1EF 1
+CONST C9-7E4 2
+CONST 800-1FFF 2
+ENTRY C9-7E4 2
+ENTRY 800-1FFF 2
+IDLOC 2000-2003 2
+CODE C9-7E4 2
+CODE 800-1FFF 2
+COMMON 70-7F 1
+EEDATA 2100-21FF 2
+STRCODE C9-7E4 2
+STRCODE 800-1FFF 2
+STRING C9-7E4 2
+STRING 800-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$build/default/debug/main.o
+7E5 codigomamalon CODE >51:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7E9 codigomamalon CODE >54:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7EA codigomamalon CODE >55:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7EB codigomamalon CODE >56:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7EC codigomamalon CODE >59:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7ED codigomamalon CODE >60:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7EE codigomamalon CODE >61:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7EF codigomamalon CODE >62:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7F0 codigomamalon CODE >64:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7F1 codigomamalon CODE >65:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7F2 codigomamalon CODE >67:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7F3 codigomamalon CODE >68:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7F4 codigomamalon CODE >69:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7F5 codigomamalon CODE >70:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7F6 codigomamalon CODE >71:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7F7 codigomamalon CODE >72:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7F8 codigomamalon CODE >74:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7F9 codigomamalon CODE >75:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7FA codigomamalon CODE >76:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7FB codigomamalon CODE >79:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7FC codigomamalon CODE >80:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7FD codigomamalon CODE >81:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7FE codigomamalon CODE >82:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+7FF codigomamalon CODE >83:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+0 code CODE >44:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+0 code CODE >46:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+1 code CODE >88:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+A0 code CODE >91:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+A2 code CODE >92:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+A3 code CODE >93:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+A5 code CODE >94:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+A6 code CODE >95:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+A8 code CODE >96:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+A9 code CODE >97:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+AB code CODE >98:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+AC code CODE >99:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+AD code CODE >100:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+AF code CODE >101:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+B0 code CODE >102:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+B1 code CODE >103:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+B2 code CODE >104:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+B3 code CODE >105:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+B4 code CODE >106:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+B5 code CODE >107:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+B6 code CODE >108:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+B7 code CODE >109:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+B8 code CODE >110:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+BA code CODE >111:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+BB code CODE >112:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+BC code CODE >113:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+BD code CODE >114:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+BE code CODE >115:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+BF code CODE >116:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+C0 code CODE >121:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+C1 code CODE >125:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+C2 code CODE >126:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+C3 code CODE >127:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+C4 code CODE >128:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+C5 code CODE >129:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+C6 code CODE >130:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+C7 code CODE >131:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+C8 code CODE >132:C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\PIC\TemporizadorConInterrupciones\main.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__Hspace_0 800 0 ABS 0 - -
+__Hspace_1 23 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 4010 0 ABS 0 - -
+__Hudata_bank0 0 0 ABS 0 udata_bank0 -
+__Hudata_bank1 0 0 ABS 0 udata_bank1 -
+__Hudata_bank2 0 0 ABS 0 udata_bank2 -
+__Hudata_bank3 0 0 ABS 0 udata_bank3 -
+__Lcodigomamalon 0 0 ABS 0 codigomamalon -
+__Hcodigomamalon 0 0 ABS 0 codigomamalon -
+__Hedata 0 0 ABS 0 edata -
+__Hudata 0 0 ABS 0 udata -
+__Hconfig 4012 0 CONFIG 4 config -
+__Ledata 0 0 ABS 0 edata -
+__Ludata 0 0 ABS 0 udata -
+__Hcode 0 0 ABS 0 code -
+__Hdata 0 0 ABS 0 data -
+__Lcode 0 0 ABS 0 code -
+__Ldata 0 0 ABS 0 data -
+__S0 800 0 ABS 0 - -
+__S1 23 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__Lconfig 0 0 CONFIG 4 config -
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__Ludata_bank0 0 0 ABS 0 udata_bank0 -
+__Ludata_bank1 0 0 ABS 0 udata_bank1 -
+__Ludata_bank2 0 0 ABS 0 udata_bank2 -
+__Ludata_bank3 0 0 ABS 0 udata_bank3 -
+__Hudata_shr 0 0 ABS 0 udata_shr -
+__Ludata_shr 0 0 ABS 0 udata_shr -
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+udata 1 20 20 3 1
+codigomamalon 0 7E5 FCA 1B 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES
