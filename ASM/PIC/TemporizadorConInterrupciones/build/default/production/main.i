@@ -2505,8 +2505,8 @@ ENDM
  MOVWF s_temp
 
     INTERRUPT:
- MOVLW 0B00001110
- SUBWF cont1, 0
+ MOVLW 0B00001110 ;14 por la logica del programa
+ SUBWF cont1, 0 ;en total se hacen 15 iteraciones (contador de 15)
  BTFSC STATUS, 2 ;(cont2 - W) = 0, se guarda en W
  GOTO $+3
 
