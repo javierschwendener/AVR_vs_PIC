@@ -3,16 +3,20 @@
 ;/////////////////////////////////////
 
 ; Inicio
-.ORG	0
+.ORG	0x00
+	JMP	setup
+
+; Vector interrupcion del Timer0
+.ORG	0x20
+	JMP	tmr0_isr
+
 
 ; Configuracion
 setup:
 	;/////////////////////////
 	;VARIABLES
-	LDI		R20,	0B00000000
-	LDI		R21,	0B00000000
+	LDI		R20,	0B00000000		;Contador
 	;/////////////////////////
-
 	
 	;Puerto D como entradas para los botones
 	LDI		R16,	0B00000000
@@ -26,20 +30,16 @@ setup:
 	OUT		PORTD,	R16
 	OUT		PORTB,	R16
 	OUT		PORTC,	R16
+	;Se realiza la configuracion del Timer0
 	CALL	tmr0_set
-	LDI		R16,	0B00000000
+	;Se activan las interrupciones del microcontrolador
+	SEI
+	;Se carga 128 al Timer0
+	LDI		R16,	0B10000000
 	OUT		TCNT0,	R16
     RJMP	loop
 
 loop:
-	IN		R20,	TCNT0			;Se guarda el valor del timer en R20
-	SBRC	R20,	7				;Se verifica 0b10000000
-	CALL	cont_int
-	LDI		R16,	0B00001111		;Se carga 15 a R16 (ajustar timer)
-	SUB		R16,	R21				;Resta R16 - R21, se guarda en R16
-	IN		R17,	SREG			;Se guarda el registro STATUS en R17
-	SBRC	R17,	1				;Se revisa el STATUS Z en R17
-	CALL	blink					;Cambio de estado de LED en caso R16 = R21
 	RJMP	loop
 
 tmr0_set:
@@ -47,25 +47,22 @@ tmr0_set:
 	OUT		TCCR0A,	R16
 	LDI		R16,	0B00000101		;Prescaler de 1024 en los bits TCCR0B[2:0]
 	OUT		TCCR0B,	R16
-	RET
-
-cont_int:
-	INC		R21
-	LDI		R16,	0B00000000
-	OUT		TCNT0,	R16
-	LDI		R20,	0B00000000
-	RET
-
-blink:
-	LDI		R17,	0B00000000
-	LDI		R20,	0B00000000		;Reinicio de variables utilizadas
-	LDI		R21,	0B00000000
-
-	SBIC	PINB,	0				;Se revisa si la LED esta encendida
-	RJMP	PC+4
 	LDI		R16,	0B00000001
-	OUT		PORTB,	R16
+	STS		TIMSK0,	R16				;Se habilita la interrupcion del Timer0
 	RET
-	LDI		R16,	0B00000000
-	OUT		PORTB,R16
-	RET
+
+tmr0_isr:
+	LDI		R16,	0B00001110		;Se carga 14 a R16 (contador) por la logica del programa
+	SUB		R16,	R20				;Se realiza la resta R16-R20, se guarda en R16
+	IN		R17,	SREG			;Se guarda STATUS en R17
+	SBRC	R17,	1				;Se verifica el STATUS Z en R17
+	RJMP	PC+5
+	INC		R20						;Se incrementa el contador
+	LDI		R16,	0B10000000
+	OUT		TCNT0,	R16
+	RETI
+	LDI		R16,	0B10000000
+	OUT		TCNT0,	R16
+	SBI		PINB,	0				;Para intercambiar el estado del bit 0 del puerto B
+	LDI		R20,	0B00000000		;Se reinicia el contador
+	RETI

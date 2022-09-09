@@ -1,0 +1,30 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\TemporizadorConInterrupciones\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\TemporizadorConInterrupciones\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\TemporizadorConInterrupciones\Debug\TemporizadorConInterrupciones.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>TemporizadorConInterrupciones.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>TemporizadorConInterrupciones.map</FILE>
+  <FILE>TemporizadorConInterrupciones.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <setup><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\TemporizadorConInterrupciones\main.asm</FILE><LINE>15</LINE></setup>
+  <tmr0_isr><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\TemporizadorConInterrupciones\main.asm</FILE><LINE>54</LINE></tmr0_isr>
+  <tmr0_set><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\TemporizadorConInterrupciones\main.asm</FILE><LINE>45</LINE></tmr0_set>
+  <loop><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\TemporizadorConInterrupciones\main.asm</FILE><LINE>42</LINE></loop>
+ </LABELS>
+</ASSEMBLER_INFO>
