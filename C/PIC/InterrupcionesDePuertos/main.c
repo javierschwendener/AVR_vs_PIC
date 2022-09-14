@@ -25,14 +25,11 @@
 /*PROTOTIPOS*/
 void portb_iset(void);
 
-/*VARIABLES*/
-int counter = 0;
-
 void setup(void){
     ANSEL   =   0;
     ANSELH  =   0;
-    TRISA   =   0b00011111;     // Entradas en A0, A1, A2, A3 y A4 por botones en la proto
-    TRISB   =   0;
+    TRISA   =   0b00011110;     // Entradas en A1, A2, A3 y A4 por botones en la proto
+    TRISB   =   0b00000001;     // Entrada en B0
     TRISC   =   0;
     TRISD   =   0;
     PORTA   =   0;
@@ -53,23 +50,26 @@ void main(void) {
 
 void portb_iset(void){
     INTCONbits.GIE = 1;
-    
-    TMR0 = 128;
+    INTCONbits.RBIE = 1;
+    IOCBbits.IOCB0 = 1;
 }
 
 void __interrupt() ISR(void){
-    if(counter == 14){
-        if(PORTDbits.RD0 == 0){
-            PORTDbits.RD0 = 1;
-        }
-        else{
-            PORTDbits.RD0 = 0;
-        }
-        counter = 0;
+    if(PORTBbits.RB0 == 1){
+        PORTDbits.RD0 = 1;
     }
     else{
-        counter = counter + 1;
+        PORTDbits.RD0 = 0;
     }
-    INTCONbits.T0IF = 0;
-    TMR0 = 128;
+    /*
+    if(PORTBbits.RB0 == 1){
+        if(PORTDbits.RD0 == 1){
+            PORTDbits.RD0 = 0;
+        }
+        else{
+            PORTDbits.RD0 = 1;
+        }
+    }
+    */
+    INTCONbits.RBIF = 0;
 }
