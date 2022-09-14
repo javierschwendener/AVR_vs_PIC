@@ -36,15 +36,12 @@ PROCESSOR 16F887
   s_temp:
     DS 1
     
-  cont1:
-    DS 1
   
 ; Vector RESET
   PSECT code, delta = 2, abs
   ORG 0x0000
     resetVector:
 	GOTO setup
-    
     
 ; Vector Interrupcion
   PSECT code, class = CODE, delta = 2
@@ -56,25 +53,24 @@ PROCESSOR 16F887
 	MOVWF   s_temp
 	
     INTERRUPT:
-	MOVLW   0B00001110		;14 por la logica del programa
-	SUBWF   cont1,  0		;en total se hacen 15 iteraciones (contador de 15)
-	BTFSC   STATUS, 2		;(cont2 - W) = 0, se guarda en W
-	GOTO    $+3
-	
-        INCF    cont1
-	GOTO    $+7
-	
-	BTFSC   PORTD,  0
-	GOTO    $+3
-	BSF	PORTD,  0
-	GOTO    $+2
-	BCF	PORTD,  0
-	CLRF    cont1
-	
-	BCF	INTCON, 2	;Se limpia la bandera de interrupcion del Timer0
-	MOVLW   0B10000000	;Se carga 128 a W
-	MOVWF   TMR0		;128 al TMR0 para match con contadores anteriores
+	;Secuencia para que la LED RD0 se comporte segun el estado de RB0
+	BTFSC	PORTB,	0
+	BSF	PORTD,	0
+	BTFSS	PORTB,	0
+	BCF	PORTD,	0
     
+	;Secuencia para el toggle de la LED en RD0
+	;BTFSC	PORTB,	0	;Revisa si la interrupcion fue por presionar el
+	;GOTO	$+6		;boton RB0
+	
+	;BTFSC   PORTD,  0
+	;GOTO    $+3
+	;BSF	PORTD,  0
+	;GOTO    $+2
+	;BCF	PORTD,  0
+	
+	BCF	INTCON, 0	;Se limpia la bandera de interrupcion del Puerto B
+	
     LOAD:
 	SWAPF   s_temp, W
 	MOVWF   STATUS
@@ -88,12 +84,6 @@ PROCESSOR 16F887
   ORG 0x00A0
     
     setup:
-	BANKSEL	cont1
-	CLRF	cont1
-	BANKSEL	w_temp
-	CLRF	w_temp
-	BANKSEL	s_temp
-	CLRF	s_temp
 	BANKSEL	ANSEL
 	CLRF	ANSEL
 	CLRF	ANSELH
@@ -101,18 +91,17 @@ PROCESSOR 16F887
 	BSF	OSCCON,	4
 	BSF	OSCCON,	5	;Se establece la frecuencia del PIC como 8MHz
 	BSF	OSCCON,	6
-	CALL	tmr0_set
-	CLRF	TRISA
-	CLRF	TRISB
+	CALL	portb_iset
+	MOVLW	0B00000001	;B0 como entrada
+	MOVWF	TRISB
+	MOVWF	IOCB
 	CLRF	TRISD
-	MOVLW	0b00011111
-	MOVWF	TRISA		;A0, A1, A2, A3 y A4 como entradas
+	MOVLW	0B00011110
+	MOVWF	TRISA		;A1, A2, A3 y A4 como entradas por circuito en proto
 	BANKSEL	PORTA
 	CLRF	PORTA
 	CLRF	PORTB
 	CLRF	PORTD
-	MOVLW	0B10000000	;Se carga 128 a W
-	MOVWF	TMR0		;128 al TMR0 para match con contadores anteriores
 	goto	loop   
 
 
@@ -121,14 +110,9 @@ PROCESSOR 16F887
 	GOTO	loop
 
 	
-    tmr0_set:
-    	MOVLW	0B10100000	    ;Se habilitan las interrupciones del PIC
-	MOVWF	INTCON		    ;y la interrupcion del Timer0
-	MOVLW	0B11000000	    ;Mascara
-	ANDWF	OPTION_REG, 0	    ;Se guardan dos bits de OPTION_REG
-	IORLW	0B00000111	    ;Se establece la configuracion en W
-	MOVWF	OPTION_REG	    ;Se mueve a OPTION_REG
-	BCF	INTCON,	2
+    portb_iset:
+    	MOVLW	0B10001000	    ;Se habilitan las interrupciones del PIC
+	MOVWF	INTCON		    ;y la interrupcion del Puerto B
 	return
 	
     END
