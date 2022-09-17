@@ -1,0 +1,30 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\InterrupcionesDePuertos\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\InterrupcionesDePuertos\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\InterrupcionesDePuertos\Debug\InterrupcionesDePuertos.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>InterrupcionesDePuertos.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>InterrupcionesDePuertos.map</FILE>
+  <FILE>InterrupcionesDePuertos.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <setup><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\InterrupcionesDePuertos\main.asm</FILE><LINE>15</LINE></setup>
+  <pcint2_isr><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\InterrupcionesDePuertos\main.asm</FILE><LINE>51</LINE></pcint2_isr>
+  <pini_set><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\InterrupcionesDePuertos\main.asm</FILE><LINE>41</LINE></pini_set>
+  <loop><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\InterrupcionesDePuertos\main.asm</FILE><LINE>38</LINE></loop>
+ </LABELS>
+</ASSEMBLER_INFO>

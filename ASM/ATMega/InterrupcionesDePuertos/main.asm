@@ -6,16 +6,15 @@
 .ORG	0x00
 	JMP	setup
 
-; Vector interrupcion del Timer0
-.ORG	0x20
-	JMP	tmr0_isr
+; Vector interrupcion de cambio de Pin 0
+.ORG	0x0A
+	JMP	pcint2_isr
 
 
 ; Configuracion
 setup:
 	;/////////////////////////
 	;VARIABLES
-	LDI		R20,	0B00000000		;Contador
 	;/////////////////////////
 	
 	;Puerto D como entradas para los botones
@@ -30,39 +29,35 @@ setup:
 	OUT		PORTD,	R16
 	OUT		PORTB,	R16
 	OUT		PORTC,	R16
-	;Se realiza la configuracion del Timer0
-	CALL	tmr0_set
+	;Se realiza la configuracion del la interrupcion del pin
+	CALL	pini_set
 	;Se activan las interrupciones del microcontrolador
 	SEI
-	;Se carga 128 al Timer0
-	LDI		R16,	0B10000000
-	OUT		TCNT0,	R16
     RJMP	loop
 
 loop:
 	RJMP	loop
 
-tmr0_set:
-	LDI		R16,	0B00000000		;Operacion normal del temporizador
-	OUT		TCCR0A,	R16
-	LDI		R16,	0B00000101		;Prescaler de 1024 en los bits TCCR0B[2:0]
-	OUT		TCCR0B,	R16
+pini_set:
+	;RD0 equivale a PCINT16 para las interrupciones
+	LDI		R16,	0B00000100
+	STS		PCICR,	R16
 	LDI		R16,	0B00000001
-	STS		TIMSK0,	R16				;Se habilita la interrupcion del Timer0
+	STS		PCMSK2,	R16
 	RET
 
-tmr0_isr:
-	LDI		R16,	0B00001110		;Se carga 14 a R16 (contador) por la logica del programa
-	SUB		R16,	R20				;Se realiza la resta R16-R20, se guarda en R16
-	IN		R17,	SREG			;Se guarda STATUS en R17
-	SBRC	R17,	1				;Se verifica el STATUS Z en R17
-	RJMP	PC+5
-	INC		R20						;Se incrementa el contador
-	LDI		R16,	0B10000000
-	OUT		TCNT0,	R16
-	RETI
-	LDI		R16,	0B10000000
-	OUT		TCNT0,	R16
-	SBI		PINB,	0				;Para intercambiar el estado del bit 0 del puerto B
-	LDI		R20,	0B00000000		;Se reinicia el contador
+pcint2_isr:
+	;Comportamiento segun el boton en RD0
+	;SBIC		PIND,	0
+	;SBI			PORTB,	0
+	;SBIS		PIND,	0
+	;CBI			PORTB,	0
+
+	;Comportamiento tipo toggle
+	SBIC		PINB,	0
+	RJMP		PC+3
+	SBI			PORTB,	0
+	RJMP		PC+2
+	CBI			PORTB,	0
+
 	RETI
