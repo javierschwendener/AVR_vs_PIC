@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\InterrupcionesDePuertos\main.asm Sat Sep 17 01:05:59 2022
+AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\InterrupcionesDePuertos\main.asm Mon Sep 19 11:35:51 2022
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc'
@@ -994,7 +994,7 @@ AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC
                                  
                                  ; Vector interrupcion de cambio de Pin 0
                                  .ORG	0x0A
-00000a 940c 0024                 	JMP	pcint2_isr
+00000a 940c 0021                 	JMP	pcint2_isr
                                  
                                  
                                  ; Configuracion
@@ -1026,27 +1026,28 @@ AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC
                                  
                                  pini_set:
                                  	;RD0 equivale a PCINT16 para las interrupciones
-00001a e00f                      	LDI		R16,	0B00001111
-00001b 9300 0069                 	STS		EICRA,	R16
-00001d e004                      	LDI		R16,	0B00000100
-00001e 9300 0068                 	STS		PCICR,	R16
-000020 e001                      	LDI		R16,	0B00000001
-000021 9300 006d                 	STS		PCMSK2,	R16
-000023 9508                      	RET
+00001a e004                      	LDI		R16,	0B00000100
+00001b 9300 0068                 	STS		PCICR,	R16
+00001d e001                      	LDI		R16,	0B00000001
+00001e 9300 006d                 	STS		PCMSK2,	R16
+000020 9508                      	RET
                                  
                                  pcint2_isr:
                                  	;Comportamiento segun el boton en RD0
-                                 	;SBIC		PIND,	0
-                                 	;SBI			PORTB,	0
-                                 	;SBIS		PIND,	0
-                                 	;CBI			PORTB,	0
+000021 9948                      	SBIC		PIND,	0
+000022 9a28                      	SBI			PORTB,	0
+000023 9b48                      	SBIS		PIND,	0
+000024 9828                      	CBI			PORTB,	0
                                  
                                  	;Comportamiento tipo toggle
-000024 9918                      	SBIC		PINB,	0
-000025 c002                      	RJMP		PC+3
-000026 9a28                      	SBI			PORTB,	0
-000027 c001                      	RJMP		PC+2
-000028 9828                      	CBI			PORTB,	0
+                                 	;SBIC		PIND,	0		;Se verifica si la interrupcion se dio por presionar el boton RD0
+                                 	;RJMP		PC+6
+                                 
+                                 	;SBIC		PINB,	0
+                                 	;RJMP		PC+3
+                                 	;SBI			PORTB,	0
+                                 	;RJMP		PC+2
+                                 	;CBI			PORTB,	0
                                  
 
 
@@ -1067,7 +1068,7 @@ counted separately from r26..r31 here.
 "ATmega328P" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  15 r17:   0 r18:   0 r19:   0 r20:   0 
+r13:   0 r14:   0 r15:   0 r16:  13 r17:   0 r18:   0 r19:   0 r20:   0 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
 Registers used: 1 out of 35 (2.9%)
@@ -1083,21 +1084,21 @@ clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
 cpi   :   0 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   2 
-ld    :   0 ldd   :   0 ldi   :   6 lds   :   0 lpm   :   0 lsl   :   0 
+ld    :   0 ldd   :   0 ldi   :   5 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   6 pop   :   0 
-push  :   0 rcall :   0 ret   :   1 reti  :   1 rjmp  :   4 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :   1 sbic  :   1 sbis  :   0 
+push  :   0 rcall :   0 ret   :   1 reti  :   1 rjmp  :   2 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :   1 sbic  :   1 sbis  :   1 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
-sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   3 
+sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   2 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 12 out of 113 (10.6%)
+Instructions used: 13 out of 113 (11.5%)
 
 "ATmega328P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000054     68      0     68   32768   0.2%
+[.cseg] 0x000000 0x00004c     60      0     60   32768   0.2%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 

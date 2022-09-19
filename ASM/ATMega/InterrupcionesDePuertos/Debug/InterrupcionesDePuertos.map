@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\InterrupcionesDePuertos\main.asm Sat Sep 17 01:05:59 2022
+AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\InterrupcionesDePuertos\main.asm Mon Sep 19 11:35:51 2022
 
 
 EQU  SIGNATURE_000 0000001e
@@ -696,6 +696,6 @@ EQU  TWIaddr      00000030
 EQU  SPMRaddr     00000032
 EQU  INT_VECTORS_SIZE 00000034
 CSEG setup        0000000c
-CSEG pcint2_isr   00000024
+CSEG pcint2_isr   00000021
 CSEG pini_set     0000001a
 CSEG loop         00000019

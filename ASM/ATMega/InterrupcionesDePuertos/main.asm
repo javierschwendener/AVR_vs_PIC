@@ -48,16 +48,19 @@ pini_set:
 
 pcint2_isr:
 	;Comportamiento segun el boton en RD0
-	;SBIC		PIND,	0
-	;SBI			PORTB,	0
-	;SBIS		PIND,	0
-	;CBI			PORTB,	0
+	SBIC		PIND,	0
+	SBI			PORTB,	0
+	SBIS		PIND,	0
+	CBI			PORTB,	0
 
 	;Comportamiento tipo toggle
-	SBIC		PINB,	0
-	RJMP		PC+3
-	SBI			PORTB,	0
-	RJMP		PC+2
-	CBI			PORTB,	0
+	;SBIC		PIND,	0		;Se verifica si la interrupcion se dio por presionar el boton RD0
+	;RJMP		PC+6
+
+	;SBIC		PINB,	0
+	;RJMP		PC+3
+	;SBI			PORTB,	0
+	;RJMP		PC+2
+	;CBI			PORTB,	0
 
 	RETI
