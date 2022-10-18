@@ -2502,14 +2502,21 @@ ENDM
  MOVWF s_temp
 
     INTERRUPT:
- BTFSS INTCON, 0 ;Revisa la bandera del puerto B
- GOTO $+6
-
- BTFSC PORTD, 0
- GOTO $+3
+ ;Secuencia para que la LED ((PORTD) and 07Fh), 0 se comporte segun el estado de ((PORTB) and 07Fh), 0
+ BTFSC PORTB, 0
  BSF PORTD, 0
- GOTO $+2
+ BTFSS PORTB, 0
  BCF PORTD, 0
+
+ ;Secuencia para el toggle de la LED en ((PORTD) and 07Fh), 0
+ ;BTFSC PORTB, 0 ;Revisa si la interrupcion fue por presionar el
+ ;GOTO $+6 ;boton ((PORTB) and 07Fh), 0
+
+ ;BTFSC PORTD, 0
+ ;GOTO $+3
+ ;BSF PORTD, 0
+ ;GOTO $+2
+ ;BCF PORTD, 0
 
  BCF INTCON, 0 ;Se limpia la bandera de interrupcion del Puerto B
 
@@ -2534,9 +2541,9 @@ ENDM
  BSF OSCCON, 5 ;Se establece la frecuencia del PIC como 8MHz
  BSF OSCCON, 6
  CALL portb_iset
- CLRF TRISA
  MOVLW 0B00000001 ;B0 como entrada
  MOVWF TRISB
+ MOVWF IOCB
  CLRF TRISD
  MOVLW 0B00011110
  MOVWF TRISA ;A1, A2, A3 y A4 como entradas por circuito en proto

@@ -9,12 +9,12 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 1h		(dist/default/debug\InterrupcionesDePuertos.debug.hex)
-  8h - 27h		(dist/default/debug\InterrupcionesDePuertos.debug.hex)
+  8h - 21h		(dist/default/debug\InterrupcionesDePuertos.debug.hex)
   140h - 173h		(dist/default/debug\InterrupcionesDePuertos.debug.hex)
   400Eh - 4011h		(dist/default/debug\InterrupcionesDePuertos.debug.hex)
  Unused ranges:
   2h - 7h
-  28h - 13Fh
+  22h - 13Fh
   174h - 400Dh
 
 ### Hex Memory Map ###
@@ -26,7 +26,7 @@
 ----------------------------------------------------------
 00000000 | H1 H1 -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
 00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000020 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
+00000020 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00000140 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000150 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
