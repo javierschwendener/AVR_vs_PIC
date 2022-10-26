@@ -2495,29 +2495,9 @@ ENDM
     resetVector:
  GOTO setup
 
-; Vector Interrupcion
-  PSECT code, class = CODE, delta = 2
-  ORG 0x0004
-
-    ;SAVE:
- MOVWF w_temp
- SWAPF STATUS, W
- MOVWF s_temp
-
-    INTERRUPT:
-
-
-    LOAD:
- SWAPF s_temp, W
- MOVWF STATUS
- SWAPF w_temp, F
- SWAPF w_temp, W
- RETFIE
-
-
 ; Setup
   PSECT code, class = CODE, delta = 2
-  ORG 0x00A0
+  ORG 0x000A
 
     setup:
  BANKSEL ANSEL
@@ -2583,6 +2563,10 @@ ENDM
 
  ;SECUENCIA PARA GUARDAR Y CARGAR DE LA MEMORIA EEPROM
 
+ ;Tomar en cuenta que si se hace uso de interrupciones adicionales,
+ ;es necesario deshabilitarlas al momento de leer y escribir a la EEPROM
+ ;para evitar errores
+
  ;Si se presiona el botón ((PORTA) and 07Fh), 2, guardar el valor actual en la eeprom
  BTFSC PORTA, 2
  CALL eeprom_write
@@ -2618,6 +2602,7 @@ ENDM
 
     eeprom_write:
  ;Guardar el valor actual de counter, es decir, del 7 segmentos
+ BSF PORTB, 0
  BANKSEL counter
  MOVF counter, 0 ;W = counter
  BANKSEL EEDATA
@@ -2632,11 +2617,15 @@ ENDM
  MOVWF EECON2
  MOVLW 0B10101010 ;0xAA obligatorio
  MOVWF EECON2
- BSF EECON1, 1 ;Inicia la escritura
 
- SLEEP
+ BSF EECON1, 1 ;Inicia la escritura
+ BTFSC EECON1, 1
+ GOTO $-1
  BCF EECON1, 2 ;deshabilita ciclos de escritura
- BANKSEL PORTA
+
+ BANKSEL counter
+
+ BCF PORTB, 0
 
  RETURN
 

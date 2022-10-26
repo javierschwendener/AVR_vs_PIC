@@ -29,12 +29,6 @@ PROCESSOR 16F887
   
 ; Declaracion de variables
   PSECT	udata
-
-  w_temp:
-    DS 1
-    
-  s_temp:
-    DS 1
     
   counter:
     DS 1
@@ -46,29 +40,9 @@ PROCESSOR 16F887
     resetVector:
 	GOTO setup
     
-; Vector Interrupcion
-  PSECT code, class = CODE, delta = 2
-  ORG 0x0004
-    
-    ;SAVE:
-	MOVWF   w_temp
-	SWAPF   STATUS, W
-	MOVWF   s_temp
-	
-    INTERRUPT:
-	
-	
-    LOAD:
-	SWAPF   s_temp, W
-	MOVWF   STATUS
-	SWAPF   w_temp, F
-	SWAPF   w_temp, W
-	RETFIE
-    
-    
 ; Setup
   PSECT code, class = CODE, delta = 2
-  ORG 0x00A0
+  ORG 0x000A
     
     setup:
 	BANKSEL	ANSEL
@@ -90,8 +64,6 @@ PROCESSOR 16F887
 	CLRF	PORTA
 	CLRF	PORTB
 	CLRF	PORTD
-	CLRF	w_temp
-	CLRF	s_temp
 	CLRF	counter
 	
 	GOTO	loop
@@ -133,6 +105,10 @@ PROCESSOR 16F887
 	MOVWF	PORTD
 	
 	;SECUENCIA PARA GUARDAR Y CARGAR DE LA MEMORIA EEPROM
+	
+	;Tomar en cuenta que si se hace uso de interrupciones adicionales,
+	;es necesario deshabilitarlas al momento de leer y escribir a la EEPROM
+	;para evitar errores
 	
 	;Si se presiona el botón RA2, guardar el valor actual en la eeprom
 	BTFSC	PORTA,	    2
@@ -183,11 +159,15 @@ PROCESSOR 16F887
 	MOVWF	EECON2
 	MOVLW	0B10101010	    ;0xAA obligatorio
 	MOVWF	EECON2
+	
 	BSF	EECON1,	    1	    ;Inicia la escritura
 	
-	SLEEP
+	BTFSC	EECON1,	    1
+	GOTO	$-1		    ;Espera a que termine la escritura
+	
 	BCF	EECON1,	    2	    ;deshabilita ciclos de escritura
-	BANKSEL	PORTA
+	
+	BANKSEL	counter
 	
 	RETURN
 	
