@@ -2505,8 +2505,7 @@ ENDM
  MOVWF s_temp
 
     INTERRUPT:
- MOVLW 0B00000001
- MOVWF PORTB
+
 
     LOAD:
  SWAPF s_temp, W
@@ -2540,6 +2539,8 @@ ENDM
  CLRF PORTA
  CLRF PORTB
  CLRF PORTD
+ CLRF w_temp
+ CLRF s_temp
  CLRF counter
 
  GOTO loop
@@ -2547,9 +2548,16 @@ ENDM
 
 ; Main code
     loop:
+ ;SUB RUTINA PARA EL CONTADOR EN EL PUERTO D
+
  BTFSC PORTA, 0
  INCF counter
  BTFSC PORTA, 0
+ GOTO $-1
+
+ BTFSC PORTA, 1
+ DECF counter
+ BTFSC PORTA, 1
  GOTO $-1
 
  MOVLW 0B00010000 ;16
@@ -2557,14 +2565,35 @@ ENDM
  BTFSC STATUS, 2
  CLRF counter
 
+ MOVLW 0B11111111 ;255
+ SUBWF counter, 0
+ BTFSC STATUS, 2
+ GOTO $+2
+ GOTO $+3
+
+ MOVLW 0B00001111
+ MOVWF counter
+
  MOVLW 0B11111111
  ANDWF counter, 0
-
- ;MOVLW 0B00000000
 
  CALL table
 
  MOVWF PORTD
+
+ ;SECUENCIA PARA GUARDAR Y CARGAR DE LA MEMORIA EEPROM
+
+ ;Si se presiona el botón ((PORTA) and 07Fh), 2, guardar el valor actual en la eeprom
+ BTFSC PORTA, 2
+ CALL eeprom_write
+ BTFSC PORTA, 2
+ GOTO $-1
+
+ ;Si se presiona el botón en ((PORTA) and 07Fh), 3, cargar el valor guardado en la eeprom
+ BTFSC PORTA, 3
+ CALL eeprom_read
+ BTFSC PORTA, 3
+ GOTO $-1
 
  GOTO loop
 
@@ -2587,9 +2616,42 @@ ENDM
  RETLW 0B01111100 ;E
  RETLW 0B01110100 ;F
 
-    eeprom_set:
- MOVLW 0B00001111
- MOVWF PORTB
+    eeprom_write:
+ ;Guardar el valor actual de counter, es decir, del 7 segmentos
+ BANKSEL counter
+ MOVF counter, 0 ;W = counter
+ BANKSEL EEDATA
+ MOVWF EEDATA ;EEDATA = counter
+ MOVLW 0B00000000 ;W = 0
+ MOVWF EEADR ;EEADR = 0
+ BANKSEL EECON1
+ BCF EECON1, 7 ;Para Data Memory
+ BSF EECON1, 2 ;((EECON1) and 07Fh), 2 habilita ciclos de escritura
+
+ MOVLW 0B01010101 ;0x55 obligatorio
+ MOVWF EECON2
+ MOVLW 0B10101010 ;0xAA obligatorio
+ MOVWF EECON2
+ BSF EECON1, 1 ;Inicia la escritura
+
+ SLEEP
+ BCF EECON1, 2 ;deshabilita ciclos de escritura
+ BANKSEL PORTA
+
+ RETURN
+
+    eeprom_read:
+ ;Leer el valor guardado de counter, es decir, del 7 segmentos
+ BANKSEL EEADR
+ MOVLW 0B00000000 ;W = 0
+ MOVWF EEADR ;EEADR = 0
+ BANKSEL EECON1
+ BCF EECON1, 7 ;Para Data Memory
+ BSF EECON1, 0 ;Inicia la lectura
+ BANKSEL EEDATA
+ MOVF EEDATA, 0 ;W = EEDATA
+ BANKSEL counter
+ MOVWF counter
  RETURN
 
     END
