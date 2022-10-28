@@ -71,7 +71,7 @@ PROCESSOR 16F887
 
 ; Main code
     loop:
-	;SUB RUTINA PARA EL CONTADOR EN EL PUERTO D
+	;SECUENCIA PARA EL CONTADOR EN EL PUERTO D
 	
 	BTFSC	PORTA,	    0
 	INCF	counter
@@ -110,13 +110,13 @@ PROCESSOR 16F887
 	;es necesario deshabilitarlas al momento de leer y escribir a la EEPROM
 	;para evitar errores
 	
-	;Si se presiona el botón RA2, guardar el valor actual en la eeprom
+	;Si se presiona el botón RA2, guardar el valor actual en la EEPROM
 	BTFSC	PORTA,	    2
 	CALL	eeprom_write
 	BTFSC	PORTA,	    2
 	GOTO	$-1
 	
-	;Si se presiona el botón en RA3, cargar el valor guardado en la eeprom
+	;Si se presiona el botón RA3, cargar el valor guardado en la EEPROM
 	BTFSC	PORTA,	    3
 	CALL	eeprom_read
 	BTFSC	PORTA,	    3
