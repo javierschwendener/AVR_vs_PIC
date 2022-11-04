@@ -132,5 +132,10 @@ void eeprom_write(void){
 }
 
 void eeprom_read(void){
-	
+	while(EECR & (1<<EEPE)){
+		
+	}
+	EEAR = 0;
+	EECR |= (1<<EERE);
+	counter = EEDR;
 }
