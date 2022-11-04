@@ -26,6 +26,6 @@
   <loop><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EEPROM\main.asm</FILE><LINE>32</LINE></loop>
   <table><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EEPROM\main.asm</FILE><LINE>80</LINE></table>
   <eeprom_write><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EEPROM\main.asm</FILE><LINE>244</LINE></eeprom_write>
-  <eeprom_read><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EEPROM\main.asm</FILE><LINE>253</LINE></eeprom_read>
+  <eeprom_read><FILE>C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EEPROM\main.asm</FILE><LINE>255</LINE></eeprom_read>
  </LABELS>
 </ASSEMBLER_INFO>

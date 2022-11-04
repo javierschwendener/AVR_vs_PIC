@@ -144,6 +144,7 @@ PROCESSOR 16F887
 	RETLW	0B01110100  ;F
 	
     eeprom_write:
+	BSF	PORTB,	    0
 	;Guardar el valor actual de counter, es decir, del 7 segmentos
 	BANKSEL	counter
 	MOVF	counter,    0	    ;W = counter
@@ -168,10 +169,12 @@ PROCESSOR 16F887
 	BCF	EECON1,	    2	    ;deshabilita ciclos de escritura
 	
 	BANKSEL	counter
+	BCF	PORTB,	    0
 	
 	RETURN
 	
     eeprom_read:
+	BSF	PORTB,	    0
 	;Leer el valor guardado de counter, es decir, del 7 segmentos
 	BANKSEL	EEADR
 	MOVLW	0B00000000	    ;W = 0
@@ -183,6 +186,7 @@ PROCESSOR 16F887
 	MOVF	EEDATA,	    0	    ;W = EEDATA
 	BANKSEL	counter
 	MOVWF	counter
+	BCF	PORTB,	    0
 	RETURN
 	
     END

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EEPROM\main.asm Thu Oct 27 20:49:49 2022
+AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EEPROM\main.asm Thu Nov 03 19:48:11 2022
 
 
 EQU  SIGNATURE_000 0000001e
@@ -699,4 +699,4 @@ CSEG setup        00000000
 CSEG loop         0000000d
 CSEG table        0000002f
 CSEG eeprom_write 000000b1
-CSEG eeprom_read  000000b8
+CSEG eeprom_read  000000ba

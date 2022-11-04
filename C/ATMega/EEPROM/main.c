@@ -121,21 +121,25 @@ int main(void)
 }
 
 void eeprom_write(void){
+	PORTC = 0B00000001;
 	while(EECR & (1<<EEPE)){
 		
-	}
+	}	
 	EEAR = 0;
 	EEDR = counter;
 	
 	EECR |= (1<<EEMPE);
 	EECR |= (1<<EEPE);
+	PORTC = 0B00000000;
 }
 
 void eeprom_read(void){
+	PORTC = 0B00000001;
 	while(EECR & (1<<EEPE)){
 		
 	}
 	EEAR = 0;
 	EECR |= (1<<EERE);
 	counter = EEDR;
+	PORTC = 0B00000000;
 }

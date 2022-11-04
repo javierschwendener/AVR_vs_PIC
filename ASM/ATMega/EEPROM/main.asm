@@ -242,18 +242,22 @@ table:
 	RET
 
 eeprom_write:
+	SBI		PORTC,	0
 	LDI		R16,	0B00000000
 	OUT		EEARH,	R16
 	OUT		EEARL,	R16				;Address = 0
 	OUT		EEDR,	R20				;Data = R20 (counter)
 	SBI		EECR,	EEMPE			;Empezar escritura
 	SBI		EECR,	EEPE			;Escribir EEDR en EEAR
+	CBI		PORTC,	0
 	RET
 
 eeprom_read:
+	SBI		PORTC,	0
 	LDI		R16,	0B00000000
 	OUT		EEARH,	R16
 	OUT		EEARL,	R16				;Address = 0
 	SBI		EECR,	EERE			;Empezar lectura
 	IN		R20,	EEDR			;Leer de EEDR en EEAR y guardar en R20
+	CBI		PORTC,	0
 	RET

@@ -137,6 +137,7 @@ void main(void) {
 }
 
 void ee_write(void){
+    PORTBbits.RB0 = 1;
     EEDATA = counter;
     EEADR = 0;
     EECON1bits.EEPGD = 0;
@@ -151,15 +152,16 @@ void ee_write(void){
     }
     
     EECON1bits.WREN = 0;
-    
+    PORTBbits.RB0 = 0;
     return;
 }
 
 void ee_read(void){
+    PORTBbits.RB0 = 1;
     EEADR = 0;
     EECON1bits.EEPGD = 0;
     EECON1bits.RD = 1;
     counter = EEDATA;
-    
+    PORTBbits.RB0 = 0;
     return;
 }

@@ -2479,12 +2479,6 @@ ENDM
 ; Declaracion de variables
   PSECT udata
 
-  w_temp:
-    DS 1
-
-  s_temp:
-    DS 1
-
   counter:
     DS 1
 
@@ -2519,8 +2513,6 @@ ENDM
  CLRF PORTA
  CLRF PORTB
  CLRF PORTD
- CLRF w_temp
- CLRF s_temp
  CLRF counter
 
  GOTO loop
@@ -2528,7 +2520,7 @@ ENDM
 
 ; Main code
     loop:
- ;SUB RUTINA PARA EL CONTADOR EN EL PUERTO D
+ ;SECUENCIA PARA EL CONTADOR EN EL PUERTO D
 
  BTFSC PORTA, 0
  INCF counter
@@ -2567,13 +2559,13 @@ ENDM
  ;es necesario deshabilitarlas al momento de leer y escribir a la EEPROM
  ;para evitar errores
 
- ;Si se presiona el botón ((PORTA) and 07Fh), 2, guardar el valor actual en la eeprom
+ ;Si se presiona el botón ((PORTA) and 07Fh), 2, guardar el valor actual en la EEPROM
  BTFSC PORTA, 2
  CALL eeprom_write
  BTFSC PORTA, 2
  GOTO $-1
 
- ;Si se presiona el botón en ((PORTA) and 07Fh), 3, cargar el valor guardado en la eeprom
+ ;Si se presiona el botón ((PORTA) and 07Fh), 3, cargar el valor guardado en la EEPROM
  BTFSC PORTA, 3
  CALL eeprom_read
  BTFSC PORTA, 3
@@ -2601,8 +2593,8 @@ ENDM
  RETLW 0B01110100 ;F
 
     eeprom_write:
- ;Guardar el valor actual de counter, es decir, del 7 segmentos
  BSF PORTB, 0
+ ;Guardar el valor actual de counter, es decir, del 7 segmentos
  BANKSEL counter
  MOVF counter, 0 ;W = counter
  BANKSEL EEDATA
@@ -2619,17 +2611,19 @@ ENDM
  MOVWF EECON2
 
  BSF EECON1, 1 ;Inicia la escritura
+
  BTFSC EECON1, 1
- GOTO $-1
+ GOTO $-1 ;Espera a que termine la escritura
+
  BCF EECON1, 2 ;deshabilita ciclos de escritura
 
  BANKSEL counter
-
  BCF PORTB, 0
 
  RETURN
 
     eeprom_read:
+ BSF PORTB, 0
  ;Leer el valor guardado de counter, es decir, del 7 segmentos
  BANKSEL EEADR
  MOVLW 0B00000000 ;W = 0
@@ -2641,6 +2635,7 @@ ENDM
  MOVF EEDATA, 0 ;W = EEDATA
  BANKSEL counter
  MOVWF counter
+ BCF PORTB, 0
  RETURN
 
     END
