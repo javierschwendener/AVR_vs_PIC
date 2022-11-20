@@ -156,7 +156,7 @@ Disassembly of section .text:
 Disassembly of section .text:
 
 0000025a <__bad_interrupt>:
- 25a:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+ 25a:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.setup:
 
@@ -203,7 +203,7 @@ void eeprom_write(void){
  1ec:	12 bc       	out	0x22, r1	; 34
  1ee:	11 bc       	out	0x21, r1	; 33
 	EEDR = counter;
- 1f0:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 1f0:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
  1f4:	80 bd       	out	0x20, r24	; 32
 	
 	EECR |= (1<<EEMPE);
@@ -242,8 +242,8 @@ void eeprom_read(void){
 	counter = EEDR;
  218:	80 b5       	in	r24, 0x20	; 32
  21a:	90 e0       	ldi	r25, 0x00	; 0
- 21c:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
- 220:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 21c:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ 220:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
 	PORTC = 0B00000000;
  224:	18 b8       	out	0x08, r1	; 8
  226:	08 95       	ret
@@ -264,11 +264,11 @@ int main(void)
   e6:	48 9b       	sbis	0x09, 0	; 9
   e8:	0b c0       	rjmp	.+22     	; 0x100 <main+0x1e>
 			counter = counter + 1;
-  ea:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
-  ee:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+  ea:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+  ee:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
   f2:	01 96       	adiw	r24, 0x01	; 1
-  f4:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
-  f8:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+  f4:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+  f8:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
   fc:	01 c0       	rjmp	.+2      	; 0x100 <main+0x1e>
 		}
 		while(PIND & (1<<0)){
@@ -286,24 +286,24 @@ int main(void)
 		}
 		
 		if(counter == 16){
- 104:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
- 108:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 104:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 108:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
  10c:	40 97       	sbiw	r24, 0x10	; 16
  10e:	21 f4       	brne	.+8      	; 0x118 <main+0x36>
 			counter = 0;
- 110:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <_edata+0x1>
- 114:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
+ 110:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ 114:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__DATA_REGION_ORIGIN__>
 		}
 		
 		if(PIND & (1<<1)){
  118:	49 9b       	sbis	0x09, 1	; 9
  11a:	0b c0       	rjmp	.+22     	; 0x132 <main+0x50>
 			counter = counter - 1;
- 11c:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
- 120:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 11c:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 120:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
  124:	01 97       	sbiw	r24, 0x01	; 1
- 126:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
- 12a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 126:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ 12a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
  12e:	01 c0       	rjmp	.+2      	; 0x132 <main+0x50>
 		}
 		while(PIND & (1<<1)){
@@ -321,20 +321,20 @@ int main(void)
 		}
 			
 		if(counter < 0){
- 136:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
- 13a:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 136:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 13a:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
  13e:	99 23       	and	r25, r25
  140:	34 f4       	brge	.+12     	; 0x14e <main+0x6c>
 			counter = 15;
  142:	8f e0       	ldi	r24, 0x0F	; 15
  144:	90 e0       	ldi	r25, 0x00	; 0
- 146:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
- 14a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 146:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ 14a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
 		}
 			
 		switch(counter){
- 14e:	e0 91 00 01 	lds	r30, 0x0100	; 0x800100 <_edata>
- 152:	f0 91 01 01 	lds	r31, 0x0101	; 0x800101 <_edata+0x1>
+ 14e:	e0 91 00 01 	lds	r30, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 152:	f0 91 01 01 	lds	r31, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
  156:	e0 31       	cpi	r30, 0x10	; 16
  158:	f1 05       	cpc	r31, r1
  15a:	98 f5       	brcc	.+102    	; 0x1c2 <main+0xe0>
