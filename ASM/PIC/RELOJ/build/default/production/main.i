@@ -2485,6 +2485,9 @@ ENDM
   w_temp:
     DS 1
 
+  estado:
+    DS 1
+
   contador1:
     DS 1
 
@@ -2627,7 +2630,7 @@ ENDM
 
 ; Setup
   PSECT code, class = CODE, delta = 2
-  ORG 0x00B0
+  ORG 0x0090
 
     setup:
  ;Configuracion inicial
@@ -2651,7 +2654,7 @@ ENDM
 
  ;Configuracion de puertos
  BANKSEL TRISA
- MOVLW 0B00000000 ;Preparacion de los botones
+ MOVLW 0B00011111 ;Botones en A0, A1, A2, A3 y A4
  MOVWF TRISA
  CLRF TRISB
  CLRF TRISC
@@ -2678,10 +2681,46 @@ ENDM
  CLRF horas1
  CLRF horas2
 
+ MOVLW 0B00000001
+ MOVWF estado
+
+ BANKSEL PORTA
+
  GOTO loop
 
 ; Main code
     loop:
+ ;Boton ((PORTA) and 07Fh), 0
+ BTFSC PORTA, 0
+ CALL cambio_estado
+
+ ;Estado 1 - mostrar la hora
+ BTFSC estado, 0
+ CALL hora
+
+ ;Estado 2 - configurar la hora
+ BTFSC estado, 1
+ CALL hora_conf
+
+ ;Estado 3 - mostrar y configurar la alarma
+ BTFSC estado, 2
+ CALL alarma
+
+ GOTO loop
+
+    cambio_estado:
+ RLF estado
+ BTFSS estado, 3
+ GOTO $+3
+ MOVLW 0B00000001
+ MOVWF estado
+
+ BTFSC PORTA, 0
+ GOTO $-1
+
+ RETURN
+
+    hora:
  BSF PORTD, 0 ;Encender ((PORTD) and 07Fh), 0
  MOVF minutos1, 0 ;Mover segundos1 a W
  CALL table
@@ -2710,7 +2749,17 @@ ENDM
  CLRF PORTD
  CLRF PORTC
 
- GOTO loop
+ RETURN
+
+    hora_conf:
+ NOP
+ NOP
+ RETURN
+
+    alarma:
+ NOP
+ NOP
+ RETURN
 
 
     table:
