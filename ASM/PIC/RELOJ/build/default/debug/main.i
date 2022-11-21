@@ -2522,14 +2522,13 @@ ENDM
     INTERRUPT:
  ;Aumentar primer contador para crear los segundos
  INCF contador1
- ;MOVLW 0B01010100 ;84
- MOVLW 0B00000010
+ MOVLW 0B01010100 ;84
  SUBWF contador1, 0 ;Se guarda contador1 - W en W
  BTFSC STATUS, 2 ;Operacion anterior = 0
  ;Si la operacion es 0, ha pasado un segundo
  GOTO $+2
  ;De lo contrario, termina la interrupcion
- GOTO $+50
+ GOTO $+16
 
  CLRF contador1
  ;Aumentar las unidades de segundos
@@ -2540,7 +2539,7 @@ ENDM
  ;Si la operacion es 0, han pasado 10 segundos
  GOTO $+2
  ;De lo contrario termina la interrupcion
- GOTO $+43
+ GOTO $+9
 
  CLRF segundos1
  ;Aumentar las decenas de segundos
@@ -2551,66 +2550,11 @@ ENDM
  ;Si la operacion es 0, han pasado 6 veces 10 segundos (60 segundos)
  GOTO $+2
  ;De lo contrario termina la interrupcion
- GOTO $+36
+ GOTO $+2
 
  CLRF segundos2
- ;Aumentar las unidades de minutos
- INCF minutos1
- MOVLW 0B00001010 ;10
- SUBWF minutos1, 0 ;Se guarda minutos1 - W en W
- BTFSC STATUS, 2 ;Operacion anterior = 0
- ;Si la operacion es 0, han pasado 10 minutos
- GOTO $+2
- ;De lo contrario termina la interrupcion
- GOTO $+29
 
- CLRF minutos1
- ;Aumentar las decenas de minutos
- INCF minutos2
- MOVLW 0B00000110 ;6
- SUBWF minutos2, 0 ;Se guarda minutos2 - W en W
- BTFSC STATUS, 2 ;Operacion anterior = 0
- ;Si la operacion es 0, han pasado 6 veces 10 minutos (60 minutos)
- GOTO $+2
- ;De lo contrario termina la interrupcion
- GOTO $+22
 
- CLRF minutos2
- ;Aumentar las unidades de horas
- INCF horas1
- MOVLW 0B00001010 ;10
- SUBWF horas1, 0 ;Se guarda horas1 - W en W
- BTFSC STATUS, 2 ;Operacion anterior = 0
- ;Si la operacion es 0, han pasado 10 horas
- GOTO $+2
- ;De lo contrario verifica las horas del dia
- GOTO $+3
-
- CLRF horas1
- ;Aumentar las decenas de horas
- INCF horas2
-
- ;En este caso se comprobara que horas2 sea 2 y que horas1 sea 4 para
- ;formar las 24 horas de un dia
-
- MOVLW 0B00000010 ;2
- SUBWF horas2, 0 ;Se guarda horas2 - W en W
- BTFSC STATUS, 2 ;Operacion anterior = 0
- ;Si la operacion anterior es 0, han pasado al menos 20 horas
- GOTO $+2
- ;De lo contrario se omite la siguiente comprobacion
- GOTO $+8
- MOVLW 0B00000100 ;4
- SUBWF horas1, 0 ;Se guarda horas1 - W en W
- BTFSC STATUS, 2 ;Operacion anterior = 0
- ;Si la operacion anterior es 0, han pasado 4 horas despues de
- ;las 20 horas anteriores (24 horas en total)
- GOTO $+2
- ;De lo contrario termina la interrupcion
- GOTO $+3
-
- CLRF horas2
- CLRF horas1
 
 
 
@@ -2627,9 +2571,21 @@ ENDM
 
 ; Setup
   PSECT code, class = CODE, delta = 2
-  ORG 0x00B0
+  ORG 0x000A
 
     setup:
+ ;Limpiar variables
+ BANKSEL w_temp
+ CLRF w_temp
+ CLRF s_temp
+ CLRF contador1
+ CLRF segundos1
+ CLRF segundos2
+ CLRF minutos1
+ CLRF minutos2
+ CLRF horas1
+ CLRF horas2
+
  ;Configuracion inicial
  BANKSEL ANSEL
  CLRF ANSEL
@@ -2644,8 +2600,7 @@ ENDM
  MOVWF INTCON ;y la interrupcion del Timer0
  MOVLW 0B11000000 ;Mascara
  ANDWF OPTION_REG, 0 ;Se guardan dos bits de OPTION_REG
- ;IORLW 0B00000111 ;Se establece la configuracion en W
- IORLW 0B00000000
+ IORLW 0B00000111 ;Se establece la configuracion en W
  MOVWF OPTION_REG ;Se mueve a OPTION_REG
  BCF INTCON, 2
 
@@ -2666,49 +2621,23 @@ ENDM
  MOVLW 0B10100011 ;Se mueve 163 a W
  MOVWF TMR0 ;Se mueve 163 al temporizador 0
 
- ;Limpiar variables
- BANKSEL w_temp
- CLRF w_temp
- CLRF s_temp
- CLRF contador1
- CLRF segundos1
- CLRF segundos2
- CLRF minutos1
- CLRF minutos2
- CLRF horas1
- CLRF horas2
-
  GOTO loop
 
 ; Main code
     loop:
- BSF PORTD, 0 ;Encender ((PORTD) and 07Fh), 0
- MOVF minutos1, 0 ;Mover segundos1 a W
+ MOVF segundos1, 0 ;Mover segundos1 a W
  CALL table
  MOVWF PORTC
- CLRF PORTD
- CLRF PORTC
+ MOVLW 0B00000001
+ MOVWF PORTD
 
- BSF PORTD, 1 ;Encender ((PORTD) and 07Fh), 1
- MOVF minutos2, 0 ;Mover segundos2 a W
+ MOVF segundos2, 0 ;Mover segundos2 a W
  CALL table
  MOVWF PORTC
- CLRF PORTD
- CLRF PORTC
+ MOVLW 0b00000010
+ MOVWF PORTD
 
- BSF PORTD, 2 ;Encender ((PORTD) and 07Fh), 2
- MOVF horas1, 0 ;Mover minutos1 a W
- CALL table
- MOVWF PORTC
  CLRF PORTD
- CLRF PORTC
-
- BSF PORTD, 3 ;Encender ((PORTD) and 07Fh), 3
- MOVF horas2, 0 ;Mover minutos2 a W
- CALL table
- MOVWF PORTC
- CLRF PORTD
- CLRF PORTC
 
  GOTO loop
 
