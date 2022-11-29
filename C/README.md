@@ -1,5 +1,5 @@
-# ASM / Ensamblador
-En esta carpeta se encuentran todos los códigos realizados para evaluar los módulos en el lenguaje ensamblador de ambos microcontroladores.
+# C
+En esta carpeta se encuentran todos los códigos realizados para evaluar los módulos en el lenguaje C de ambos microcontroladores.
 
 Se creó una carpeta por microcontrolador con el fin de separar los códigos y mostrarlos de una forma más sencilla.
 
