@@ -2509,6 +2509,18 @@ ENDM
   horas2:
     DS 1
 
+  alamin1:
+    DS 1
+
+  alamin2:
+    DS 1
+
+  alahor1:
+    DS 1
+
+  alahor2:
+    DS 1
+
 ; Vector RESET
   PSECT code, delta = 2, abs
   ORG 0x0000
@@ -2523,10 +2535,42 @@ ENDM
         SWAPF STATUS, W
  MOVWF s_temp
     INTERRUPT:
+ MOVF alamin1, 0 ;Mover alamin1 a W
+ SUBWF minutos1, 0 ;Se guarda alamin1 - minutos1 en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, se verifica otro contador
+ GOTO $+2
+ ;De lo contrario, no se comprueban mas contadores
+ GOTO $+18
+ MOVF alamin2, 0 ;Mover alamin2 a W
+ SUBWF minutos2, 0 ;Se guarda alamin2 - minutos2 en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, se verifica otro contador
+ GOTO $+2
+ ;De lo contrario, no se comprueban mas contadores
+ GOTO $+13
+ MOVF alahor1, 0 ;Mover alahor1 a W
+ SUBWF horas1, 0 ;Se guarda alahor1 - horas1 en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, se verifica otro contador
+ GOTO $+2
+ ;De lo contrario, no se comprueban mas contadores
+ GOTO $+8
+ MOVF alahor2, 0 ;Moveralahor2 a W
+ SUBWF horas2, 0 ;Se guarda alahor2 - horas2 en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, se enciende la alarma
+ GOTO $+2
+ ;De lo contrario, se sigue con la interrupcion de forma normal
+ GOTO $+3
+ BSF PORTB, 3
+ GOTO $+2
+
+ BCF PORTB, 3
  ;Aumentar primer contador para crear los segundos
  INCF contador1
- ;MOVLW 0B01010100 ;84
- MOVLW 0B00000010
+ MOVLW 0B01010100 ;84
+ ;MOVLW 0B00000010
  SUBWF contador1, 0 ;Se guarda contador1 - W en W
  BTFSC STATUS, 2 ;Operacion anterior = 0
  ;Si la operacion es 0, ha pasado un segundo
@@ -2615,8 +2659,6 @@ ENDM
  CLRF horas2
  CLRF horas1
 
-
-
  BCF INTCON, 2 ;Se limpia la bandera de interrupcion del Timer0
  MOVLW 0B10100011 ;Se mueve 163 a W
  MOVWF TMR0 ;Se mueve 163 al temporizador 0
@@ -2648,7 +2690,7 @@ ENDM
  MOVLW 0B11000000 ;Mascara
  ANDWF OPTION_REG, 0 ;Se guardan dos bits de OPTION_REG
  ;IORLW 0B00000111 ;Se establece la configuracion en W
- IORLW 0B00000000
+ IORLW 0B00000100
  MOVWF OPTION_REG ;Se mueve a OPTION_REG
  BCF INTCON, 2
 
@@ -2680,6 +2722,10 @@ ENDM
  CLRF minutos2
  CLRF horas1
  CLRF horas2
+ CLRF alamin1
+ CLRF alamin2
+ CLRF alahor1
+ CLRF alahor2
 
  MOVLW 0B00000001
  MOVWF estado
@@ -2687,6 +2733,19 @@ ENDM
  BANKSEL PORTA
 
  GOTO loop
+
+    table:
+ ADDWF PCL, 1 ;Suma W al PCL
+ RETLW 0B11011110 ;0
+ RETLW 0B01000010 ;1
+ RETLW 0B11101100 ;2
+ RETLW 0B11101010 ;3
+ RETLW 0B01110010 ;4
+ RETLW 0B10111010 ;5
+ RETLW 0B10111110 ;6
+ RETLW 0B11000010 ;7
+ RETLW 0B11111110 ;8
+ RETLW 0B11110010 ;9
 
 ; Main code
     loop:
@@ -2721,6 +2780,16 @@ ENDM
  RETURN
 
     hora:
+ BSF PORTB, 0
+ BCF PORTB, 1
+ BCF PORTB, 2
+
+ BTFSC PORTA, 1
+ CALL ee_write
+
+ BTFSC PORTA, 2
+ CALL ee_read
+
  BSF PORTD, 0 ;Encender ((PORTD) and 07Fh), 0
  MOVF minutos1, 0 ;Mover segundos1 a W
  CALL table
@@ -2751,28 +2820,468 @@ ENDM
 
  RETURN
 
+    ee_write:
+ ;Se escribe a la memoria EEPROM de la siguiente forma
+ ;Localidad 0000 - alamin1
+ ;Localidad 0001 - alamin2
+ ;Localidad 0002 - alahor1
+ ;Localidad 0003 - alahor2
+ BCF INTCON, 7 ;Deshabilitar interrupciones
+ ;Guardar los valores actuales de la alarma
+ BANKSEL alamin1
+ MOVF alamin1, 0 ;W = alamin1
+ BANKSEL EEDATA
+ MOVWF EEDATA ;EEDATA = alamin1
+ MOVLW 0B00000000 ;W = 0
+ MOVWF EEADR ;EEADR = 0
+ BANKSEL EECON1
+ BCF EECON1, 7 ;Para data memory
+ BSF EECON1, 2 ;((EECON1) and 07Fh), 2 = 1
+
+ MOVLW 0B01010101 ;0x55 obligatorio
+ MOVWF EECON2
+ MOVLW 0B10101010 ;0xAA obligatorio
+ MOVWF EECON2
+
+ BSF EECON1, 1 ;Inicia la escritura
+
+ BTFSC EECON1, 1
+ GOTO $-1 ;Espera a que termine la escritura
+
+ BANKSEL alamin2
+
+ MOVF alamin2, 0 ;W = alamin2
+ BANKSEL EEDATA
+ MOVWF EEDATA ;EEDATA = alamin2
+ MOVLW 0B00000001 ;W = 1
+ MOVWF EEADR ;EEADR = 1
+ BANKSEL EECON1
+ BCF EECON1, 7 ;Para data memory
+
+ MOVLW 0B01010101 ;0x55 obligatorio
+ MOVWF EECON2
+ MOVLW 0B10101010 ;0xAA obligatorio
+ MOVWF EECON2
+
+ BSF EECON1, 1 ;Inicia la escritura
+
+ BTFSC EECON1, 1
+ GOTO $-1 ;Espera a que termine la escritura
+
+ BANKSEL alahor1
+
+ MOVF alahor1, 0 ;W = alahor1
+ BANKSEL EEDATA
+ MOVWF EEDATA ;EEDATA = alahor1
+ MOVLW 0B00000010 ;W = 2
+ MOVWF EEADR ;EEADR = 2
+ BANKSEL EECON1
+ BCF EECON1, 7 ;Para data memory
+
+ MOVLW 0B01010101 ;0x55 obligatorio
+ MOVWF EECON2
+ MOVLW 0B10101010 ;0xAA obligatorio
+ MOVWF EECON2
+
+ BSF EECON1, 1 ;Inicia la escritura
+
+ BTFSC EECON1, 1
+ GOTO $-1 ;Espera a que termine la escritura
+
+ BANKSEL alahor2
+
+ MOVF alahor2, 0 ;W = alahor2
+ BANKSEL EEDATA
+ MOVWF EEDATA ;EEDATA = alahor2
+ MOVLW 0B00000011 ;W = 3
+ MOVWF EEADR ;EEADR = 3
+ BANKSEL EECON1
+ BCF EECON1, 7 ;Para data memory
+
+ MOVLW 0B01010101 ;0x55 obligatorio
+ MOVWF EECON2
+ MOVLW 0B10101010 ;0xAA obligatorio
+ MOVWF EECON2
+
+ BSF EECON1, 1 ;Inicia la escritura
+
+ BTFSC EECON1, 1
+ GOTO $-1 ;Espera a que termine la escritura
+
+ BCF EECON1, 2 ;((EECON1) and 07Fh), 2 = 0
+ BANKSEL alamin1
+ BSF INTCON, 7 ;Habilitar interrupciones
+
+ RETURN
+
+    ee_read:
+ BCF INTCON, 7 ;Deshabilitar interrupciones
+
+ BANKSEL EEADR
+ MOVLW 0B00000000 ;W = 0
+ MOVWF EEADR ;EEADR = 0
+ BANKSEL EECON1
+ BCF EECON1, 7 ;Para data memory
+ BSF EECON1, 0 ;Inicia la lectura
+ BANKSEL EEDATA
+ MOVF EEDATA, 0 ;W = EEDATA
+ BANKSEL alamin1
+ MOVWF alamin1
+
+ BANKSEL EEADR
+ MOVLW 0B00000001 ;W = 1
+ MOVWF EEADR ;EEADR = 1
+ BANKSEL EECON1
+ BCF EECON1, 7 ;Para data memory
+ BSF EECON1, 0 ;Inicia la lectura
+ BANKSEL EEDATA
+ MOVF EEDATA, 0 ;W = EEDATA
+ BANKSEL alamin2
+ MOVWF alamin2
+
+ BANKSEL EEADR
+ MOVLW 0B00000010 ;W = 2
+ MOVWF EEADR ;EEADR = 2
+ BANKSEL EECON1
+ BCF EECON1, 7 ;Para data memory
+ BSF EECON1, 0 ;Inicia la lectura
+ BANKSEL EEDATA
+ MOVF EEDATA, 0 ;W = EEDATA
+ BANKSEL alahor1
+ MOVWF alahor1
+
+ BANKSEL EEADR
+ MOVLW 0B00000011 ;W = 3
+ MOVWF EEADR ;EEADR = 3
+ BANKSEL EECON1
+ BCF EECON1, 7 ;Para data memory
+ BSF EECON1, 0 ;Inicia la lectura
+ BANKSEL EEDATA
+ MOVF EEDATA, 0 ;W = EEDATA
+ BANKSEL alahor2
+ MOVWF alahor2
+
+ BSF INTCON, 7 ;Habilitar interrupciones
+ RETURN
+
     hora_conf:
- NOP
- NOP
+ BCF PORTB, 0
+ BSF PORTB, 1
+ BCF PORTB, 2
+ ;Incrementar unidades de minutos
+ BTFSC PORTA, 1
+ CALL min_inc
+ ;Decrementar unidades de minutos
+ BTFSC PORTA, 2
+ CALL min_dec
+ ;Incrementar unidades de horas
+ BTFSC PORTA, 3
+ CALL hor_inc
+ ;Decrementar unidades de horas
+ BTFSC PORTA, 4
+ CALL hor_dec
+
+ BSF PORTD, 0 ;Encender ((PORTD) and 07Fh), 0
+ MOVF minutos1, 0 ;Mover segundos1 a W
+ CALL table
+ MOVWF PORTC
+ CLRF PORTD
+ CLRF PORTC
+
+ BSF PORTD, 1 ;Encender ((PORTD) and 07Fh), 1
+ MOVF minutos2, 0 ;Mover segundos2 a W
+ CALL table
+ MOVWF PORTC
+ CLRF PORTD
+ CLRF PORTC
+
+ BSF PORTD, 2 ;Encender ((PORTD) and 07Fh), 2
+ MOVF horas1, 0 ;Mover minutos1 a W
+ CALL table
+ MOVWF PORTC
+ CLRF PORTD
+ CLRF PORTC
+
+ BSF PORTD, 3 ;Encender ((PORTD) and 07Fh), 3
+ MOVF horas2, 0 ;Mover minutos2 a W
+ CALL table
+ MOVWF PORTC
+ CLRF PORTD
+ CLRF PORTC
+ RETURN
+
+    min_inc:
+ BTFSC PORTA, 1
+ GOTO $-1
+ INCF minutos1
+
+ MOVLW 0B00001010 ;10
+ SUBWF minutos1, 0 ;Se guarda minutos1 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, han pasado 10 minutos
+ GOTO $+2
+ GOTO $+3
+ CLRF minutos1
+ INCF minutos2
+ ;De lo contrario, revisa las decenas
+ MOVLW 0B00000110 ;6
+ SUBWF minutos2, 0 ;Se guarda minutos2 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, han pasado 60 minutos
+ CLRF minutos2
+ ;De lo contrario, retorna
+ RETURN
+
+    min_dec:
+ BTFSC PORTA, 2
+ GOTO $-1
+ DECF minutos1
+
+ MOVLW 0B11111111 ;255
+ SUBWF minutos1, 0 ;Se guarda minutos1 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, minutos1 hizo underflow
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+13
+ MOVLW 0B00001001 ;9
+ MOVWF minutos1
+
+ DECF minutos2
+ MOVLW 0B11111111 ;255
+ SUBWF minutos2, 0 ;Se guarda minutos2 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, minutos2 hizo underflow
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+5
+ MOVLW 0B00001001
+ MOVWF minutos1
+ MOVLW 0B00000101
+ MOVWF minutos2
+ RETURN
+
+    hor_inc:
+ BTFSC PORTA, 3
+ GOTO $-1
+ INCF horas1
+
+ MOVLW 0B00001010 ;10
+ SUBWF horas1, 0 ;Se guarda horas1 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, han pasado 10 horas
+ GOTO $+2
+ GOTO $+3
+ CLRF horas1
+ INCF horas2
+ ;De lo contrario, revisa las decenas
+ MOVLW 0B00000010 ;2
+ SUBWF horas2, 0 ;Se guarda horas2 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, han pasado 20 horas
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+8
+ MOVLW 0B00000100 ;4
+ SUBWF horas1, 0 ;Se guarda horas1 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, han pasado las 24 horas
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+3
+ CLRF horas1
+ CLRF horas2
+
+ RETURN
+
+    hor_dec:
+ BTFSC PORTA, 4
+ GOTO $-1
+ DECF horas1
+
+ MOVLW 0B11111111 ;255
+ SUBWF horas1, 0 ;Se guarda horas1 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, horas1 hizo underflow
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+13
+ MOVLW 0B00001001 ;9
+ MOVWF horas1
+
+ DECF horas2
+ MOVLW 0B11111111 ;255
+ SUBWF horas2, 0 ;Se guarda horas2 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, horas2 hizo underflow
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+5
+ MOVLW 0B00000011 ;3
+ MOVWF horas1
+ MOVLW 0B00000010 ;2
+ MOVWF horas2
+
  RETURN
 
     alarma:
- NOP
- NOP
+ BCF PORTB, 0
+ BCF PORTB, 1
+ BSF PORTB, 2
+ ;Incrementar unidades de minutos
+ BTFSC PORTA, 1
+ CALL alamin_inc
+ ;Decrementar unidades de minutos
+ BTFSC PORTA, 2
+ CALL alamin_dec
+ ;Incrementar unidades de horas
+ BTFSC PORTA, 3
+ CALL alahor_inc
+ ;Decrementar unidades de horas
+ BTFSC PORTA, 4
+ CALL alahor_dec
+
+ BSF PORTD, 0 ;Encender ((PORTD) and 07Fh), 0
+ MOVF alamin1, 0 ;Mover alamin1 a W
+ CALL table
+ MOVWF PORTC
+ CLRF PORTD
+ CLRF PORTC
+
+ BSF PORTD, 1 ;Encender ((PORTD) and 07Fh), 1
+ MOVF alamin2, 0 ;Mover alamin2 a W
+ CALL table
+ MOVWF PORTC
+ CLRF PORTD
+ CLRF PORTC
+
+ BSF PORTD, 2 ;Encender ((PORTD) and 07Fh), 2
+ MOVF alahor1, 0 ;Mover alahor1 a W
+ CALL table
+ MOVWF PORTC
+ CLRF PORTD
+ CLRF PORTC
+
+ BSF PORTD, 3 ;Encender ((PORTD) and 07Fh), 3
+ MOVF alahor2, 0 ;Mover alahor2 a W
+ CALL table
+ MOVWF PORTC
+ CLRF PORTD
+ CLRF PORTC
  RETURN
 
+    alamin_inc:
+ BTFSC PORTA, 1
+ GOTO $-1
+ INCF alamin1
 
-    table:
- ADDWF PCL, 1 ;Suma W al PCL
- RETLW 0B11011110 ;0
- RETLW 0B01000010 ;1
- RETLW 0B11101100 ;2
- RETLW 0B11101010 ;3
- RETLW 0B01110010 ;4
- RETLW 0B10111010 ;5
- RETLW 0B10111110 ;6
- RETLW 0B11000010 ;7
- RETLW 0B11111110 ;8
- RETLW 0B11110010 ;9
+ MOVLW 0B00001010 ;10
+ SUBWF alamin1, 0 ;Se guarda alamin1 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, han pasado 10 minutos
+ GOTO $+2
+ GOTO $+3
+ CLRF alamin1
+ INCF alamin2
+ ;De lo contrario, revisa las decenas
+ MOVLW 0B00000110 ;6
+ SUBWF alamin2, 0 ;Se guarda alamin2 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, han pasado 60 minutos
+ CLRF alamin2
+ ;De lo contrario, retorna
+ RETURN
+
+    alamin_dec:
+ BTFSC PORTA, 2
+ GOTO $-1
+ DECF alamin1
+
+ MOVLW 0B11111111 ;255
+ SUBWF alamin1, 0 ;Se guarda alamin1 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, alamin1 hizo underflow
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+13
+ MOVLW 0B00001001 ;9
+ MOVWF alamin1
+
+ DECF alamin2
+ MOVLW 0B11111111 ;255
+ SUBWF alamin2, 0 ;Se guarda alamin2 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, alamin2 hizo underflow
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+5
+ MOVLW 0B00001001
+ MOVWF alamin1
+ MOVLW 0B00000101
+ MOVWF alamin2
+ RETURN
+
+    alahor_inc:
+ BTFSC PORTA, 3
+ GOTO $-1
+ INCF alahor1
+
+ MOVLW 0B00001010 ;10
+ SUBWF alahor1, 0 ;Se guarda alahor1 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, han pasado 10 horas
+ GOTO $+2
+ GOTO $+3
+ CLRF alahor1
+ INCF alahor2
+ ;De lo contrario, revisa las decenas
+ MOVLW 0B00000010 ;2
+ SUBWF alahor2, 0 ;Se guarda alahor2 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, han pasado 20 horas
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+8
+ MOVLW 0B00000100 ;4
+ SUBWF alahor1, 0 ;Se guarda alahor1 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, han pasado las 24 horas
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+3
+ CLRF alahor1
+ CLRF alahor2
+
+ RETURN
+
+    alahor_dec:
+ BTFSC PORTA, 4
+ GOTO $-1
+ DECF alahor1
+
+ MOVLW 0B11111111 ;255
+ SUBWF alahor1, 0 ;Se guarda alahor1 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, alahor1 hizo underflow
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+13
+ MOVLW 0B00001001 ;9
+ MOVWF alahor1
+
+ DECF alahor2
+ MOVLW 0B11111111 ;255
+ SUBWF alahor2, 0 ;Se guarda alahor2 - W en W
+ BTFSC STATUS, 2 ;Operacion anterior = 0
+ ;Si la operacion es 0, alahor2 hizo underflow
+ GOTO $+2
+ ;De lo contrario, retorna
+ GOTO $+5
+ MOVLW 0B00000011 ;3
+ MOVWF alahor1
+ MOVLW 0B00000010 ;2
+ MOVWF alahor2
+
+ RETURN
 
     END
