@@ -121,15 +121,15 @@ int main(void)
 }
 
 void eeprom_write(void){
-	PORTC = 0B00000001;
-	while(EECR & (1<<EEPE)){
-		
-	}	
+	PORTC = 0B00000001;	
 	EEAR = 0;
 	EEDR = counter;
 	
 	EECR |= (1<<EEMPE);
 	EECR |= (1<<EEPE);
+	while(EECR & (1<<EEPE)){
+		
+	}
 	PORTC = 0B00000000;
 }
 

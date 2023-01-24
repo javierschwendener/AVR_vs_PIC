@@ -191,29 +191,29 @@ Disassembly of section .text.eeprom_write:
 }
 
 void eeprom_write(void){
-	PORTC = 0B00000001;
+	PORTC = 0B00000001;	
  1e4:	81 e0       	ldi	r24, 0x01	; 1
  1e6:	88 b9       	out	0x08, r24	; 8
-	while(EECR & (1<<EEPE)){
- 1e8:	f9 99       	sbic	0x1f, 1	; 31
- 1ea:	fe cf       	rjmp	.-4      	; 0x1e8 <eeprom_write+0x4>
-		
-	}	
 	EEAR = 0;
- 1ec:	12 bc       	out	0x22, r1	; 34
- 1ee:	11 bc       	out	0x21, r1	; 33
+ 1e8:	12 bc       	out	0x22, r1	; 34
+ 1ea:	11 bc       	out	0x21, r1	; 33
 	EEDR = counter;
- 1f0:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
- 1f4:	80 bd       	out	0x20, r24	; 32
+ 1ec:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 1f0:	80 bd       	out	0x20, r24	; 32
 	
 	EECR |= (1<<EEMPE);
- 1f6:	8f b3       	in	r24, 0x1f	; 31
- 1f8:	84 60       	ori	r24, 0x04	; 4
- 1fa:	8f bb       	out	0x1f, r24	; 31
+ 1f2:	8f b3       	in	r24, 0x1f	; 31
+ 1f4:	84 60       	ori	r24, 0x04	; 4
+ 1f6:	8f bb       	out	0x1f, r24	; 31
 	EECR |= (1<<EEPE);
- 1fc:	8f b3       	in	r24, 0x1f	; 31
- 1fe:	82 60       	ori	r24, 0x02	; 2
- 200:	8f bb       	out	0x1f, r24	; 31
+ 1f8:	8f b3       	in	r24, 0x1f	; 31
+ 1fa:	82 60       	ori	r24, 0x02	; 2
+ 1fc:	8f bb       	out	0x1f, r24	; 31
+	while(EECR & (1<<EEPE)){
+ 1fe:	f9 99       	sbic	0x1f, 1	; 31
+ 200:	fe cf       	rjmp	.-4      	; 0x1fe <eeprom_write+0x1a>
+		
+	}
 	PORTC = 0B00000000;
  202:	18 b8       	out	0x08, r1	; 8
  204:	08 95       	ret

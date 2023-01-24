@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EEPROM\main.asm Tue Nov 08 19:24:31 2022
+AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC\ASM\ATMega\EEPROM\main.asm Tue Jan 24 16:45:04 2023
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc'
@@ -1056,7 +1056,7 @@ AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC
                                  
                                  	;Si se presiona el botón en D3, cargar el valor guardado en la EEPROM
 000029 994b                      	SBIC	PIND,	3
-00002a 940e 00ba                 	CALL	eeprom_read
+00002a 940e 00bc                 	CALL	eeprom_read
 00002c 994b                      	SBIC	PIND,	3
 00002d cffe                      	RJMP	PC-1
                                  
@@ -1235,17 +1235,19 @@ AVRASM ver. 2.2.8  C:\Users\Schinzii\Desktop\UVG\Semestre 10\Design 2\AVR_vs_PIC
 0000b5 bd40                      	OUT		EEDR,	R20				;Data = R20 (counter)
 0000b6 9afa                      	SBI		EECR,	EEMPE			;Empezar escritura
 0000b7 9af9                      	SBI		EECR,	EEPE			;Escribir EEDR en EEAR
-0000b8 9840                      	CBI		PORTC,	0
-0000b9 9508                      	RET
+0000b8 99f9                      	SBIC	EECR,	EEPE
+0000b9 cffe                      	RJMP	PC-1
+0000ba 9840                      	CBI		PORTC,	0
+0000bb 9508                      	RET
                                  
                                  eeprom_read:
-0000ba 9a40                      	SBI		PORTC,	0
-0000bb e000                      	LDI		R16,	0B00000000
-0000bc bd02                      	OUT		EEARH,	R16
-0000bd bd01                      	OUT		EEARL,	R16				;Address = 0
-0000be 9af8                      	SBI		EECR,	EERE			;Empezar lectura
-0000bf b540                      	IN		R20,	EEDR			;Leer de EEDR en EEAR y guardar en R20
-0000c0 9840                      	CBI		PORTC,	0
+0000bc 9a40                      	SBI		PORTC,	0
+0000bd e000                      	LDI		R16,	0B00000000
+0000be bd02                      	OUT		EEARH,	R16
+0000bf bd01                      	OUT		EEARL,	R16				;Address = 0
+0000c0 9af8                      	SBI		EECR,	EERE			;Empezar lectura
+0000c1 b540                      	IN		R20,	EEDR			;Leer de EEDR en EEAR y guardar en R20
+0000c2 9840                      	CBI		PORTC,	0
 
 
 RESOURCE USE INFORMATION
@@ -1284,8 +1286,8 @@ fmulsu:   0 icall :   0 ijmp  :   0 in    :  19 inc   :   1 jmp   :   0
 ld    :   0 ldd   :   0 ldi   :  44 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :  12 pop   :   0 
-push  :   0 rcall :   0 ret   :  19 reti  :   0 rjmp  :  40 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :   5 sbic  :   8 sbis  :   0 
+push  :   0 rcall :   0 ret   :  19 reti  :   0 rjmp  :  41 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :   5 sbic  :   9 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :  18 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
@@ -1295,7 +1297,7 @@ Instructions used: 14 out of 113 (12.4%)
 "ATmega328P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000184    388      0    388   32768   1.2%
+[.cseg] 0x000000 0x000188    392      0    392   32768   1.2%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 

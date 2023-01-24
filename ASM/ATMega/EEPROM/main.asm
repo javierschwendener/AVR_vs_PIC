@@ -249,6 +249,8 @@ eeprom_write:
 	OUT		EEDR,	R20				;Data = R20 (counter)
 	SBI		EECR,	EEMPE			;Empezar escritura
 	SBI		EECR,	EEPE			;Escribir EEDR en EEAR
+	SBIC	EECR,	EEPE
+	RJMP	PC-1
 	CBI		PORTC,	0
 	RET
 
